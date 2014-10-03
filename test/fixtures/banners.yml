@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  related_product_id: 1
+  ranking: 1
+  status: 1
+  type: 
+
+two:
+  title: MyString
+  description: MyString
+  related_product_id: 1
+  ranking: 1
+  status: 1
+  type: 

@@ -1,0 +1,72 @@
+= faq edit=
+<script src="/js_plugins/colorbox/jquery.colorbox-min.js"></script>
+
+<script src="/js_plugins/peditor/js/editor.js"></script>
+<script src="/js_plugins/peditor/js/editor_p.js"></script>
+<script src="/js_plugins/peditor/js/editor_img.js"></script>
+<script src="/js_plugins/peditor/js/editor_list.js"></script>
+<script src="/js_plugins/peditor/js/editor_video.js"></script>
+<script src="/js_plugins/peditor/js/jquery.imgareaselect.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/js_plugins/peditor/css/imgareaselect-default.css" />
+<link rel="stylesheet" type="text/css" href="/js_plugins/colorbox/colorbox.css" />      
+
+<header>
+  <h2 class="left">FAQ</h2>
+  <div class="explain right"><p>圖片尺寸</p></div>
+</header>
+<article>
+  <div class="hgroup">
+    <div class="right">
+      
+    </div>
+  </div>
+
+  <div class="form">
+  <%= form_for(@faq, :url => admin_box_faq_path(@faq.box_id,@faq), html: { id: "patchthisfaq" } ) do |f| %>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%">Q：</td>
+          <td width="93%">
+            <%= f.hidden_field :article_id %>
+            <%= f.text_field :question, class: "text" ,placeholder: "輸入Q標題" %>
+            <%= fields_for @faq.article do | a | %>
+              <%= a.hidden_field :content, {:id => 'faq_content'} %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+  </div>
+  <!--form-->
+  
+  <%= render  'admin/peditor/editor' %>
+
+  <div class="button"> 
+    <%= link_to image_tag("/images/admin/left.png")+"返回", admin_box_path(params[:box_id]), class: "left" %>
+    <a href="javascript: document.getElementById('patchthisfaq').submit();" class="right highlight" data-no-turbolink = true >儲存<img src="<%= image_path("save.png") %>"></a>
+  </div>
+</article>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    editor.init({articleModel: "faq", photoUpload: 'peditor/<%= @faq.article.id %>/createPhoto', p_selectList: ["paragraphFontClass"],linkedp: true});
+
+    $("#submit").click(function(e){
+      e.preventDefault();
+
+      if(!editor.isPostNotSent()){
+        $("#edit_article_<%= @faq.article.id %>").submit();
+      }
+      else{
+        editor.alert("段落編輯尚未完成。", "error");
+      }
+    
+      $('#articleContent').bind('peditor_updated', function() {
+        $('#main').height('inherit')
+      })
+    
+    });
+});
+</script>

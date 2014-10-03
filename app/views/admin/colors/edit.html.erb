@@ -1,0 +1,16 @@
+= color EDIT =
+<%= simple_form_for(@color, :url => admin_category_vehicle_color_path(params[:category_id] , params[:vehicle_id], @color), html: { id: "patchthiscolor" , :multipart => true } ) do |f| %>
+
+<% if @gallery_count > 0 %>
+  <%= render 'admin/common/show_by_type', target: @color, target_title: '圖', type: 'VehicleColorDemo' %>
+<% else %>
+  <%= render 'admin/common/upload_by_type', target_title: '圖' %>
+<% end %>
+
+name：<%= f.input_field :name %><br>
+hexcode：<%= f.input_field :hexcode %><br>
+
+  <%= f.submit 'Save' %><br>
+<% end %>
+
+<%= link_to 'return' ,admin_category_vehicle_colors_path(params[:category_id], params[:vehicle_id]) %>

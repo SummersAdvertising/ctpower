@@ -1,0 +1,11 @@
+= accessories new =
+<%= simple_form_for(@accessory, :url => admin_category_vehicle_accessories_path(params[:category_id] , params[:vehicle_id], @accessory), html: { id: "postthisaccessory" } ) do |f| %>
+
+title：<%= f.input_field :title %><br>
+context：<%= f.input_field :context %><br>
+type：<%= f.input :type, as: :radio_buttons,  collection: @accessory_types %><br>
+
+  <%= f.submit 'Save' %><br>
+<% end %>
+
+<%= link_to 'return' ,admin_category_vehicle_accessories_path(params[:category_id], params[:vehicle_id]) %>

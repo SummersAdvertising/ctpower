@@ -1,0 +1,31 @@
+<header>
+  <h2 class="left">站點資訊<span>/ BES管理</span></h2>
+</header>
+<article>
+  <div class="button">
+    <%= link_to new_admin_station_path(), :method => :get,class: "right highlight"  do %>
+      新增站點<img src="/images/admin/add.png">
+    <% end %>
+  </div>
+  <div class="list">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <% @stations.each do |station| %>
+      <tr>
+        <td width="70%">
+          <%= link_to "#{station.name}", admin_station_path(station), target: '_blank' %>
+        </td>
+        <td width="18%"><%= City.find(station.city).name %> / <%= District.find(station.district).name %></td>
+        <td width="12%">
+          <div class="tool">
+            <%= link_to "編輯", edit_admin_station_path(station), class: "edit" %>
+            <%= link_to "刪除", admin_station_path(station), :data => { :confirm => "將會刪除此站點，確定繼續？" }, :method => :delete, :class => "delete", title: "刪除" %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class= "page">
+    <%= paginate @stations ,:window => 2 %>
+  </div>
+</article>

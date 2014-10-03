@@ -1,0 +1,189 @@
+<header>
+  <h2 class="left">FAQ管理</h2>
+  <nav class="left"></nav>
+  
+</header>
+<article>
+
+  <% if @box.depth < 1 %>
+
+    <div class="hgroup">
+      <h3 class="left">
+        <% @breadcrumb.each_with_index do | bread, index | %>
+          <%= bread.name if index == 0 %>
+            <% if index >= 1  %>
+              <span>/<%= bread.name %></span>
+              <!-- link_to  ancestor.name,  admin_hqlevel_path(ancestor.id, :locale => I18n.locale) -->
+            <% end %>
+
+            <% if index == (@breadcrumb.count - 1 ) %>
+              <!-- <span>/分類列表</span> -->
+            <% end %>
+        <% end %>
+      </h3>
+      <div class="button right">
+        <a href="javascript:void(0);" class="right highlight toggle_new_box">新增分類<img src="/images/admin/add_folder.png"></a>
+      </div>
+    </div>
+    <div class="list">
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        
+        <% @boxes.each do |box| %>
+
+          
+          <tr class="show_box_<%= box.id %>" >
+            <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+            <td width="76%">
+              <%= link_to(box.name, admin_box_path(box)) %>
+            </td>
+            <td width="18%">
+              <div class="tool">
+                <%= link_to "編輯", "javascript:void(0);", :data => { :id => box.id }, :class => "edit", title:"編輯" %><%= link_to "刪除", admin_box_path(box), :data => { :confirm => "將會刪除分類底下所有FAQ，確定繼續？" }, :method => :delete, :class => "delete", title: "刪除" %>
+              </div>
+            </td>
+          </tr>
+
+          
+          
+          <tr class="list-edit edit_box_<%= box.id %>" style="display:none;">
+            <%= form_for(box, :url => admin_box_path(box) , html: { id: "patchthisbox_#{box.id}"}) do |f| %>
+            
+            <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+            <td width="76%">
+              <div style="position:relative">
+                <%= f.text_field :name, class:"text", placeholder: "分類名稱", style:"width:50%" %>
+              </div>
+            </td>
+            
+            <td align="right" valign="top" width="18%">
+              <div class="tool">
+                <a href="javascript: document.getElementById('patchthisbox_<%= box.id %>').submit();" class="uvs" data-no-turbolink = true >儲存</a><%= link_to "取消", "javascript:void(0);" ,:data => { :id => box.id }, :class => "uvs" %>
+              </div>
+            </td>
+            <% end %>
+          </tr>
+
+        <% end %>
+
+      <!-- new -->
+        <tr class="list-new list-edit edit_box" style="display:none;">
+          <%= form_for(@new_box, :url => admin_boxes_path , html: {id: "create_new_box" }) do |f| %>
+            <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+            <td width="76%">
+              
+                <%= f.text_field :name, :placeholder => "分類名稱" , class: "text new_box_name_input" %>
+
+                <%= f.hidden_field :parent_id, value: "#{@box.id}" %>
+                <%= f.hidden_field :depth, value: "#{@box.depth + 1}" %>
+              
+            </td>
+            <td width="18%" align="right">
+              <div class="tool">
+                <a href="javascript: document.getElementById('create_new_box').submit();" class="uvs" data-no-turbolink = true >儲存</a><%= link_to("取消", "javascript:void(0);", :class => "uvs cancel_new_box") %>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="button">
+      <a href="<%= admin_boxes_path %>" class="left">
+        <img src="/images/admin/left.png">返回
+      </a>
+    </div>
+
+  <% else %>
+
+    <div class="hgroup">
+      <h3 class="left">
+        <% @breadcrumb.each_with_index do | bread, index | %>
+          <%= bread.name if index == 0 %>
+
+          <% if index >= 1  %>
+            <span>/<%= bread.name %></span>
+            <!-- link_to  ancestor.name,  admin_hqlevel_path(ancestor.id, :locale => I18n.locale) -->
+          <% end %>
+
+          <% if index == (@breadcrumb.count - 1 ) %>
+            <!-- <span>/分類列表</span> -->
+          <% end %>
+        <% end %>
+      </h3>
+      <div class="button right">
+        <%= link_to  admin_box_faqs_path(@box), :method => :post, class: "right highlight toggle_new_box" do %>
+          新增項目<img src="/images/admin/add_folder.png">
+        <% end %>
+      </div>
+    </div>
+    <div class="list">      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <% @box.faqs.each do |faq| %>
+
+        <tr>
+          <td width="6%"><img src="/images/admin/file.png"></td>
+          <td width="76%">
+            <%= link_to(faq.question, edit_admin_box_faq_path(@box, faq)) %>
+          </td>
+          <td width="18%">
+            <div class="tool">
+              <%= link_to("編輯", edit_admin_box_faq_path(@box, faq), class: 'edit') %><%= link_to("刪除", admin_box_faq_path(@box, faq), :method => :delete, :data => {:confirm => "確定刪除？"}, class: 'delete') %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+
+    </div>
+    <div class="button">
+      <a href="<%= admin_box_path(@box.parent_id) %>" class="left">
+        <img src="/images/admin/left.png">返回
+      </a>
+    </div>
+  <% end %>
+    
+  </div>
+  
+</article>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle_new_box").click(function(){
+
+    if($("tr[class*=edit_box]:visible").length > 0){
+      alert("請先完成編輯中的產品分類");
+    }
+    else{
+      
+      $(".list-new").toggle();
+    }
+  });
+
+  $(".cancel_new_box").click(function(){
+      $(".new_box_name_input").val(''); //clear input
+      $(".list-new").toggle();
+  });
+
+  $(".edit").click(function(){
+    $active_id = $(this).data("id");
+    if($("tr[class*=edit_box]:visible").length > 0){
+      alert("請先完成編輯中的產品分類");
+    }
+    else{
+      toggle_edit_area($active_id);
+    }
+  });
+
+  $(".uvs").click(function(){
+    $active_id = $(this).data("id");
+    toggle_edit_area($active_id);
+  });
+
+  function toggle_edit_area(active_id){
+    $("tr.edit_box_" + active_id).toggle();
+    $("tr.show_box_" + active_id).toggle();
+  }
+});
+</script>

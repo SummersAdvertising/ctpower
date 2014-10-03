@@ -1,0 +1,6 @@
+<%# index_slider has no edit action %>
+<% if @banner.type == 'SelectedVehicle' %>
+  
+  <%= render 'edit_selected_vehicle_form', current_banner: @banner %>
+
+<% end %>

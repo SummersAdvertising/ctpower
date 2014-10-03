@@ -1,0 +1,16 @@
+= FEATURE edit =
+<%= simple_form_for(@feature, :url => admin_category_vehicle_feature_path(params[:category_id] , params[:vehicle_id], @feature), html: { id: "patchthisfeature", :multipart => true } ) do |f| %>
+
+<% if @gallery_count > 0 %>
+  <%= render 'admin/common/show_by_type', target: @feature, target_title: '圖', type: 'VehicleFeature' %>
+<% else %>
+  <%= render 'admin/common/upload_by_type', target_title: '圖' %>
+<% end %>
+
+  title：<%= f.input_field :title %><br>
+  context：<%= f.input_field :context %><br>
+  
+  <%= f.submit 'Save' %><br>
+<% end %>
+
+<%= link_to 'return' ,admin_category_vehicle_features_path(params[:category_id], params[:vehicle_id]) %>

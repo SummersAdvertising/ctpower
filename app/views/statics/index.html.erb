@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ctpower</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+Statics/index
+
+<%= yield %>
+<br><br><br><br>
+= FAQ index TEST =<br>
+
+<% @boxes.each do |box| %>
+  <%= link_to box.name, admin_box_path(box) %><br>
+<% end %><br>
+ＦＡＱ in Last Box<br>
+<% @faqs.each do |faq| %>
+  <%= link_to faq.question, admin_box_faq_path(faq.box_id,faq) %><br>
+<% end %><br><br><br><br><br>
+
+</body>
+</html>

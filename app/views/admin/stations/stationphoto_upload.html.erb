@@ -1,0 +1,112 @@
+<style>
+div ,td, p .noTransition {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
+}
+</style>
+<header>
+  <h2 class="left">門市資訊<span>/ 分店管理</span></h2>
+  <nav class="left">
+    <%= link_to "簡介", edit_admin_station_path(@station)%>
+    <a href="javascript:void(0);" class="active">照片</a>
+  </nav>
+  <div class="explain right"><p>圖片尺寸：609 px * 406 px</p></div>
+</header>
+<article>
+  <% if @gallery_count < 5 %>
+
+  <div class="form">
+    <%= form_for(@station,url: create_station_attachment_admin_station_path(@station) , :html => {:id =>'NewAttachlForm' , :method => "POST", :multipart => true} ) do |fattach| %>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%">圖片：</td>
+          <td width="93%"><%= file_field_tag :attachment , class: 'file' %></td>
+        </tr>
+      </table>
+   <% end %>  
+  </div>
+
+  <div class="button">
+    <a href="javascript: document.getElementById('NewAttachlForm').submit();" class="right highlight" data-no-turbolink = true >上傳
+      <img src="<%= image_path("/images/admin/up.png") %>">
+    </a>
+  </div>
+  
+  <% end %>
+  <div class="hgroup">
+    <h3 class="left">圖片預覽<span>(可拖拉排序，第一張為封面)</span></h3>          
+  </div>
+  <div class="gallery" id="listThisAttach">
+
+    <% @station.galleries.select{ |v| v['type'] == "StationPhotoGallery" }.each_with_index do |attach, i| %>
+      <% if i == 0 %>
+        <div class="thumb left cover createAttachcontainer dragable" <%= "id=createAttachcontainer_#{attach.id.to_s}" %>> 
+      <% else %>
+        <div class="thumb left createAttachcontainer dragable" <%= "id=createAttachcontainer_#{attach.id.to_s}" %>> 
+      <% end %>
+      
+        <%= link_to '刪除', admin_gallery_path(attach.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete', title: '刪除' %>
+        <image src=<%= "#{attach.attachment.url}" %> />
+      </div>
+    <% end %>
+
+  </div>
+</article>
+
+<script>
+$(function() {
+  var prevEvent = null;
+    $( "#listThisAttach" ).sortable({
+      //connectWith: ".renamelevelcontainer",
+      items: "> .dragable" ,
+      placeholder: "ui-state-highlight",
+      update: function( event, ui ) {
+          
+      if(event.timeStamp == prevEvent){
+        return null;
+      }
+      
+      prevEvent = event.timeStamp;  
+      var newRankings_array = $('#listThisAttach').sortable('toArray');
+      var orderSet = [];
+      $.each(newRankings_array, function( index, value){
+            orderSet.push(value.replace("createAttachcontainer_",""));
+        });
+        var order2Push = JSON.stringify(orderSet);
+        
+        $.ajaxSetup({
+          headers: {
+              'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+          //multiple reorder 
+          $.ajax({
+            type: "PATCH",
+            url: "/admin/galleries/"+orderSet[0]+"/multiple_reorder",
+            data: { gallerries: {  reorderset: orderSet } },
+            success: function(data){
+
+              $("#listThisAttach > .thumb").attr('class', 'thumb left createAttachcontainer dragable');
+              $("#listThisAttach > .thumb:first").attr('class', 'cover thumb left createAttachcontainer dragable');
+              alertify['success'](data[0][1], 2000);
+              //console.log("================ stations reorder PATCH successfully end =============");
+              return false   
+            },
+            error: function(data){
+            //alert ("faild");
+              //console.log("================ stations reorder has some issues ==================");
+              return false  
+            }
+          });
+
+      }
+    });
+    
+      
+    $( "#listThisAttach" ).disableSelection();
+  });  
+//################################ attachment reorder end #######################################
+</script>

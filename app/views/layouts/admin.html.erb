@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ctpower</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+layout/admin<br>
+
+<%= link_to '最新消息', admin_announcements_path %>
+<%= link_to "主視覺輪播", admin_index_sliders_path %>
+<%= link_to "明星商品", admin_selected_vehicles_path %>
+<%= link_to "車款介紹", admin_categories_path %>
+<%= link_to "ＢＥＳ站點", admin_stations_path %>
+<%= link_to "ＦＡＱ", admin_boxes_path %>
+<%= link_to "前台首頁", root_path %>
+<br>
+
+<%= yield %>
+
+</body>
+</html>

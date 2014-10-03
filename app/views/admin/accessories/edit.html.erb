@@ -1,0 +1,28 @@
+= accessories EDIT =
+<header>
+  <h2 class="left">編輯產品</h2>
+  <nav class="left">
+    <%= link_to "Specs", admin_category_vehicle_specs_path(@vehicle.category, @vehicle)%>
+    <%= link_to "Features", admin_category_vehicle_features_path(@vehicle.category, @vehicle)%>
+    <%= link_to "Colors", admin_category_vehicle_colors_path(@vehicle.category, @vehicle)%>
+    <%= link_to "Accessories", admin_category_vehicle_accessories_path(@vehicle.category, @vehicle)%>
+  </nav>
+</header>
+
+
+<%= simple_form_for(@accessory, :url => admin_category_vehicle_accessory_path(params[:category_id] , params[:vehicle_id], @accessory), html: { id: "patchthisaccessory", :multipart => true } ) do |f| %>
+
+<% if @gallery_count > 0 %>
+  <%= render 'admin/common/show_by_type', target: @accessory, target_title: '封面', type: 'VehicleAccessory' %>
+<% else %>
+  <%= render 'admin/common/upload_by_type', target_title: '封面' %>
+<% end %>
+
+title：<%= f.input_field :title %><br>
+context：<%= f.input_field :context %><br>
+type：<%= f.input :type ,as: :radio_buttons,  collection: @accessory_types %><br>
+
+  <%= f.submit 'Save' %><br>
+<% end %>
+
+<%= link_to 'return' ,admin_category_vehicle_accessories_path(params[:category_id], params[:vehicle_id]) %>

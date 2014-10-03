@@ -1,0 +1,13 @@
+Store show<br>
+
+
+<%= @station.name %><br>
+<%= @station.intro %><br>
+<%= @station.phone %><br>
+<%= @station.address %><br>
+<%= @station.country %> <%= @station.city %> <%= @station.district %><br>
+<%= @station.ophour %><br>
+<%= @station.latlng.html_safe %><br>
+
+<br><br><br><br>
+<%= link_to "GO BACK", admin_stations_path %>

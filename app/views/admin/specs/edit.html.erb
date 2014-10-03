@@ -1,0 +1,10 @@
+= SPEC EDIT =
+<%= simple_form_for(@spec, :url => admin_category_vehicle_spec_path(params[:category_id] , params[:vehicle_id], @spec), html: { id: "patchthisspec" } ) do |f| %>
+
+title：<%= f.input_field :title %><br>
+context：<%= f.input_field :context %><br>
+
+  <%= f.submit 'Save' %><br>
+<% end %>
+
+<%= link_to 'return' ,admin_category_vehicle_specs_path(params[:category_id], params[:vehicle_id]) %>

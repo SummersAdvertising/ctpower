@@ -1,0 +1,10 @@
+= color new =
+<%= simple_form_for(@color, :url => admin_category_vehicle_colors_path(params[:category_id] , params[:vehicle_id], @color), html: { id: "postthiscolor" } ) do |f| %>
+
+name：<%= f.input_field :name %><br>
+hexcode：<%= f.input_field :hexcode %><br>
+
+  <%= f.submit 'Save' %><br>
+<% end %>
+
+<%= link_to 'return' ,admin_category_vehicle_colors_path(params[:category_id], params[:vehicle_id]) %>

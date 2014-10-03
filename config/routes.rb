@@ -1,56 +1,91 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  
+  resources :announcements
+  resources :banners
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  devise_for :admins
+  
+  root "statics#index"
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  resources :pages, :controller => :statics do 
+    collection do
+      get ':page', :action => :show, :as => :page
+    end
+  end
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  namespace :admin do
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    authenticated :admin do
+      root "announcements#index"#, :as => :authenticated_root
+    end
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    resources :announcements do 
+      member do
+        post  'peditor/:id/createPhoto'       => 'peditor#createPhoto'
+        post 'create_announcement_attachment' , :action => 'create_announcement_attachment'
+        match :announcementphoto_upload, :via => :get
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+        get '/custom_edit' => 'announcements#custom_edit'
+        patch '/custom_edit' => 'announcements#update'
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+      end
+    end
+    
+    resources :index_sliders, controller: 'banners', type: 'IndexSlider'
+    resources :selected_vehicles, controller: 'banners', type: 'SelectedVehicle'
+    
+    #BES Stations
+    resources :stations do
+      member do 
+        get 'fetch_from_country' , action: 'fetch_from_country'
+        get 'fetch_from_city' , action: 'fetch_from_city'
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+        post 'create_station_attachment' , :action => 'create_station_attachment'
+        match :stationphoto_upload, :via => :get
+      end 
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+      collection do 
+        get 'fetch_from_country' , action: 'fetch_from_country'
+        get 'fetch_from_city' , action: 'fetch_from_city'
+      end
+    end
+
+    resources :categories do 
+      resources :vehicles do
+
+        get   '/sliders'       => 'vehicles#slider', as: 'slider'
+        patch  '/upload_slider'       => 'vehicles#upload_slider'
+
+        get   '/dms'       => 'vehicles#dm', as: 'dm'
+        patch  '/upload_dm'       => 'vehicles#upload_dm'
+
+        get   '/photos'       => 'vehicles#photo', as: 'photo'
+        patch  '/upload_photo'       => 'vehicles#upload_photo'
+
+        resources :specs
+        resources :accessories
+        resources :features
+        resources :colors
+
+      end
+    end
+  
+    resources :boxes do 
+      resources :faqs do 
+        member do 
+          post  'peditor/:id/createPhoto'       => 'peditor#createPhoto'
+        end
+      end 
+    end
+
+    resources :galleries do 
+      member do
+        patch 'multiple_reorder' , :action => 'multiple_reorder'
+      end 
+    end
+
+  end
+
+  get '(*url)'   => 'errors#index'
+
 end
