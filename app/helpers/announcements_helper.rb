@@ -1,3 +1,4 @@
+#encoding: utf-8
 module AnnouncementsHelper
 
   def list_edit_btn(current_announcement)
