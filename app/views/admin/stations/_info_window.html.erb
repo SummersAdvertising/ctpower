@@ -1,0 +1,8 @@
+<div class="info_content">
+  <h3><%= station.name %></h3>
+    <p><%= station.ophour %></p>
+    <p><%= station.intro %></p>
+    <% if station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first %>
+      <%= image_tag station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first.attachment.url, width: '280px', height: 'auto'   %>
+    <% end %>
+</div>

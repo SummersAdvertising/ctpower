@@ -1,25 +1,216 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-tw">
 <head>
-  <title>Ctpower</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<title>城市動力│City Power</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/js_plugins/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet/less" type="text/css" href="/css/index.less" />
+<!-- <script src="/js/jquery-1.11.1.min.js"></script> --> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="/js/bootstrap.min.js"></script> 
+<script src="/js_plugins/bxslider/jquery.bxslider.min.js"></script> 
+<script src="/js/less.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.bxslider').bxSlider({
+      controls:false,
+      auto:true,
+      mode:'fade',
+    });
+  });    
+</script>
 </head>
+
 <body>
-Statics/index
 
-<%= yield %>
-<br><br><br><br>
-= FAQ index TEST =<br>
+<header>
+  <section class="container">
+    <div id="top" class="clearfix"> 
+      <!--手機版選單-->
+      <nav class="visible-xs nav navbar" id="nav-mb"> 
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+          <img src="/images/ctrl.png" class="img-responsive"> 
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "回首頁", root_path %></li>
+          <li><a href="#">車款介紹</a></li>
+          <li><%= link_to '認識 BES 特色', page_pages_path('features') %></li>
+          <li><%= link_to 'BES 操作流程', page_pages_path('processes') %></li>
+          <li><a href="#">BES 站點查詢</a></li>
+          <li><a href="#">客戶服務</a></li>
+          <li><a href="http://www.citypower.com.tw/ebike/station_info.php" target="_blank">E-bike</a></li>
+          <li><a href="#">認識城市動力</a></li>
+        </ul>
+      </nav>
+      <h1 class="pull-left hidden-xs">
+        <%= link_to root_path do %>
+          <img src="/images/h1.png" class="img-responsive">
+        <% end %>
+      </h1>
+      <div class="pull-right hidden-xs" id="fb"><a href="https://www.facebook.com/pages/%E5%9F%8E%E5%B8%82%E5%8B%95%E5%8A%9BCity-power/722780041116958?fref=ts" target="_blank"><img src="/images/fb.png" class="img-responsive"></a></div>
+      <!--桌機版選單-->
+      <nav class="pull-right hidden-xs" id="nav-dt">
+        <ul class="nav navbar-nav">
+          <li><a href="#">車款介紹</a></li>
+          <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">認識 BES</a>
+            <ul class="dropdown-menu">
+              <li><%= link_to '認識 BES 特色', page_pages_path('features') %></li>
+              <li><%= link_to "BES 操作流程", page_pages_path('processes')%></li>
+            </ul>
+          </li>
+          <li><a href="#">BES 站點查詢</a></li>
+          <li><a href="#">客戶服務</a></li>
+          <li><a href="http://www.citypower.com.tw/ebike/station_info.php" target="_blank">E-bike</a></li>
+          <li><a href="#">認識城市動力</a></li>
+        </ul>
+      </nav>
+    </div><!--top-->    
+  </section>  
+</header>
+<div id="slider">
+    <ul class="bxslider">
+      <li><img src="sample/slider-1.jpg" class="img-responsive"/></li>
+      <li><img src="sample/slider-2.jpg" class="img-responsive"/></li>
+      <li><img src="sample/slider-3.jpg" class="img-responsive"/></li>
+      <li><img src="sample/slider-4.jpg" class="img-responsive"/></li>
+    </ul>
+</div>
+<article>  
+  <div id="content-1" class="content">
+    <section class="container row">
+      <h3 class="col-sm-12">最新消息</h3>
+      
+      <%  if @announcements.count > 1  %>
+        <% @announcements.each do |announcement| %>
+          <div class="col-sm-3">
+            <%= link_to announcement_path(announcement), class: 'news' do %>
+            
+              <div class="cover">
+                <% if announcement.galleries.select{ |v| v['type'] == "AnnouncementCoverGallery" }.first %>
+                <% announcement_cover_url = announcement.galleries.select{ |v| v['type'] == "AnnouncementCoverGallery" }.first.attachment.url %>
+                  <%= image_tag announcement_cover_url , class: "img-responsive" if announcement_cover_url %>
+                <% end %>
+                <div class="mask hidden-sm hidden-xs">
+                  <span class="date"><%= announcement.created_at.strftime('%m/%d') %></span><br>
+                  <p>
+                    <% if announcement.subtitle.length > 0 %>
+                      <%= announcement.subtitle.first(23) %>
+                      <%= '...' if announcement.subtitle.length > 23 %>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+              <div class="title">
+                <%= announcement.title %><br><br>
+              </div>
 
-<% @boxes.each do |box| %>
-  <%= link_to box.name, admin_box_path(box) %><br>
-<% end %><br>
-ＦＡＱ in Last Box<br>
-<% @faqs.each do |faq| %>
-  <%= link_to faq.question, admin_box_faq_path(faq.box_id,faq) %><br>
-<% end %><br><br><br><br><br>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      
+      <div class="col-sm-3">
+        <%= link_to announcements_path, class: "more" do %>
+          <img src="/images/idx-01.gif" class="img-responsive"/>
+        <% end %>
+      </div>
 
+    </section>
+  </div>
+  <div id="content-2" class="content">
+    <section class="container">
+    </section>
+  </div>
+  <div id="content-3" class="content">
+    <section class="container clearfix">      
+      <div class="pull-right">
+        <h3>認識 BES 電池交換站<br><small>/ Battery Exchange System</small></h3>       
+          <div id="rope">
+          <div id="box">
+          <h4><img src="/images/idx-08.png"> 電池交換站</h4>
+          <p>再也不用擔心電動機車騎到一半沒電啦，到電池交換站換一顆充飽電的電池，城市動力將能滿足您最及時的需求。</p>
+          <br>
+          <h4><img src="/images/idx-08.png"> 永久保固</h4>
+          <p>有了電池交換站，您的車上的電池將能享受城市動力的永久保固，不僅能隨時至交換站換取良好的電池，也不需要每隔兩三年付出2~3 萬的更換電池費用啦。</p>
+          <br>
+          <h4><img src="/images/idx-08.png"> 站點位置</h4>
+          <p>站點將設置於民眾最熟悉的地方體育館，停車場，公園，市場，乃至路邊的停車格等等．務必讓民眾享受到最貼心的服務。</p>
+          </div>
+          </div>
+      </div>
+      <div class="pull-left">
+        <img src="/images/idx-04.png" class="img-responsive">
+      </div>
+    </section>
+  </div>
+  <div id="content-4" class="content">
+    <section class="container clearfix">      
+      <div class="pull-left">
+        <h3>BES 電池交換站 App 介紹</h3>       
+          <h4>隨時查詢站點</h4>
+          <p>可依據地圖，地區二種方式查詢站點，即使離線也能查詢，不必擔心找不到交換站</p>
+          <h4>線上客服支援</h4>
+          <p>有任何問題可隨時以線上客服回覆，有關電動機車的任何問題，找城市動力就對了</p>
+          <div class="qrcode hidden-sm hidden-xs">
+            <br>
+            <img src="/images/idx-12.png">
+          </div>
+          <div class="more">
+            <!--a href="#">詳細介紹</a-->
+          </div>          
+      </div>
+      <div class="pull-right">
+        <img src="/images/idx-07.jpg" class="">
+      </div>
+    </section>
+  </div>
+  <div id="content-5" class="content">
+    <section class="container clearfix">      
+      <div class="pull-left">
+        <h3>E-BIKE 介紹</h3>       
+          <h4>電動二輪車公共化</h4>
+            <ul>
+              <li>「行政院環保署電動二輪車免費試運行」</li>
+              <li>不知何時腳踏車租借變成一種潮流，現在，該騎電動自行車啦。</li>
+              <li>路邊停車柱停著電動二輪載具，到租借機刷悠遊卡，即可隨時租用電動自行車四處遨遊。</li>
+            </ul>          
+        <div class="more">
+          <a href="http://www.citypower.com.tw/ebike/station_info.php" target="_blank">更多 E-bike 介紹 ></a>
+        </div>     
+        <div class="stick">
+          <img src="/images/idx-11.png">
+        </div>
+      </div>
+      <div class="pull-right visible-xs">
+        <img src="/images/idx-09.png" class="img-responsive">
+      </div>
+    </section>
+  </div>
+</article>
+<footer>
+  <section class="container">
+    <div id="info">台灣城市動力股份有限公司  CityPower Taiwan Co.,Ltd. <br>
+      新北市五股區五權路一號二樓<br>
+      電話：02-2298-9311 │ 客服專線：0800-588-695</div>
+    <div id="copyright" class="text-right"> <img src="/images/logo.png"><br>
+      Copyright © 2014 citypower | All Rights Reserved <%= link_to 'admin', new_admin_session_path %></div>
+  </section>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 </body>
 </html>

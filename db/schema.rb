@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003080901) do
+ActiveRecord::Schema.define(version: 20141007134019) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -175,6 +175,8 @@ ActiveRecord::Schema.define(version: 20141003080901) do
     t.text     "latlng"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat",        precision: 10, scale: 6
+    t.decimal  "lng",        precision: 10, scale: 6
   end
 
   create_table "vehicles", force: true do |t|
@@ -186,6 +188,7 @@ ActiveRecord::Schema.define(version: 20141003080901) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
 end

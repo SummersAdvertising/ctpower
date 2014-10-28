@@ -1,0 +1,77 @@
+
+/*-----------------------------------------------------------------------參數---*/
+
+@import "global";
+
+/*-----------------------------------------------------------------------頁首---*/
+
+body > header{	
+	background-image:url(../images/bes-banner.jpg);
+}
+
+/*-----------------------------------------------------------------------頁身---*/
+
+.content{
+	padding:5% 0;
+	@media(max-width: @sm-device) {
+		padding:10% 0;
+	}
+	h3{
+		margin:0 0 10% 0;
+		font-size:2.3em;
+		line-height: 1.3em;
+		@media(max-width: @sm-device) {
+			margin:0 0 5% 0;
+		}
+	}	
+}
+
+#content-1{
+	.container{
+		background:url(../images/prc-09.jpg) center 175px no-repeat;
+		height:100%;
+		@media(max-width: @md-device) {
+			background:none;
+		}
+	}
+	h3{
+		clear:both;
+	}
+	.step{
+		width:50%;
+		max-width:436px;
+		@media(max-width: @md-device) {
+			width:75%;	
+			margin:10% 0;			
+		}		
+		p{
+			background:#FF6935;
+			color:#fff;
+			text-align:center;
+			width:80%;
+			margin:-20px auto 0 auto;			
+			position:relative;
+			z-index:2;
+			padding:1.5%;
+		}		
+	}
+	.clearfix{
+		margin:0 0 50px 0;
+		@media(max-width: @md-device) {
+			margin:0;
+		}	
+	}	
+	.pull-right{		
+		margin:150px 0 0 0;
+		@media(max-width: @md-device) {
+			margin:0;			
+		}
+	}
+	.pull-left{	
+		@media(max-width: @md-device) {
+			float:right;	
+			margin-left:25%;	
+		}		
+		h4{color:#e66869;}
+	}
+}

@@ -1,0 +1,100 @@
+
+/*-----------------------------------------------------------------------參數---*/
+
+@import "global";
+
+/*-----------------------------------------------------------------------頁首---*/
+
+body > header{	
+	background-image:url(../images/news-banner.jpg);
+}
+
+/*-----------------------------------------------------------------------頁身---*/
+
+.content{
+	padding:5% 0;
+	@media(max-width: @sm-device) {
+		padding:10% 0;
+	}	
+	.title{
+		background:url(../images/news-01.png) 0 bottom repeat-x;
+		padding:0 0 5% 0;		
+		span{
+			display:block;
+			width:90px;
+			height:90px;
+			border:2px solid #FF6363;
+			border-radius:50%;
+			text-align:center;
+			font-size:1em;
+			color:#777;
+			padding:18px 0 0 0;
+			strong{
+				font:900 1.4em Arial black;
+				color:#000;
+			}
+		}
+		h3{
+			width:100%;
+			padding:0 0 0 20px;
+			font-size:2em;
+		}
+	}
+}
+
+#news-show-content{	
+	.cover{margin:0 0 5% 0;}
+	.pager{
+		li a{
+			background:#0380AE;
+			border:0;
+			margin:0!important;
+			padding:5px 15px 8px 15px;
+			border-radius:5px;
+		}
+		.active a,li a:hover{background:#63BCDD;}
+	}
+	.article{
+		margin:0 0 5% 0;
+		p{padding:2.5% 0 0 0;color:#767676;}
+		img{padding:2.5% 0 0 0;}
+	}
+}
+
+#news-list-content{	
+	.cover{
+		@media(max-width: @sm-device) {margin:0 0 5% 0;}
+	}
+	.list{
+		background:url(../images/news-06.png) 0 bottom repeat-x;
+		padding:5% 0;
+	}
+	.article{
+		p{padding:2.5% 0 0 0;color:#767676;}
+	}
+	.more{
+		text-align:right;
+		margin:5% 0 0 0;
+		a{
+			display:inline-block;
+			background-image:url(../images/news-02.gif);
+			.background;
+			width:83px;
+			height:22px;
+			&:hover{
+				background-image:url(../images/news-02h.gif);
+			}
+		}
+	}
+	.pagination{
+		margin:5% 0 0 0;
+		li a{
+			background:#63BCDD;
+			border:0;
+			color:#fff;
+		}
+		.active a,li a:hover{
+			background:#0380AE;
+		}
+	}
+}

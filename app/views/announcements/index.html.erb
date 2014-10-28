@@ -1,27 +1,61 @@
-<h1>Listing announcements</h1>
+<!-- Bootstrap -->
+<link rel="stylesheet/less" type="text/css" href="/css/news.less" />
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Article</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<article>
+  <div id="crumb">
+    <section class="container">
+      <ol class="breadcrumb">
+        <li><%= link_to "首頁", root_path %></li>
+        <li><a href="#">認識城市動力 </a></li>
+        <li class="active">最新消息</li>
+      </ol>
+    </section>
+  </div>
+  <div class="content" id="news-list-content">
+    <section class="container">      
+      
+      <% @announcements.each do |announcement| %>
+        <div class="row list">
+          <div class="col-sm-5 cover">
+            <% if announcement.galleries.select{ |v| v['type'] == "AnnouncementCoverGallery" }.first %>
+              <% announcement_cover_url = announcement.galleries.select{ |v| v['type'] == "AnnouncementCoverGallery" }.first.attachment.url %>
+              <%= link_to announcement_path(announcement) do %>
+                <%= image_tag announcement_cover_url , class: "img-responsive" if announcement_cover_url %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-sm-7">
+            <div class="title">
+              <table>
+                <tr>
+                  <td><span><strong><%= announcement.created_at.strftime('%m/%d') %></strong><br><%= announcement.created_at.strftime('%Y') %></span></td>
+                  <td valign="center" ><h3><%= announcement.title %></h3></td>
+                </tr>
+              </table>
+            </div>
+            <div class="article">
+            <p>
+              <% if announcement.subtitle.length > 0 %>
+                <%= announcement.subtitle.first(45) %>
+                <%= '...' if announcement.subtitle.length > 45 %>
+              <% end %>
+            </p>
+            </div>
+            <div class="more">
+              <%= link_to announcement_path(announcement) do %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
-  <tbody>
-    <% @announcements.each do |announcement| %>
-      <tr>
-        <td><%= announcement.title %></td>
-        <td><%= announcement.article_id %></td>
-        <td><%= link_to 'Show', announcement %></td>
-        <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
-        <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Announcement', new_announcement_path %>
+      <div class="text-center">
+        <ul class="pagination">
+          <!--li class="active"><a href="#"><img src="images/news-03.png"></a></li-->
+          <li class="active"><a href="#">1</a></li>
+          <!--li class="active"><a href="#"><img src="images/news-04.png"></a></li-->
+        </ul>
+      </div>
+    </section>
+  </div>
+</article>

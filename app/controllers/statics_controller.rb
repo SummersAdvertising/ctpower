@@ -3,8 +3,7 @@ class StaticsController < ApplicationController
   layout false , only: [:index]
 
   def index
-    @boxes = Box.all
-    @faqs = Box.last.faqs
+    @announcements = Announcement.includes(:galleries).for_index.limit(3)
   end
 
   def about

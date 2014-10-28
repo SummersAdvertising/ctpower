@@ -33,6 +33,9 @@ class ProductPhotoGallery < Gallery
 end
 #Banner END
 
+class AnnouncementCoverGallery < Gallery
+end
+
 #Vehicle
 class VehicleCover < Gallery 
 

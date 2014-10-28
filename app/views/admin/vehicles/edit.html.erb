@@ -9,7 +9,7 @@
     <%= link_to "Accessories", admin_category_vehicle_accessories_path(@vehicle.category, @vehicle)%>
     <%= link_to "VehicleSlider", admin_category_vehicle_slider_path(@vehicle.category, @vehicle)%>
     <%= link_to "VehicleDMFile", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
-    <%= link_to "VehiclePhotoGallery", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
+    <%= link_to "VehiclePhotoGallery", admin_category_vehicle_photo_path(@vehicle.category, @vehicle)%>
   </nav>
 </header>
 
@@ -27,6 +27,7 @@
     價格：<%= f.input_field :price %><br>
     補助價：<%= f.input_field :price_for_sale %><br>
     CF：<%= f.input_field :cf %><br>
+    簡介：<%= f.text_area :description %><br>
 
     <% if @gallery_count > 0 %>
       <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehicleCover' %>

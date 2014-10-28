@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-
 group :production, :staging do
   gem 'mysql2'
 end
@@ -59,3 +58,5 @@ gem 'capistrano-ext'
 
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4'
 gem 'simple_form'
+
+gem 'geokit-rails'

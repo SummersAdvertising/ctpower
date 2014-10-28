@@ -36,7 +36,19 @@ class Admin::StationsController < AdminController
   end
 
   def show
+    #.pluck(:name, :lat, :lng).to_json
+    nearby_info = Station.within(5, origin: @station)
+    @info_array = Array.new
+    nearby_info.each do |station|
+      
+      if station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first
+        a = station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first.attachment.url 
+      end
 
+      temp = [render_to_string(partial: 'info_window', :layout => false, locals: {station: station})]
+      @info_array.push(temp)
+    end 
+    
   end
 
   # GET /admin/stations/1/edit
@@ -124,7 +136,7 @@ class Admin::StationsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def station_params
-    params.require(:station).permit(:name, :address, :intro, :phone, :address, :country, :city, :district, :ophour, :latlng, :location_list , :service_list )
+    params.require(:station).permit(:name, :address, :intro, :phone, :address, :country, :city, :district, :ophour, :latlng, :location_list , :lat, :lng  )
   end
 
   #change implementation to ransack

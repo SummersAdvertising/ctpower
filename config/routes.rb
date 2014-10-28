@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :announcements
+  resources :announcements, only: [:index, :show]
   resources :banners
 
   devise_for :admins

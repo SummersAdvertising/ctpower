@@ -45,11 +45,9 @@ database.yml
 # Ignore bundler config.
 /.bundle
 
-
-
-
 /config/environments
 /config/deploy
+/config/_secrets.yml
 
 /public/uploads
 /public/assets/*
