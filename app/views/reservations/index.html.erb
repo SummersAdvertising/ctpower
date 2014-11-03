@@ -1,0 +1,33 @@
+TestDriveContact
+  <article>
+    <div class="form">
+      <%= form_for(@reservation, :url => reservations_path(), html: { id: "newthisreservation" } ) do |f| %>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="7%">商品：</td>
+            <td width="31%">
+              主旨：<%= f.text_field :subject %><br>
+            </td>
+            <td width="2%">&nbsp;</td>
+            <td width="7%">顯示：</td>
+            <td width="53%">
+              姓名：<%= f.text_field :name %><br>
+              電話：<%= f.text_field :phone %><br>
+              email：<%= f.text_field :email %><br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">內容：</td>
+            <td colspan="4">
+              內容：<%= f.text_area :content, id: "textarea" %><br>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+
+    <div class="button">
+      
+      <a href="javascript: document.getElementById('newthisreservation').submit();" class="right highlight" data-no-turbolink = true >送出
+        <img src="<%= image_path("/images/admin/up.png") %>">
+        </a>

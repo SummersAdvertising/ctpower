@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get ':page', :action => :show, :as => :page
     end
   end
+  
+  resources :contacts, only: [:index, :create]
+  resources :reservations, only: [:index, :create]
 
   namespace :admin do
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007134019) do
+ActiveRecord::Schema.define(version: 20141103070329) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -103,6 +103,16 @@ ActiveRecord::Schema.define(version: 20141007134019) do
     t.string   "name"
   end
 
+  create_table "contacts", force: true do |t|
+    t.string   "subject"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -151,6 +161,16 @@ ActiveRecord::Schema.define(version: 20141007134019) do
     t.string   "image"
     t.string   "name"
     t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservations", force: true do |t|
+    t.string   "subject"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
