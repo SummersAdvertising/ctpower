@@ -6,7 +6,7 @@ class Box < ActiveRecord::Base
   has_many :children,  :class_name => "Box", :foreign_key => 'parent_id'
 
   scope :for_admin, -> { where( "parent_id != 0" ) }
-  scope :without_root_node, -> { where( "parent_id != 0 AND depth = 2" ) }
+  scope :without_root_node, -> { where( "parent_id != 0 AND depth = 1" ) }
 
   def self.return_root_node
     return Box.find_by('parent_id=0')

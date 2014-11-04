@@ -156,7 +156,7 @@ class Admin::VehiclesController < AdminController
   end
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :price, :price_for_sale, :intro,:context_1, :context_2, :context_3, :attachment, :status, :cf, :description)
+    params.require(:vehicle).permit(:name, :price, :price_for_sale, :intro,:context_1, :context_2, :context_3, :attachment, :status, :cf, :description, :title_color)
   end
 
 end

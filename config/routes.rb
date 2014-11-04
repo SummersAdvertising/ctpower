@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
   resources :announcements, only: [:index, :show]
-  resources :banners
+  resources :banners, only: [:index, :show]
 
   devise_for :admins
   
   root "statics#index"
 
-  resources :pages, :controller => :statics do 
+  resources :pages, :controller => :statics, only: [:index, :show] do 
     collection do
       get ':page', :action => :show, :as => :page
     end
@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   
   resources :contacts, only: [:index, :create]
   resources :reservations, only: [:index, :create]
+
+  resources :FAQs, :controller => :boxes , :only => [ :index, :show]
+  # resources :boxes, only: [:index, :show]
+  resources :faqs, only: [:fetch_by_box] do
+    member do
+      get 'fetch_by_box', action: 'fetch_by_box'
+    end
+  end
 
   namespace :admin do
 

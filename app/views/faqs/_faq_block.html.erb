@@ -1,0 +1,15 @@
+<script class='temp_rend' src="/js_plugins/peditor/js/editor.js"></script>
+<script class='temp_rend' src="/js_plugins/peditor/js/editor_p.js"></script>
+<script class='temp_rend' src="/js_plugins/peditor/js/editor_img.js"></script>
+<script class='temp_rend' src="/js_plugins/peditor/js/editor_list.js"></script>
+<script class='temp_rend' src="/js_plugins/peditor/js/editor_video.js"></script>
+
+<div class="content"  id="articleContent"></div>    
+<input class='temp_rend' id="article_content" style="display:none;" type="hidden" value="<%= faq.article.content %>">
+
+<script type="text/javascript">
+  editor.output();
+  $("#article_content").remove();
+  $(".temp_rend").remove();
+  $("#articleContent").attr("id", "x_articleContent");
+</script>

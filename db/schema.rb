@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103070329) do
+ActiveRecord::Schema.define(version: 20141103073413) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(version: 20141103070329) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
+    t.string   "title_color"
   end
 
 end
