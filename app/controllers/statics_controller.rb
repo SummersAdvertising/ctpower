@@ -10,6 +10,10 @@ class StaticsController < ApplicationController
 
   end
 
+  def vehicles
+    @categories = Category.includes(:vehicles).where(depth: 1)
+  end
+
   def show
   
     if params[ :page ].nil?

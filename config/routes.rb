@@ -7,12 +7,20 @@ Rails.application.routes.draw do
   
   root "statics#index"
 
-  resources :pages, :controller => :statics, only: [:index, :show] do 
+  resources :pages, :controller => :statics, only: [:index, :show, :vehicles] do 
     collection do
+      get "vehicles" => "statics#vehicles", :as => "vehicles"
       get ':page', :action => :show, :as => :page
     end
   end
   
+  resources :vehicles, only: [:index, :show]
+  # resources :categories, only: [:index, :show] do 
+  #   resources :vehicles, only: [:index, :show] do
+
+  #   end
+  # end
+
   resources :contacts, only: [:index, :create]
   resources :reservations, only: [:index, :create]
 

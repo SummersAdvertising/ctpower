@@ -1,0 +1,53 @@
+
+  
+  <div style='float:left;'>
+    NAME:<%= @vehicle.name %><br>
+    CF:<%= @vehicle.cf.html_safe %><br>
+    PRICE:<%= @vehicle.price %> = ON SALE:<%= @vehicle.price_for_sale %><br>
+    DESCRIPTION:<%= @vehicle.description %><br>
+    TILE_COLOR:<%= @vehicle.title_color %><br>
+  </div>
+  <div style='float:left;'>SPEC<br>
+    <% @vehicle.specs.each do |spec| %>
+      <% unless spec.context.empty? %>
+        <%= spec.title %> = <%= spec.context %><br>
+      <% end %>
+    <% end %>
+  </div>
+  <div style='float:left;'>FEATURE<br>
+    <% @features.each do |feature| %>
+      <%= feature.title %> = <%= feature.context %>
+      <%= render 'admin/common/show_by_type', target: feature, target_title: '圖', type: 'VehicleFeature' %>
+      <br>
+    <% end %>
+  </div>
+  <div style=' clear: both;'></div>
+  <div style='float:left;'>COLORS<br>
+    <% @vehicle.colors.each do |color| %>
+      <%= color.name %> = <%= color.hexcode %><br>
+    <% end %>
+  </div>
+  <div style='float:left;'>Complimentary ACC. <br>
+    <% @com_accessories.each do |accessory| %>
+      <%= accessory.title %> = <%= accessory.context %><br>
+    <% end %>
+  </div>
+  <div style='float:left;'>OPTIONAL ACC. <br>
+    <% @opt_accessories.each do |accessory| %>
+      <%= accessory.title %> = <%= accessory.context %><br>
+    <% end %>
+  </div>
+  <div style='float:left;'>vehicle slider <br>
+    <%# temp %>
+    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehicleSlider' %>
+  </div>
+  <div style='float:left;'>vehicle DM file <br>
+    <%= render 'admin/common/show_document_by_type', target: @vehicle, target_title: '附件', type: 'VehicleDMFile' %>
+  </div>
+  <div style='float:left;'>VehiclePhotoGallery <br>
+    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
+  </div>
+
+  <div style=' clear: both;'></div>
+  <hr>
+  

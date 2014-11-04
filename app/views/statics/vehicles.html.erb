@@ -1,0 +1,15 @@
+<% @categories.each do |category| %>
+  <% category.vehicles.where(status: 'enable').limit(3).each do |vehicle| %>
+  <div style='float:left;'>
+    NAME:<%= link_to vehicle.name, vehicle_path(vehicle) %><br>
+    DESCRIPTION:<%= vehicle.description %><br>
+  </div>
+  
+  <div style='float:left;'>VehiclePhotoGallery <br>
+    <%= render 'admin/common/show_by_type', target: vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
+  </div>
+
+  <div style=' clear: both;'></div>
+  <hr>
+  <% end %>
+<% end %>
