@@ -24,6 +24,11 @@ class FaqsController < ApplicationController
     end
     
   end
+  
+  def search
+    @q = Faq.search(params[:q])
+    @faqs = @q.result(distinct: true).includes(:article)
+  end
 
   private
     

@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   resources :contacts, only: [:index, :create]
   resources :reservations, only: [:index, :create]
 
-  resources :FAQs, :controller => :boxes , :only => [ :index, :show]
-  # resources :boxes, only: [:index, :show]
+  resources :FAQs, :controller => :boxes , :only => [ :index, :show] # resources :boxes, only: [:index, :show]
+  
   resources :faqs, only: [:fetch_by_box] do
+    collection do 
+      match 'search' => 'faqs#search', via: [:post], as: :search  
+    end
     member do
       get 'fetch_by_box', action: 'fetch_by_box'
     end

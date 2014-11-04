@@ -1,9 +1,10 @@
 box<br>
+<%= render 'faqs/search_form'%>
+
+
 <% @boxes.each do |box| %>
   <%= link_to box.name, FAQ_path(box) %> <br>
 <% end %>
-
-
 
 
 <% @box.faqs.each do |faq| %>

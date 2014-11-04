@@ -39,7 +39,7 @@ group :development do
   #gem 'brakeman', :require => false
   gem 'sqlite3'
   #gem 'sextant'
-  gem 'xray-rails'
+  #gem 'xray-rails'
 end
 
 #image upload
@@ -56,7 +56,7 @@ gem 'kaminari'
 gem 'capistrano', "3.0.1", group: :development
 gem 'capistrano-ext'
 
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 gem 'simple_form'
 
-gem 'geokit-rails'
+#gem 'geokit-rails'
