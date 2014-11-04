@@ -91,7 +91,9 @@ Rails.application.routes.draw do
 
       end
     end
-  
+    
+    resources :contacts, only: [:index]
+    
     resources :boxes do 
       resources :faqs do 
         member do 

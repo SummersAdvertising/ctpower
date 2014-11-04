@@ -1,0 +1,13 @@
+<% @contacts.each do |contact| %>
+  <div style:'float:left;'>
+  <%= contact.name %> = <%= contact.subject %> = <%= contact.email %>
+  <%= contact.phone %><br>
+  <%= contact.content %>
+  </div>
+  <hr>
+<% end %>
+
+
+<div class= "page">
+  <%= paginate @contacts ,:window => 2 %>
+</div>
