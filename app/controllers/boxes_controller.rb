@@ -5,6 +5,7 @@ class BoxesController < ApplicationController
   def index
     @boxes = Box.without_root_node
     @box = @boxes.first
+    @faqs = @box.faqs
   end
 
   def show 

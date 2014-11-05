@@ -9,7 +9,7 @@ box<br>
 
 
 
-<% @box.faqs.each do |faq| %>
+<% @faqs.each do |faq| %>
     
   <%= faq.question %>
   <a class='faq_quickview' href="javascript:void(0);" data-faq='<%= faq.id %>'><%= faq.question %> </a> 
