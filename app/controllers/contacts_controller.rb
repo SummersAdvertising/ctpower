@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ContactsController < ApplicationController
   #new business contact
   def index
@@ -5,18 +6,29 @@ class ContactsController < ApplicationController
   end
 
   def create
-    
-    @contact = Contact.create(contact_params)
 
-    respond_to do |format|
-      if @contact.save
-       
-        flash[:notice] = "更新成功"
-        format.html { redirect_to contacts_path() }
-        #format.js {render :js => "window.location.href=window.location.href;"}
-      else
-        format.html { redirect_to :back , notice: @contact.errors.full_messages }
+    if verify_recaptcha
+
+      @contact = Contact.create(contact_params)
+
+      respond_to do |format|
+        if @contact.save
+          
+          CtpowermailerJob.new.async.perform(CtpowerMailer, :contact_notice, @contact)
+          
+          flash[:notice] = "更新成功"
+          format.html { redirect_to contacts_path() }
+        else
+          @contact = Contact.new
+          format.html { render :index , notice: @contact.errors.full_messages }
+        end
       end
+    
+    else
+      @contact = Contact.new
+      flash.now[:alert] = "驗證碼錯誤"
+      flash.delete :recaptcha_error
+      render :index
     end
 
   end

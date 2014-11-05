@@ -17,7 +17,7 @@
   <div style='float:left;'>FEATURE<br>
     <% @features.each do |feature| %>
       <%= feature.title %> = <%= feature.context %>
-      <%= render 'admin/common/show_by_type', target: feature, target_title: '圖', type: 'VehicleFeature' %>
+      <%= render 'layouts/show_by_type', target: feature, target_title: '圖', type: 'VehicleFeature' %>
       <br>
     <% end %>
   </div>
@@ -39,13 +39,13 @@
   </div>
   <div style='float:left;'>vehicle slider <br>
     <%# temp %>
-    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehicleSlider' %>
+    <%= render 'layouts/show_by_type', target: @vehicle, target_title: '圖', type: 'VehicleSlider' %>
   </div>
   <div style='float:left;'>vehicle DM file <br>
-    <%= render 'admin/common/show_document_by_type', target: @vehicle, target_title: '附件', type: 'VehicleDMFile' %>
+    <%= render 'layouts/show_document_by_type', target: @vehicle, target_title: '附件', type: 'VehicleDMFile' %>
   </div>
   <div style='float:left;'>VehiclePhotoGallery <br>
-    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
+    <%= render 'layouts/show_by_type', target: @vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
   </div>
 
   <div style=' clear: both;'></div>

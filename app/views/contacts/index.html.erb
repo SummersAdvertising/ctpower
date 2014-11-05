@@ -22,12 +22,13 @@ BusinessContact
               內容：<%= f.text_area :content, id: "textarea" %><br>
             </td>
           </tr>
+          <tr>
+            <td>
+              <%= recaptcha_tags :display => { :theme => "clean" } %>
+              <%= f.submit '送出' %>
+            </td>
+          </tr>
         </table>
       <% end %>
     </div>
-
-    <div class="button">
-      
-      <a href="javascript: document.getElementById('newthiscontact').submit();" class="right highlight" data-no-turbolink = true >送出
-        <img src="<%= image_path("/images/admin/up.png") %>">
-        </a>
+  </article>

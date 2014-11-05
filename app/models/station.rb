@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Station < ActiveRecord::Base
   # map
-  acts_as_mappable  :default_units => :kms, :default_formula => :sphere
+  # acts_as_mappable  :default_units => :kms, :default_formula => :sphere
 
   has_many :galleries, -> { order('ranking, created_at') } , as: :attachable , dependent: :destroy
 

@@ -42,8 +42,8 @@ group :development do
   #gem 'xray-rails'
 end
 
-#gem 'sucker_punch', '~> 1.0'
-#gem 'mailgun_rails'
+gem 'sucker_punch', '~> 1.0'
+gem 'mailgun_rails'
 
 gem 'recaptcha', :require => "recaptcha/rails"
 

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ReservationsController < ApplicationController
   #new business reservation
   def index
@@ -6,17 +7,28 @@ class ReservationsController < ApplicationController
 
   def create
     
-    @reservation = Reservation.create(reservation_params)
+    if verify_recaptcha
+      @reservation = Reservation.create(reservation_params)
 
-    respond_to do |format|
-      if @reservation.save
-       
-        flash[:notice] = "更新成功"
-        format.html { redirect_to reservations_path() }
-        #format.js {render :js => "window.location.href=window.location.href;"}
-      else
-        format.html { redirect_to :back , notice: @reservation.errors.full_messages }
+      respond_to do |format|
+        if @reservation.save
+          
+          CtpowermailerJob.new.async.perform(CtpowerMailer, :contact_notice, @reservation)
+          
+          flash[:notice] = "更新成功"
+          format.html { redirect_to reservations_path() }
+          #format.js {render :js => "window.location.href=window.location.href;"}
+        else
+          @reservation = Reservation.new
+          format.html { render :index , notice: @reservation.errors.full_messages }
+        end
       end
+    
+    else
+      @reservation = Reservation.new
+      flash.now[:alert] = "驗證碼錯誤"
+      flash.delete :recaptcha_error
+      render :index
     end
 
   end

@@ -1,4 +1,5 @@
 <% @categories.each do |category| %>
+  <h1><%= category.name %></h1>
   <% category.vehicles.where(status: 'enable').limit(3).each do |vehicle| %>
   <div style='float:left;'>
     NAME:<%= link_to vehicle.name, vehicle_path(vehicle) %><br>
@@ -6,7 +7,7 @@
   </div>
   
   <div style='float:left;'>VehiclePhotoGallery <br>
-    <%= render 'admin/common/show_by_type', target: vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
+    <%= render 'layouts/show_by_type', target: vehicle, target_title: '圖', type: 'VehicleCover' %>
   </div>
 
   <div style=' clear: both;'></div>

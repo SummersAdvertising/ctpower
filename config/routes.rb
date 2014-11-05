@@ -15,11 +15,15 @@ Rails.application.routes.draw do
   end
   
   resources :vehicles, only: [:index, :show]
-  # resources :categories, only: [:index, :show] do 
-  #   resources :vehicles, only: [:index, :show] do
+  
+  resources :stations, only: [:index, :show] do 
+    collection do 
+      post 'search', action: 'search'
+    end
+  end
 
-  #   end
-  # end
+  get 'fetch_from_country' => 'stations#fetch_from_country'
+  get 'fetch_from_city' => 'stations#fetch_from_city'
 
   resources :contacts, only: [:index, :create]
   resources :reservations, only: [:index, :create]

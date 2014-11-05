@@ -37,17 +37,17 @@ class Admin::StationsController < AdminController
 
   def show
     #.pluck(:name, :lat, :lng).to_json
-    nearby_info = Station.within(5, origin: @station)
-    @info_array = Array.new
-    nearby_info.each do |station|
+    # nearby_info = Station.within(5, origin: @station)
+    # @info_array = Array.new
+    # nearby_info.each do |station|
       
-      if station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first
-        a = station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first.attachment.url 
-      end
+    #   if station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first
+    #     a = station.galleries.select{ |v| v['type'] == "StationPhotoGallery"  }.first.attachment.url 
+    #   end
 
-      temp = [render_to_string(partial: 'info_window', :layout => false, locals: {station: station})]
-      @info_array.push(temp)
-    end 
+    #   temp = [render_to_string(partial: 'info_window', :layout => false, locals: {station: station})]
+    #   @info_array.push(temp)
+    # end 
     
   end
 

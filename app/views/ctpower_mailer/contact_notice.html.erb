@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <%= render "ctpower_mailer/header_logo" %>  
+  
+  <p>親愛的管理員 ___ 您好：</p>
+
+  <p>留言：</p>
+  <p><%= @contact.subject %></p>
+  <p><%= @contact.name %></p>
+  <p><%= @contact.email %></p>
+  <p><%= @contact.phone %></p>
+  <p><%= @contact.content %></p>
+
+  <%= render "ctpower_mailer/footer" %>
+</body>
+</html>

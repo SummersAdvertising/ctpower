@@ -1,0 +1,17 @@
+Store show<br>
+<p id='status'></p>
+
+<%= @station.name %><br>
+<%= @station.intro %><br>
+<%= @station.phone %><br>
+<%= @station.address %><br>
+<%= @station.ophour %><br>
+<%= @station.latlng.html_safe %><br>
+<%= @station.lat %> , <%= @station.lng %><br>
+<% if @station.galleries.where(type: 'StationPhotoGallery').first %>
+    <% a = @station.galleries.where(type: 'StationPhotoGallery').first.attachment.url  %>
+<% end %>
+
+
+<br><br><br><br>
+
