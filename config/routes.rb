@@ -112,6 +112,9 @@ Rails.application.routes.draw do
       end 
     end
 
+    resources :reservations , onlt: [:index]
+    resources :contacts , onlt: [:index]
+    
   end
 
   get '(*url)'   => 'errors#index'

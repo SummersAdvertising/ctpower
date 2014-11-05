@@ -1,0 +1,13 @@
+<% @reservations.each do |reservation| %>
+  <div style:'float:left;'>
+  <%= reservation.name %> = <%= reservation.subject %> = <%= reservation.email %>
+  <%= reservation.phone %><br>
+  <%= reservation.content %>
+  </div>
+  <hr>
+<% end %>
+
+
+<div class= "page">
+  <%= paginate @reservations ,:window => 2 %>
+</div>
