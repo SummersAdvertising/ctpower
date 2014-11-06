@@ -132,7 +132,7 @@ class Admin::VehiclesController < AdminController
         format.html { redirect_to :back, notice: '更新成功' }
         #format.html { redirect_to admin_product_cate_product_path(@vehicle.product_cate_id, @vehicle) }
       else
-        format.html { render :back, notice: @vehicle.errors.full_messages }
+        format.html { render :edit, notice: @vehicle.errors.full_messages }
       end      
     end
 

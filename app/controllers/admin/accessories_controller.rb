@@ -30,7 +30,7 @@ class Admin::AccessoriesController < AdminController
   end
   
   def edit 
-    @gallery_count = @accessory.galleries.select{ |v| v['type'] == "VehicleAccessory" }.count
+    @gallery_count = @accessory.galleries.where(type: 'VehicleAccessory').count
   end
 
   def update
@@ -50,7 +50,7 @@ class Admin::AccessoriesController < AdminController
         format.html { redirect_to :back, notice: '更新成功' }
         #format.html { redirect_to admin_product_cate_product_path(@vehicle.product_cate_id, @vehicle) }
       else
-        format.html { render :back, notice: @accessory.errors.full_messages }
+        format.html { redirect_to :back, notice: @accessory.errors.full_messages }
       end      
     end
   end
@@ -72,9 +72,9 @@ class Admin::AccessoriesController < AdminController
   def accessory_params
 
     if accessory_type == 'ComplimentaryAccessory'
-      params.require(:complimentary_accessory).permit(:title, :description)
+      params.require(:complimentary_accessory).permit(:title, :context, :type)
     elsif accessory_type == 'OptionalAccessory'
-      params.require(:optional_accessory).permit(:title, :description, :related_product_id, :status)
+      params.require(:optional_accessory).permit(:title, :context, :type)
     end
     
   end

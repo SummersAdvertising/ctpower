@@ -2,7 +2,7 @@
 class Admin::ColorsController < AdminController
   
   before_action :set_vehicle, only: [:index, :new, :create, :edit, :update]
-  before_action :set_color, only: [:edit, :update]
+  before_action :set_color, only: [:edit, :update, :destroy]
 
   def index
     @colors = @vehicle.colors
@@ -19,6 +19,7 @@ class Admin::ColorsController < AdminController
     if @color.save
         format.html { redirect_to admin_category_vehicle_colors_path(params[:category_id], params[:vehicle_id]), notice: 'successfully created.' }
       else
+        @color = @vehicle.colors.new
         flash.now[:notice] = @color.errors.full_messages 
         format.html { render :new }
       end
@@ -44,12 +45,20 @@ class Admin::ColorsController < AdminController
     
     respond_to do |format|
       if @color.save
-        format.html { redirect_to :back, notice: '更新成功' }
+        format.html { redirect_to admin_category_vehicle_colors_path(params[:category_id], params[:vehicle_id]), notice: '更新成功' }
         #format.html { redirect_to admin_product_cate_product_path(@vehicle.product_cate_id, @vehicle) }
       else
-        format.html { render :back, notice: @color.errors.full_messages }
+        @gallery_count = @color.galleries.select{ |v| v['type'] == "VehicleColorDemo" }.count
+        format.html { render :edit, notice: @color.errors.full_messages }
       end      
     end
+  end
+
+  def destroy
+
+    @color.destroy
+    
+    redirect_to :back
   end
 
   private

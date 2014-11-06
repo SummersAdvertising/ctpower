@@ -11,6 +11,17 @@ class BoxesController < ApplicationController
   def show 
     @boxes = Box.without_root_node
     @box = Box.includes(:faqs).find_by_id(params[:id])
+    @faqs = @box.faqs if @box
+
+    respond_to do |format|
+      if(@box)
+        #@content = @faq.article.content
+        format.html
+      else
+        format.html { redirect_to FAQs_path(), alert: "找不到項目" }
+      end
+    end
+
   end
 
   def fetch_by_box
@@ -20,7 +31,7 @@ class BoxesController < ApplicationController
         #@content = @faq.article.content
         format.js
       else
-        format.html { redirect_to faqs_path(), alert: "找不到QA" }
+        format.html { redirect_to FAQs_path(), alert: "找不到項目" }
       end
     end
     

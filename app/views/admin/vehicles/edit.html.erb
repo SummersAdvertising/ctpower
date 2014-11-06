@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/js_plugins/jscolor/jscolor.js"></script>
 
 <header>
   <h2 class="left">編輯產品</h2>
@@ -23,10 +24,8 @@
   <div class="form">
   
     <%= simple_form_for(@vehicle, :url => admin_category_vehicle_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
-    名稱：<%= f.input_field :name %><br>
-    標題顏色：<%= f.input_field :title_color %><br>
-    價格：<%= f.input_field :price %><br>
-    補助價：<%= f.input_field :price_for_sale %><br>
+    名稱：<%= f.input_field :name, required: true %><br>
+    標題顏色：<%= f.input_field :title_color, class: 'color', required: true %><br>
     CF：<%= f.input_field :cf %><br>
     簡介：<%= f.text_area :description %><br>
 

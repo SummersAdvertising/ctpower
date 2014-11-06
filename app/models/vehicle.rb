@@ -15,10 +15,19 @@ class Vehicle < ActiveRecord::Base
 
   store :context, accessors: [ :context_1, :context_2, :context_3 ]
 
+  before_validation :check_attrs
   #callback
   after_create :create_default_specs
 
+  validates_presence_of :name, :title_color
+
   private
+
+  def check_attrs
+    self.name = "未命名車款" if self.name.blank?
+    self.status = "enable" if self.status.blank?
+    self.title_color = "000000" if self.title_color.blank?
+  end
 
   def create_default_specs
     

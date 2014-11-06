@@ -1,5 +1,4 @@
 box<br>
-
 <%= render 'faqs/search_form'%>
 
 <% @boxes.each do |box| %>
@@ -8,16 +7,17 @@ box<br>
 
 
 
-
-<% @faqs.each do |faq| %>
-    
-  <%= faq.question %>
-  <a class='faq_quickview' href="javascript:void(0);" data-faq='<%= faq.id %>'><%= faq.question %> </a> 
-  <br>
-  <p id='<%= "faqblock_#{faq.id}"%>'> 
-  <%# render partial: 'faq_block', locals: {faq: faq} %>
-  </p>
-    
+<% if @faqs %>
+  <% @faqs.each do |faq| %>
+      
+    <%= faq.question %>
+    <a class='faq_quickview' href="javascript:void(0);" data-faq='<%= faq.id %>'><%= faq.question %> </a> 
+    <br>
+    <p id='<%= "faqblock_#{faq.id}"%>'> 
+    <%# render partial: 'faq_block', locals: {faq: faq} %>
+    </p>
+      
+  <% end %>
 <% end %>
 
 

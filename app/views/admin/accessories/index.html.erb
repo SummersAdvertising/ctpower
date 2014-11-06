@@ -17,7 +17,8 @@
 
 <% @accessories.each do |accessory| %>
   <%= accessory.title %> == <%= accessory.context %> 
-  [<%= link_to 'edit', edit_admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id],accessory) %>| delete ]
+  [<%= link_to 'edit', edit_admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id],accessory) %>| 
+   <%= link_to("delete", admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id],accessory), :method => :delete, :data => {:confirm => "確定刪除？"}, class: "delete") %>]
   <br>
 <% end %>
 

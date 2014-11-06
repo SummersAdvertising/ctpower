@@ -6,20 +6,20 @@ TestDriveContact
           <tr>
             <td width="7%">商品：</td>
             <td width="31%">
-              主旨：<%= f.text_field :subject %><br>
+              主旨：<%= f.text_field :subject, required: true %><br>
             </td>
             <td width="2%">&nbsp;</td>
             <td width="7%">顯示：</td>
             <td width="53%">
-              姓名：<%= f.text_field :name %><br>
-              電話：<%= f.text_field :phone %><br>
-              email：<%= f.text_field :email %><br>
+              姓名：<%= f.text_field :name, required: true %><br>
+              電話：<%= f.text_field :phone, required: true %><br>
+              email：<%= f.text_field :email, required: true %><br>
             </td>
           </tr>
           <tr>
             <td valign="top">內容：</td>
             <td colspan="4">
-              內容：<%= f.text_area :content, id: "textarea" %><br>
+              內容：<%= f.text_area :content, id: "textarea", required: true %><br>
             </td>
           </tr>
           <tr>

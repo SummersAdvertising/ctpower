@@ -13,6 +13,7 @@ class FaqsController < ApplicationController
   # end
 
   def fetch_by_box
+    
     @faq = Faq.find_by_id(params[:id])
     respond_to do |format|
       if(@faq)

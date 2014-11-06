@@ -16,8 +16,10 @@
 <%= link_to 'NEW', new_admin_category_vehicle_color_path(params[:category_id], params[:vehicle_id]) %><br><br><br>
 
 <% @colors.each do |color| %>
-  <%= color.name %> == <%= color.hexcode %> 
-  [<%= link_to 'edit', edit_admin_category_vehicle_color_path(params[:category_id], params[:vehicle_id],color) %>| delete ]
+  <%= color.name %> == <%= color.hexcode %> <div style='width:50px;height:50px;background:#<%= "#{color.hexcode}"%>;'>&nbsp;</div>
+  [<%= link_to 'edit', edit_admin_category_vehicle_color_path(params[:category_id], params[:vehicle_id],color) %>| 
+   <%= link_to("刪除", admin_category_vehicle_color_path(params[:category_id], params[:vehicle_id],color), :method => :delete, :data => {:confirm => "確定刪除？"}, class: "delete") %>
+  ]
   <br>
 <% end %>
 <br>

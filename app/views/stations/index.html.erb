@@ -4,7 +4,7 @@
      
      <%= search_form_for @q, url: search_stations_path, class: "form-inline quick-search-form" , method: :post, remote: true do |f| %>
        
-        <div class='form-group'>
+        <div class='form-group' style='display:none;'>
           <%= f.select :country_eq, options_from_collection_for_select(@countries ,
               "id", "name" ) , id: 'q_country_eq', class: "form-control" %>
         </div>
@@ -14,7 +14,7 @@
         </div>
         <div class='form-group'>
           <%= f.select :district_eq, options_from_collection_for_select(@districts ,
-              "id", "name" ) , id: 'q_district_eq', class: "form-control" %>
+              "id", "name" ) ,{:prompt => '-- 請選擇 --'}, id: 'q_district_eq', class: "form-control" %>
         </div>
         <%= f.submit('搜尋' , id: "quick-search", class: "btn btn-custom") %>
      <% end %>
