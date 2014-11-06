@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show]
 

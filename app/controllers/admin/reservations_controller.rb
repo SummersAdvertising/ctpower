@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::ReservationsController < AdminController
   #new business contact
   def index

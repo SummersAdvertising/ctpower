@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::AnnouncementsController < AdminController
   layout :resolve_layout
 

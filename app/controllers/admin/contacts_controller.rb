@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::ContactsController < AdminController
   #new business contact
   def index
