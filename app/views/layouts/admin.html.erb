@@ -18,7 +18,7 @@ layout/admin<br>
 <%= link_to "Business Contact", admin_contacts_path %>
 <%= link_to "TestDrive Reservation", admin_reservations_path %>
 <%= link_to "前台首頁", root_path %>
-<%= link_to current_admin.email, 'javascript:void(0)'%>
+<%= link_to current_admin.email, admin_admins_path %>
 <%= link_to 'Log out', destroy_admin_session_path, :method => :delete %>
 
 <br>

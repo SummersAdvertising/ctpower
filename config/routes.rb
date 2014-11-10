@@ -39,11 +39,14 @@ Rails.application.routes.draw do
     end
   end
 
+  # Admin
   namespace :admin do
 
     authenticated :admin do
       root "announcements#index"#, :as => :authenticated_root
     end
+    
+    resources :admins
 
     resources :announcements do 
       member do
