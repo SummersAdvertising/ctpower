@@ -2,8 +2,6 @@
 class CtpowerMailer < ActionMailer::Base
   #require this lib when sending email by MailGun API
   require 'multimap'
-  #default from: "Ladyboo <postmaster@sandbox6bfc02b6428d419186e8f7fa102fb7a1.mailgun.org>"
-  #default from: "from@example.com"
   
   before_action :set_basic_data
   

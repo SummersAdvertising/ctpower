@@ -47,8 +47,6 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
-    capistrano-ext (1.2.1)
-      capistrano (>= 1.0.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -197,8 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capistrano (= 3.0.1)
-  capistrano-ext
+  capistrano
   carrierwave
   coffee-rails (~> 4.0.0)
   devise

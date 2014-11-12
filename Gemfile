@@ -59,8 +59,8 @@ gem "rails-alertify"
 gem 'kaminari'
 
 
-gem 'capistrano', "3.0.1", group: :development
-gem 'capistrano-ext'
+gem 'capistrano'#, "3.0.1", group: :development
+# gem 'capistrano-ext'
 
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 gem 'simple_form'
