@@ -4,8 +4,11 @@ class Accessory < ActiveRecord::Base
   belongs_to :vehicle
   has_many :galleries, -> { order('ranking, created_at') } , as: :attachable , dependent: :destroy
 
+  store :context, accessors: [ :context_1, :context_2, :context_3 ]
+
   before_validation :check_attrs
   validates_presence_of :title, :context, :type
+
 
   private
 

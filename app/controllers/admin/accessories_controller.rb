@@ -72,9 +72,9 @@ class Admin::AccessoriesController < AdminController
   def accessory_params
 
     if accessory_type == 'ComplimentaryAccessory'
-      params.require(:complimentary_accessory).permit(:title, :context, :type)
+      params.require(:complimentary_accessory).permit(:title, :context_1, :context_2, :context_3, :type)
     elsif accessory_type == 'OptionalAccessory'
-      params.require(:optional_accessory).permit(:title, :context, :type)
+      params.require(:optional_accessory).permit(:title, :context_1, :context_2, :context_3, :type)
     end
     
   end

@@ -2,7 +2,10 @@
 <%= simple_form_for(@accessory, :url => admin_category_vehicle_accessories_path(params[:category_id] , params[:vehicle_id], @accessory), html: { id: "postthisaccessory" } ) do |f| %>
 
 title：<%= f.input_field :title %><br>
-context：<%= f.input_field :context %><br>
+context_1：<%= f.input_field :context_1 %> <br>
+context_2：<%= f.input_field :context_2 %> <br>
+context_3：<%= f.input_field :context_3 %> <br>
+
 type：<%= f.input :type, as: :radio_buttons,  collection: @accessory_types %><br>
 
   <%= f.submit 'Save' %><br>

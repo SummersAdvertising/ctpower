@@ -16,7 +16,10 @@
 <%= link_to 'NEW', new_admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id]) %><br><br><br>
 
 <% @accessories.each do |accessory| %>
-  <%= accessory.title %> == <%= accessory.context %> 
+  <%= accessory.title %><br>
+  <%= accessory.context_1 %> <br>
+  <%= accessory.context_2 %> <br>
+  <%= accessory.context_3 %> <br>
   [<%= link_to 'edit', edit_admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id],accessory) %>| 
    <%= link_to("delete", admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id],accessory), :method => :delete, :data => {:confirm => "確定刪除？"}, class: "delete") %>]
   <br>
