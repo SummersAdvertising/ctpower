@@ -31,6 +31,7 @@ group :production, :staging do
   gem 'mysql2'
 end
 
+gem 'capistrano'#, "3.0.1", group: :development
 group :development do
   gem 'thin'
   gem 'meta_request'
@@ -40,6 +41,10 @@ group :development do
   gem 'sqlite3'
   #gem 'sextant'
   #gem 'xray-rails'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  
+  gem 'rvm-capistrano'
+  gem 'capistrano-ext'
 
 end
 
@@ -58,9 +63,6 @@ gem 'devise'
 gem "rails-alertify"
 gem 'kaminari'
 
-
-gem 'capistrano'#, "3.0.1", group: :development
-# gem 'capistrano-ext'
 
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 gem 'simple_form'
