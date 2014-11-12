@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
         else
           # @contact = Contact.new
           set_options
-          flash.now[:notice] = @reservation.errors.full_messages
+          flash.now[:notice] = @contact.errors.full_messages
           format.html { render :index }
         end
       end
