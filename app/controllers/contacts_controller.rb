@@ -20,9 +20,10 @@ class ContactsController < ApplicationController
           flash[:notice] = "更新成功"
           format.html { redirect_to contacts_path() }
         else
-          @contact = Contact.new
+          # @contact = Contact.new
           set_options
-          format.html { render :index , notice: @contact.errors.full_messages }
+          flash.now[:notice] = @reservation.errors.full_messages
+          format.html { render :index }
         end
       end
     

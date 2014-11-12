@@ -115,8 +115,8 @@ Rails.application.routes.draw do
       end 
     end
 
-    resources :reservations , onlt: [:index]
-    resources :contacts , onlt: [:index]
+    resources :reservations , only: [:index]
+    resources :contacts , only: [:index]
     
   end
 

@@ -20,9 +20,10 @@ class ReservationsController < ApplicationController
           format.html { redirect_to reservations_path() }
           
         else
-          @reservation = Reservation.new
+          # @reservation = Reservation.new
           set_options
-          format.html { render :index , notice: @reservation.errors.full_messages }
+          flash.now[:notice] = @reservation.errors.full_messages
+          format.html { render :index  }
         end
       end
     
