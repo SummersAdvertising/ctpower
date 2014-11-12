@@ -22,7 +22,8 @@ class ReservationsController < ApplicationController
         else
           # @reservation = Reservation.new
           set_options
-          flash.now[:notice] = @reservation.errors.full_messages
+          # flash.now[:notice] = @reservation.errors.full_messages
+          flash.now[:notice] = @reservation.errors.messages.values.flatten.join('<br />')
           format.html { render :index  }
         end
       end
