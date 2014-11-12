@@ -2,6 +2,7 @@
 class ReservationsController < ApplicationController
   #new business reservation
   def index
+    set_options
     @reservation = Reservation.new()
   end
 
@@ -15,28 +16,37 @@ class ReservationsController < ApplicationController
           
           CtpowermailerJob.new.async.perform(CtpowerMailer, :contact_notice, @reservation)
           
-          flash[:notice] = "更新成功"
+          flash[:notice] = "已送出"
           format.html { redirect_to reservations_path() }
-          #format.js {render :js => "window.location.href=window.location.href;"}
+          
         else
           @reservation = Reservation.new
+          set_options
           format.html { render :index , notice: @reservation.errors.full_messages }
         end
       end
     
     else
       @reservation = Reservation.new
+      set_options
       flash.now[:alert] = "驗證碼錯誤"
       flash.delete :recaptcha_error
       render :index
     end
 
   end
+  # Subject
+  # 聯絡我們頁選項(單選)
+  # 預約試乘、意見回饋、其他
 
   private
 
+  def set_options
+    @options = [["testdrive","預約試乘"],["opinion","意見回饋"],["etc","其他"]]
+  end
+  
   # Never trust parameters from the scary internet, only allow the white list through.
   def reservation_params  
-    params.require(:reservation).permit(:subject, :name, :email, :phone, :content)
+    params.require(:reservation).permit(:subject , :name, :email, :phone, :content)
   end
 end

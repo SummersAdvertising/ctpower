@@ -6,7 +6,11 @@ BusinessContact
           <tr>
             <td width="7%">商品：</td>
             <td width="31%">
-              主旨：<%= f.text_field :subject, required: true %><br>
+              主旨：<br>
+              <% @options.each do | option | %>
+                <%= f.radio_button :subject, option[0] %>
+                <label for='<%= "contact_subject_#{option[0]}" %>' ><%= option[1] %> </label>
+              <% end %>
             </td>
             <td width="2%">&nbsp;</td>
             <td width="7%">顯示：</td>

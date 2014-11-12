@@ -28,7 +28,7 @@ class CtpowerMailer < ActionMailer::Base
   # MAILGUN
   def set_basic_data
     @data = Multimap.new
-    @data[:from] = "Citypower <no-reply@sandbox6bfc02b6428d419186e8f7fa102fb7a1.mailgun.org>"
+    @data[:from] = "Citypower <postmaster@sandbox6bfc02b6428d419186e8f7fa102fb7a1.mailgun.org>"
     #@data[:inline] = File.new(File.join("public","images","email", "maillogo.jpg")) # inline img
   end
 

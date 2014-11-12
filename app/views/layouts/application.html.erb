@@ -25,6 +25,18 @@
 <script src="/js/bootstrap.min.js"></script> 
 <script src="/js_plugins/bxslider/jquery.bxslider.min.js"></script> 
 
+<script>
+  window.onload= function() {
+  <% if !flash[:notice].nil? %>
+   alertify['success']('<%= flash[:notice] %>', 2000);
+  <% end %>
+  
+  <% if !flash[:alert].nil? %>
+  alertify['error']("<%= flash[:alert].html_safe %>", 2000); 
+  <% end %>
+}
+</script>
+  
 </head>
 
 <body>
