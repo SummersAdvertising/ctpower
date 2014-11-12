@@ -29,12 +29,18 @@
   </div>
   <div style='float:left;'>Complimentary ACC. <br>
     <% @com_accessories.each do |accessory| %>
-      <%= accessory.title %> = <%= accessory.context %><br>
+      <%= accessory.title %><br>
+      <%= accessory.context_1 %><br>
+      <%= accessory.context_2 %><br>
+      <%= accessory.context_3 %><br>
     <% end %>
   </div>
   <div style='float:left;'>OPTIONAL ACC. <br>
     <% @opt_accessories.each do |accessory| %>
-      <%= accessory.title %> = <%= accessory.context %><br>
+      <%= accessory.title %><br>
+      <%= accessory.context_1 %><br>
+      <%= accessory.context_2 %><br>
+      <%= accessory.context_3 %><br>
     <% end %>
   </div>
   <div style='float:left;'>vehicle slider <br>
