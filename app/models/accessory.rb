@@ -7,7 +7,8 @@ class Accessory < ActiveRecord::Base
   store :context, accessors: [ :context_1, :context_2, :context_3 ]
 
   before_validation :check_attrs
-  validates_presence_of :title, :context, :type
+
+  validates_presence_of :title, :type
 
 
   private

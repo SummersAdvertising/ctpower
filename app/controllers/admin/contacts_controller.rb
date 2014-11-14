@@ -2,13 +2,24 @@
 class Admin::ContactsController < AdminController
   #new business contact
   def index
-    @contacts = Contact.order(created_at: :desc).page(params[:page])
+    @contacts = Contact.new_asks.page(params[:page])
   end
 
-  private
+  def history
+    @contacts = Contact.history_asks.page(params[:page])
+  end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  # def contact_params  
-  #   params.require(:contact).permit(:subject, :name, :email, :phone, :content)
-  # end
+  def update
+    @contact = Contact.find_by_id(params[:id])
+
+    if(@contact)
+      @contact.status = "done"
+      @contact.save
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+    end
+  end
+  
 end

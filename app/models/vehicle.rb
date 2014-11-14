@@ -19,7 +19,7 @@ class Vehicle < ActiveRecord::Base
   #callback
   after_create :create_default_specs
 
-  validates_presence_of :name, :title_color
+  validates_presence_of :name, :title_color, :cf
 
   private
 

@@ -1,7 +1,7 @@
 Vehicle  SHOW
 <br>
 = CF<br>
-<%= @vehicle.cf.html_safe%>
+<%= @vehicle.cf.html_safe if @vehicle.cf %>
 <br>
 = DM DOWNLOAD<br>
 <% @dms.each do |dm| %>

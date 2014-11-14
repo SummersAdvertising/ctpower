@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103073413) do
+ActiveRecord::Schema.define(version: 20141114031036) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20141103073413) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",     default: "new"
   end
 
   create_table "countries", force: true do |t|
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 20141103073413) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",     default: "new"
   end
 
   create_table "specs", force: true do |t|

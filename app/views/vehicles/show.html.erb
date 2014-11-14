@@ -2,7 +2,7 @@
   
   <div style='float:left;'>
     NAME:<%= @vehicle.name %><br>
-    CF:<%= @vehicle.cf.html_safe %><br>
+    CF:<%= @vehicle.cf.html_safe if @vehicle.cf %><br>
     PRICE:<%= @vehicle.price %> = ON SALE:<%= @vehicle.price_for_sale %><br>
     DESCRIPTION:<%= @vehicle.description %><br>
     TILE_COLOR:<%= @vehicle.title_color %><br>

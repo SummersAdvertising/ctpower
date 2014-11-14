@@ -115,8 +115,17 @@ Rails.application.routes.draw do
       end 
     end
 
-    resources :reservations , only: [:index]
-    resources :contacts , only: [:index]
+    resources :contacts, :only => [:index, :update] do
+      collection do 
+        get 'history', action: 'history'
+      end
+    end
+    
+    resources :reservations, :only => [:index, :update] do
+      collection do 
+        get 'history', action: 'history'
+      end
+    end
     
   end
 

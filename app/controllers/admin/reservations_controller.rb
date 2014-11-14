@@ -1,14 +1,25 @@
 #encoding: utf-8
 class Admin::ReservationsController < AdminController
-  #new business contact
+  #new testdrive reservation
   def index
-    @reservations = Reservation.order(created_at: :desc).page(params[:page])
+    @reservations = Reservation.new_asks.page(params[:page])
   end
 
-  private
+  def history
+    @reservations = Reservation.history_asks.page(params[:page])
+  end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  # def contact_params  
-  #   params.require(:contact).permit(:subject, :name, :email, :phone, :content)
-  # end
+  def update
+    @reservation = Reservation.find_by_id(params[:id])
+
+    if(@reservation)
+      @reservation.status = "done"
+      @reservation.save
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+    end
+  end
+
 end
