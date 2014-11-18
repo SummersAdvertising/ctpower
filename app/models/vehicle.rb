@@ -27,6 +27,7 @@ class Vehicle < ActiveRecord::Base
     self.name = "未命名車款" if self.name.blank?
     self.status = "enable" if self.status.blank?
     self.title_color = "000000" if self.title_color.blank?
+    self.cf = "<iframe>...</iframe>" if self.cf.blank?
   end
 
   def create_default_specs

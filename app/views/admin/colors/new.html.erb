@@ -1,11 +1,35 @@
 <script type="text/javascript" src="/js_plugins/jscolor/jscolor.js"></script>
-= color new =
-<%= simple_form_for(@color, :url => admin_category_vehicle_colors_path(params[:category_id] , params[:vehicle_id], @color), html: { id: "postthiscolor" } ) do |f| %>
-
-name：<%= f.input_field :name, required: true %><br>
-hexcode：<%= f.input_field :hexcode, class: 'color' , required: true %><br>
-
-  <%= f.submit 'Save' %><br>
-<% end %>
-
-<%= link_to 'return' ,admin_category_vehicle_colors_path(params[:category_id], params[:vehicle_id]) %>
+<header>
+  <h2 class="left">車款介紹</h2>
+  <nav class="left">
+    <%= link_to "簡介", edit_admin_category_vehicle_path(@vehicle.category, @vehicle) %>
+    <%= link_to "輪播", admin_category_vehicle_slider_path(@vehicle.category, @vehicle) %>
+    <%= link_to "車色", admin_category_vehicle_colors_path(@vehicle.category, @vehicle), class: 'active' %>
+    <%= link_to "特色", admin_category_vehicle_features_path(@vehicle.category, @vehicle)%>
+    <%= link_to "規格", admin_category_vehicle_specs_path(@vehicle.category, @vehicle)%>
+    <%= link_to "配件", admin_category_vehicle_accessories_path(@vehicle.category, @vehicle)%>
+    <%= link_to "型錄", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
+    <%= link_to "產品圖", admin_category_vehicle_photo_path(@vehicle.category, @vehicle)%>
+  </nav>
+</header>
+<article>
+  <%= simple_form_for(@color, :url => admin_category_vehicle_colors_path(params[:category_id] , params[:vehicle_id], @color), html: { id: "postthiscolor" } ) do |f| %>
+    <div class="form">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+          <td width="9%">名稱：</td>
+          <td width="39%"><%= f.input_field :name, required: true, class: 'text' %></td>
+          <td width="4%">&nbsp;</td>
+          <td width="9%">色碼：</td>
+          <td width="39%"><%= f.input_field :hexcode, class: 'color text' , required: true %></td>           
+        </tr>
+      </table>
+    </div>
+    <div class="button">
+      <%= link_to admin_category_vehicle_colors_path(params[:category_id], params[:vehicle_id]), class: 'left' do %>
+        <img src="/images/admin/left.png">返回
+      <% end %>
+      <%= f.submit '儲存', class: "highlight right" %>
+    </div>
+  <% end %>
+</article>

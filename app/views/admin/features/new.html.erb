@@ -1,10 +1,35 @@
-= FEATURE new =
-<%= simple_form_for(@feature, :url => admin_category_vehicle_features_path(params[:category_id] , params[:vehicle_id], @feature), html: { id: "postthisfeature" } ) do |f| %>
-
-title：<%= f.input_field :title %><br>
-context：<%= f.input_field :context %><br>
-
-  <%= f.submit 'Save' %><br>
-<% end %>
-
-<%= link_to 'return' ,admin_category_vehicle_features_path(params[:category_id], params[:vehicle_id]) %>
+<header>
+  <h2 class="left">車款介紹</h2>
+  <nav class="left">
+    <%= link_to "簡介", edit_admin_category_vehicle_path(@vehicle.category, @vehicle) %>
+    <%= link_to "輪播", admin_category_vehicle_slider_path(@vehicle.category, @vehicle) %>
+    <%= link_to "車色", admin_category_vehicle_colors_path(@vehicle.category, @vehicle) %>
+    <%= link_to "特色", admin_category_vehicle_features_path(@vehicle.category, @vehicle), class: 'active' %>
+    <%= link_to "規格", admin_category_vehicle_specs_path(@vehicle.category, @vehicle) %>
+    <%= link_to "配件", admin_category_vehicle_accessories_path(@vehicle.category, @vehicle)%>
+    <%= link_to "型錄", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
+    <%= link_to "產品圖", admin_category_vehicle_photo_path(@vehicle.category, @vehicle)%>
+  </nav>
+</header>
+<article>
+  <%= simple_form_for(@feature, :url => admin_category_vehicle_features_path(params[:category_id] , params[:vehicle_id], @feature), html: { id: "postthisfeature" } ) do |f| %>
+    <div class="form">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+          <td width="7%">標題：</td>
+          <td width="93%"><%= f.input_field :title, class: 'text' %></td>        
+        </tr>
+        <tr>
+          <td valign="top">內文：</td>
+          <td><%= f.text_area :context, class: 'text' %></td>        
+        </tr>
+      </table>
+    </div>
+    <div class="button">
+      <%= link_to admin_category_vehicle_features_path(params[:category_id], params[:vehicle_id]), class: 'left' do %>
+        <img src="/images/admin/left.png">返回
+      <% end %>
+      <%= f.submit '儲存', class: "highlight right" %>
+    </div>
+  <% end %>
+</article>

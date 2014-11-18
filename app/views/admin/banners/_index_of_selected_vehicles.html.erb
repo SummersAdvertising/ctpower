@@ -14,18 +14,18 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <% @selected_vehicles.each do |selected_vehicle| %>
       <tr>            
-        <td width="15%">
+        <td width="18%">
           <%= link_to("#{Vehicle.find(selected_vehicle.related_product_id).name}", edit_admin_category_vehicle_path(Vehicle.find(selected_vehicle.related_product_id).category, Vehicle.find(selected_vehicle.related_product_id)) ) unless selected_vehicle.related_product_id == 0 %>
         </td>
-        <td width="73%">
+        <td width="64%">
           <p>
             <%= selected_vehicle.description %>
           </p>
         </td>
-        <td width="12%">
+        <td width="18%">
           <div class="tool">
-            <%= link_to '編輯', edit_admin_selected_vehicle_path(selected_vehicle), class: "edit", title: "編輯" %>
-            <%= link_to '刪除', admin_selected_vehicle_path(selected_vehicle), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete', title: '刪除' %>
+            <%= link_to '', edit_admin_selected_vehicle_path(selected_vehicle), class: "edit", title: "編輯" %>
+            <%= link_to '', admin_selected_vehicle_path(selected_vehicle), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete', title: '刪除' %>
           </div>
         </td>
       </tr>

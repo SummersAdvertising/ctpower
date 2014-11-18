@@ -23,7 +23,7 @@ module AnnouncementsHelper
 
   def is_set_top(is_top)
     if is_top < 999
-      image_tag "/images/admin/up.png", title: "置頂"
+      image_tag "/images/admin/star.png", title: "置頂"
     end
   end
 

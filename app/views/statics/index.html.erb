@@ -124,8 +124,8 @@
                 <div class="mask hidden-sm hidden-xs">
                   <span class="date"><%= announcement.created_at.strftime('%m/%d') %></span><br>
                   <p>
-                    <% if announcement.subtitle.length > 0 %>
-                      <%= announcement.subtitle.first(23) %>
+                    <% if announcement.subtitle %>
+                      <%= announcement.subtitle.first(23) if announcement.subtitle.length > 0 %>
                       <%= '...' if announcement.subtitle.length > 23 %>
                     <% end %>
                   </p>

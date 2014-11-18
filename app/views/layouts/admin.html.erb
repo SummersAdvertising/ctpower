@@ -1,10 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <title>Ctpower</title>
+<meta charset="utf-8">
+<meta name="Robots" content="index,follow"/>
+<meta http-equiv="content-language" content="zh-TW" />
+<title>城市動力後台管理系統</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+<link rel="stylesheet/less" type="text/css" href="/css/admin/global.less" />
+<script src="/js/admin/less.min.js"></script>
+<script src="/js/admin/global.js"></script>
 
   <script>
   window.onload= function() {
@@ -20,23 +28,61 @@
 
 </head>
 <body>
-layout/admin<br>
+<section id="wrapper">
+  <header>
+    <h1>城市動力後台管理系統</h1>
+    <aside class="right"> <a href="<%= admin_root_url %>" id="aside-1">index</a><%= link_to "Edit profile", admin_admins_path , id: "aside-2" %><%= link_to 'Log out', destroy_admin_session_path, :method => :delete, id: "aside-3" %></aside>
+  </header>
+  <article id="container">
+     <nav class="left">
+      <ul>
+        <li class="menu-box"><a href="#"><img src="/images/admin/tv.png">首頁管理</a>
+          <div class="menu">
+            <%= link_to "主視覺輪播", admin_index_sliders_path %>
+            <%= link_to "明星商品", admin_selected_vehicles_path %>
+          </div>
+        </li>
+        <li>
+          <%= link_to admin_categories_path do %>
+            <img src="/images/admin/motorcycle.png">車款介紹
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_announcements_path do %>
+            <img src="/images/admin/news.png">最新消息
+          <% end %>
+        </li>
+        <li>
+          <%= link_to  admin_stations_path do %>
+            <img src="/images/admin/map.png">地圖管理
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_boxes_path do %>
+            <img src="/images/admin/comments.png">常見問題
+          <% end %>
+        </li>
+        <li class="menu-box"><a href="#"><img src="/images/admin/contact.png">聯絡我們</a>
+          <div class="menu">
+            <%= link_to "Business Contact", admin_contacts_path %>
+            <%= link_to "TestDrive Reservation", admin_reservations_path %> 
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <%= link_to admin_admins_path do %>
+            <img src="/images/admin/manager.png">管理者
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </article>
+  
+  <section id="content" _height="auto" class="left">
+    <%= yield %>  
+  </section>
 
-<%= link_to '最新消息', admin_announcements_path %>
-<%= link_to "主視覺輪播", admin_index_sliders_path %>
-<%= link_to "明星商品", admin_selected_vehicles_path %>
-<%= link_to "車款介紹", admin_categories_path %>
-<%= link_to "ＢＥＳ站點", admin_stations_path %>
-<%= link_to "ＦＡＱ", admin_boxes_path %>
-<%= link_to "Business Contact", admin_contacts_path %>
-<%= link_to "TestDrive Reservation", admin_reservations_path %>
-<%= link_to "前台首頁", root_path %>
-<%= link_to current_admin.email, admin_admins_path %>
-<%= link_to 'Log out', destroy_admin_session_path, :method => :delete %>
-
-<br>
-
-<%= yield %>
-
+</section>
 </body>
 </html>

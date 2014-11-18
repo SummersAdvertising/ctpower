@@ -1,32 +1,38 @@
-= photo =
 <header>
-  <h2 class="left">編輯產品</h2>
+  <h2 class="left">車款介紹</h2>
   <nav class="left">
-    <%= link_to "Basic", edit_admin_category_vehicle_path(@vehicle.category, @vehicle)%>
-    <%= link_to "Specs", admin_category_vehicle_specs_path(@vehicle.category, @vehicle)%>
-    <%= link_to "Features", admin_category_vehicle_features_path(@vehicle.category, @vehicle)%>
-    <%= link_to "Colors", admin_category_vehicle_colors_path(@vehicle.category, @vehicle)%>
-    <%= link_to "Accessories", admin_category_vehicle_accessories_path(@vehicle.category, @vehicle)%>
-    <%= link_to "VehicleSlider", admin_category_vehicle_slider_path(@vehicle.category, @vehicle)%>
-    <%= link_to "VehicleDMFile", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
-    <%= link_to "VehiclePhotoGallery", admin_category_vehicle_photo_path(@vehicle.category, @vehicle)%>
+    <%= link_to "簡介", edit_admin_category_vehicle_path(@vehicle.category, @vehicle) %>
+    <%= link_to "輪播", admin_category_vehicle_slider_path(@vehicle.category, @vehicle)%>
+    <%= link_to "車色", admin_category_vehicle_colors_path(@vehicle.category, @vehicle)%>
+    <%= link_to "特色", admin_category_vehicle_features_path(@vehicle.category, @vehicle)%>
+    <%= link_to "規格", admin_category_vehicle_specs_path(@vehicle.category, @vehicle)%>
+    <%= link_to "配件", admin_category_vehicle_accessories_path(@vehicle.category, @vehicle)%>
+    <%= link_to "型錄", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
+    <%= link_to "產品圖", admin_category_vehicle_photo_path(@vehicle.category, @vehicle), class: 'active'%>
   </nav>
 </header>
+<article>
+  <div class="hgroup">
+     <div class="button right">
+       
+     </div>
+  </div>
+  <div class='form'>
+    <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_photo_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
 
-<%# if @gallery_count < 1 %>
+      <%= render 'admin/common/upload_by_type', target_title: '產品圖' %>
+      
+      <%= f.hidden_field :status, :value => 'enable' %>
 
-  <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_photo_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
+      <%= f.submit 'Save', class: 'highlight right' %><br>
 
-    <%= render 'admin/common/upload_by_type', target_title: '圖' %>
-    
-    <%= f.hidden_field :status, :value => 'enable' %>
+    <% end %>
+  </div>
 
-    <%= f.submit 'Save' %><br>
+  <div class="gallery">
+    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
+  </div>
 
-  <% end %>
-  
-<%# end %>
+</article>
 
-<%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
 
-<%= link_to "返回", admin_category_path(@vehicle.category) %>

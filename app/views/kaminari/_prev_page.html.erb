@@ -6,11 +6,8 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<li>
-  <%= link_to url, :rel => 'prev', :remote => remote do %>
-    <i class="fa fa-angle-left"></i>
-  <% end %>
-</li>
+  <%= link_to "<", url, :rel => 'prev', :remote => remote, class: "previous" %>
+
   <!-- <li class="previous"> -->
     <%# link_to url, :rel => 'prev', :remote => remote do %>
       <!-- <img src="images/nws-03.gif"> -->

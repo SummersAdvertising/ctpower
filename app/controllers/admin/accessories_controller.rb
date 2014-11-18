@@ -47,10 +47,11 @@ class Admin::AccessoriesController < AdminController
     
     respond_to do |format|
       if @accessory.save
-        format.html { redirect_to :back, notice: '更新成功' }
+        format.html { redirect_to edit_admin_category_vehicle_accessory_path(params[:category_id],params[:vehicle_id],@accessory), notice: '更新成功' }
         #format.html { redirect_to admin_product_cate_product_path(@vehicle.product_cate_id, @vehicle) }
       else
-        format.html { redirect_to :back, notice: @accessory.errors.full_messages }
+        flash[:notice].now = @accessory.errors.full_messages
+        format.html { render :edit }
       end      
     end
   end
