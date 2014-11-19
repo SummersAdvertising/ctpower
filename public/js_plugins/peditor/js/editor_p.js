@@ -181,7 +181,7 @@ editor.p = {
 		if(editor.settings.linkedp){
 			var link = $("<label>");
 			link.append("連結: ");
-			var linkContent = $("<input type='text' size='50'>");
+			var linkContent = $("<input type='text' class='text'>");
 			linkContent.attr("placeholder", "段落尚未建立連結。").val(contentLink.aLink? contentLink.aLink:"");
 		}
 
@@ -191,6 +191,7 @@ editor.p = {
 
 		var cancel = $("<a>");
 		cancel.append("取消");
+		cancel.addClass("uvs");
 		cancel.click(function(){
 			//edit => add; cancel => minus; complete => minus
 			//$('[_height=auto]').height($('[_height=auto]').height()-100);
@@ -206,11 +207,12 @@ editor.p = {
 			
 			$(controlPanel).parents(".paragraphContainer").addClass('part');
 			
-			editor.save();
+			// editor.save();
 		});
 
 		var save = $("<a>");
 		save.append("完成");
+		save.addClass("uvs");
 		save.click(function(){
 			editContent = editor.filter(textarea.val(), editor.HTMLfilter, editor.n2br);
 			if(editContent){

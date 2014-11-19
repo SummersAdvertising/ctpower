@@ -6,47 +6,49 @@
   </nav>
 </header>
 <article>
-  <div class="form">
+  
     <%= form_for @station, :url => admin_station_path(@station), html: {method: "patch" , id: "patchthisstation"} do |f| %>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="7%">門市：</td>
-        <td width="42%"><%= f.text_field :name , class: "text" %></td>
-        <td width="2%"></td>
-        <td width="7%">電話：</td>
-        <td width="42%"><%= f.text_field :phone , class: "text" %></td>
-      </tr>
-      <tr>
-        <td valign="top" style="padding:13px 0 0 0">地址：</td>
-        <td colspan="4">
-          <%= f.hidden_field :country , value: 1 %>         
-          <%= f.select :city, options_for_select(@cities.collect { |city|
-            [city.name, city.id] }, @station.city), {}, { id: 'cities_select', style: "width:14%" } %>
-          <%= f.select :district, options_for_select(@districts.collect { |district|
-            [district.name, district.id] }, @station.district), {}, { id: 'districts_select', style: "width:14%" } %><br>
-            <%= f.text_field :address ,class: "text", placeholder:"請輸入完整地址"%>
-          </td>
-      </tr>
-      <tr>
-        <td>地圖：</td>
-        <td colspan="4"><%= f.text_field :latlng,class: "text" %> </td>
-      </tr>
-      <tr>
-        <!-- <td>緯度(Latitude)：</td> -->
-        <!-- <td colspan="4"><%# f.text_field :lat,class: "text" %> </td> -->
-      </tr>
-      <tr>
-        <!-- <td>經度(Longitude)：</td> -->
-        <!-- <td colspan="4"><%# f.text_field :lng,class: "text" %> </td> -->
-      </tr>
-    </table>
+      <div class="form">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="9%">門市：</td>
+            <td width="39%"><%= f.text_field :name , class: "text" %></td>
+            <td width="4%"></td>
+            <td width="9%">電話：</td>
+            <td width="39%"><%= f.text_field :phone , class: "text" %></td>
+          </tr>
+          <tr>
+            <td valign="center">地址：</td>
+            <td colspan="4" >
+              <%= f.hidden_field :country , value: 1 %>         
+              <%= f.select :city, options_for_select(@cities.collect { |city|
+                [city.name, city.id] }, @station.city), {}, { id: 'cities_select', style: 'width:150px' } %>
+              <%= f.select :district, options_for_select(@districts.collect { |district|
+                [district.name, district.id] }, @station.district), {}, { id: 'districts_select', style: 'width:150px' } %><br>
+                <%= f.text_field :address ,class: "text", placeholder:"請輸入完整地址"%>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">地圖：</td>
+            <td colspan="4"><%= f.text_field :latlng,class: "text" %> </td>
+          </tr>
+          <!-- <tr> -->
+            <!-- <td>緯度(Latitude)：</td> -->
+            <!-- <td colspan="4"><%# f.text_field :lat,class: "text" %> </td> -->
+          <!-- </tr> -->
+          <!-- <tr> -->
+            <!-- <td>經度(Longitude)：</td> -->
+            <!-- <td colspan="4"><%# f.text_field :lng,class: "text" %> </td> -->
+          <!-- </tr> -->
+        </table>
+      </div>
     <% end %>
-  </div>
+  
   <!--form-->
 
   <div class="button"> 
     <%= link_to image_tag("/images/admin/left.png")+"返回", admin_stations_path(), class: "left" %>
-    <a href="javascript: document.getElementById('patchthisstation').submit();" class="right highlight" data-no-turbolink = true >儲存<img src="<%= image_path("save.png") %>"></a>
+    <a href="javascript: document.getElementById('patchthisstation').submit();" class="right highlight" data-no-turbolink = true >儲存<img src="<%= image_path("/images/admin/save.png") %>"></a>
   </div>
   
 </article>

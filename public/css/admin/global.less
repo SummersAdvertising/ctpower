@@ -12,14 +12,18 @@
 
 @base-dark: @base - #1e1e1e;
 @major-light: @major + #1e1e1e;
-@major-dark: @major - #0a0a0a;
+@major-dark: @major - #0f0f0f;
 @minor-light: @minor + #353535;
-@minor-dark: @minor - #0a0a0a;
+@minor-dark: @minor - #0f0f0f;
 @nav-light: @nav + #111;
 @nav-dark: @nav - #111;
 
 @font-family:courier,微軟正黑體,Microsoft JhengHei;
 .animate{-webkit-transition:all .3s ease;-moz-transition:all .3s ease;}
+.opa-show{opacity:1;filter:alpha(opacity=100)}
+.opa-semi{opacity:.5;filter:alpha(opacity=50)}
+.opa-hide{opacity:0;filter:alpha(opacity=0)}
+
 
 /*-----------------------------------------------------------------------全域---*/
 
@@ -273,24 +277,19 @@ article > nav{
 	/*工具列*/
 	.tool{
 		text-align:right;
-		opacity:0;
-		filter:alpha(opacity=0);
+		.opa-hide;
 		.animate;
 		a{
 			display:inline-block;
 			width:16px;
 			height:16px;
-			opacity:.5;
-			filter:alpha(opacity=50);
 			background-position:0 0;
 			background-repeat:no-repeat;
 			cursor:pointer;
 			margin:5px 0 0 10px;
 			text-indent:-7777px;
-			&:hover{
-				opacity:1;
-				filter:alpha(opacity=100)
-			}
+			.opa-semi;
+			&:hover{.opa-show}
 		}
 		.delete{background-image:url(../../images/admin/trash.png)}
 		.edit{background-image:url(../../images/admin/edit.png)}
@@ -308,6 +307,7 @@ article > nav{
 			position:relative;
 			top:-3px;
 			border:1px solid @major-dark;
+			color:@major-dark;
 		}
 	}
 }
@@ -339,7 +339,7 @@ article > nav{
 			border-top:1px solid @minor;
 			border-bottom:1px solid @minor;
 		}
-		&:hover .tool{opacity:1!important;filter:alpha(opacity=100)!important}
+		&:hover .tool{.opa-show!important;}
 		&.off{background:@base-dark}
 	}
 	th{
@@ -398,10 +398,7 @@ article > nav{
 	background:@minor-light;
 	border-top:1px solid @minor;
 	border-bottom:1px solid @minor;
-	.tool{
-		opacity:1!important;
-		filter:alpha(opacity=100)!important
-	}	
+	.tool{.opa-show!important}	
 }	
 
 /*明細*/
@@ -434,13 +431,12 @@ article > nav{
 	overflow:hidden;
 	a{
 		display:block;
-		color:#555;
 		width:125px;
 		text-align:center;
 		padding:7px 0;
-		background:#F1F1F1;
-		border:1px solid #ddd;
-		&:hover{background:#ddd}
+		background:@base;
+		border:1px solid @base-dark;
+		&:hover{background:@base-dark}
 		img{
 			position:relative;
 			top:2px
@@ -486,14 +482,10 @@ article > nav{
 		background:url(../../images/admin/search.png) 0 0 no-repeat;
 		border:none;
 		cursor:pointer;
-		opacity:.5;
-		filter:alpha(opacity=50);
+		.opa-semi;
 		text-indent:-9999px;
 		margin:7px 0 0 0;
-		&:hover{
-			opacity:1;
-			filter:alpha(opacity=100)
-		}
+		&:hover{.opa-show;}
 	}
 	select{
 		background:@base-dark;
@@ -511,20 +503,16 @@ article > nav{
 	overflow:hidden;
 	li{
 		float:left;
-		opacity:.5;
-		filter:alpha(opacity=50);
+		.opa-semi;
 		font-weight:900;
 		padding:0 15px 5px 15px;
-		&.active{
-			opacity:1;
-			filter:alpha(opacity=100)
-		}
+		&.active{.opa-show;border-bottom:5px solid @minor}
 		img{
 			margin:0 10px 0 0;
 			position:relative;
 			top:3px
 		}
-	}
+	}	
 }
 
 #tab-li{
@@ -564,10 +552,7 @@ article > nav{
 		top:0;
 		right:0
 	}
-	&:hover .tool{
-		opacity:1;
-		filter:alpha(opacity=100)
-	}
+	&:hover .tool{.opa-show!important}
 	&:active{background:#fff}
 	img{
 		max-width:100%;
@@ -579,33 +564,24 @@ article > nav{
 		background:url(../../images/admin/right.png) 0 center no-repeat;
 		margin:0 0 15px 0;
 	}
-	&.part-edit{
-		position:relative;
-		cursor:pointer;
-		border-image:url(../../images/admin/p.png); 
-		border-image-slice: 13; 
-		border-image-width: 13px; 
-		border-image-repeat: repeat;
-		border-left:13px solid @base-dark;
-		margin:0 0 15px 0;
-		padding:0 0 0 15px;
-		.tool{
-			opacity:1;
-			filter:alpha(opacity=100)
-			a{
-				opacity:1;
-				filter:alpha(opacity=100);
-				padding:7px 10px 5px 10px;
-				text-align:center;
-				color:#777;
-				width:100px;
-				height:32px;
-				border-radius:3px;
-				border:1px solid @base-dark;
-				margin:5px 0 0 0;
-				text-indent:0;
-				&:hover{background:#eee}
-			}
+}
+
+.part-edit{
+	position:relative;
+	cursor:pointer;
+	border-image:url(../../images/admin/p.png); 
+	border-image-slice: 13; 
+	border-image-width: 13px; 
+	border-image-repeat: repeat;
+	border-left:13px solid @base-dark;
+	margin:0 0 15px 0;
+	padding:0 0 0 15px;
+	.tool{
+		.opa-show!important;
+		margin:10px 0 0 0;
+		a{
+			top:0!important;
+			padding:5px 25px!important;
 		}
 	}
 }
@@ -724,11 +700,8 @@ article > nav{
 		width:100%
 	}
 	a{
-		opacity:.5;
-		filter:alpha(opacity=50);
-		&:hover{
-			opacity:1;
-			filter:alpha(opacity=100)};
+		.opa-semi;
+		&:hover{.opa-show};
 	}
 }
 
@@ -811,10 +784,7 @@ article > nav{
 			position:relative;
 			top:3px
 		}
-		&:hover .tool{
-			opacity:1;
-			filter:alpha(opacity=100)
-		}
+		&:hover .tool{.opa-show}
 	}
 }
 

@@ -1,8 +1,7 @@
 <header>
-  <h2 class="left">FAQ管理</h2>
-  <nav class="left"></nav>
-  
+  <h2 class="left">常見問題</h2>        
 </header>
+
 <article>
 
   <% if @box.depth < 1 %>
@@ -33,13 +32,15 @@
 
           
           <tr class="show_box_<%= box.id %>" >
-            <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+            <td width="6%" class="icon">
+              <img src="/images/admin/folder.png">
+            </td>
             <td width="76%">
               <%= link_to(box.name, admin_box_path(box)) %>
             </td>
             <td width="18%">
               <div class="tool">
-                <%= link_to "編輯", "javascript:void(0);", :data => { :id => box.id }, :class => "edit", title:"編輯" %><%= link_to "刪除", admin_box_path(box), :data => { :confirm => "將會刪除分類底下所有FAQ，確定繼續？" }, :method => :delete, :class => "delete", title: "刪除" %>
+                <%= link_to "", "javascript:void(0);", :data => { :id => box.id }, :class => "edit", title:"編輯" %><%= link_to "", admin_box_path(box), :data => { :confirm => "將會刪除分類底下所有FAQ，確定繼續？" }, :method => :delete, :class => "delete", title: "刪除" %>
               </div>
             </td>
           </tr>
@@ -49,11 +50,13 @@
           <tr class="list-edit edit_box_<%= box.id %>" style="display:none;">
             <%= form_for(box, :url => admin_box_path(box) , html: { id: "patchthisbox_#{box.id}"}) do |f| %>
             
-            <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+            <td width="6%" class="icon">
+              <img src="/images/admin/folder.png">
+            </td>
             <td width="76%">
-              <div style="position:relative">
-                <%= f.text_field :name, class:"text", placeholder: "分類名稱", style:"width:50%" %>
-              </div>
+              
+              <%= f.text_field :name, class:"text", placeholder: "分類名稱", style:"width:50%" %>
+              
             </td>
             
             <td align="right" valign="top" width="18%">
@@ -69,7 +72,9 @@
       <!-- new -->
         <tr class="list-new list-edit edit_box" style="display:none;">
           <%= form_for(@new_box, :url => admin_boxes_path , html: {id: "create_new_box" }) do |f| %>
-            <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+            <td width="6%" class="icon">
+              <img src="/images/admin/folder.png">
+            </td>
             <td width="76%">
               
                 <%= f.text_field :name, :placeholder => "分類名稱" , class: "text new_box_name_input" %>
@@ -123,13 +128,13 @@
         <% @box.faqs.each do |faq| %>
 
         <tr>
-          <td width="6%"><img src="/images/admin/file.png"></td>
+          <td width="6%" class="icon"><img src="/images/admin/li.png"></td>
           <td width="76%">
             <%= link_to(faq.question, edit_admin_box_faq_path(@box, faq)) %>
           </td>
           <td width="18%">
             <div class="tool">
-              <%= link_to("編輯", edit_admin_box_faq_path(@box, faq), class: 'edit') %><%= link_to("刪除", admin_box_faq_path(@box, faq), :method => :delete, :data => {:confirm => "確定刪除？"}, class: 'delete') %>
+              <%= link_to "", edit_admin_box_faq_path(@box, faq), class: 'edit' %><%= link_to "", admin_box_faq_path(@box, faq), :method => :delete, :data => {:confirm => "確定刪除？"}, class: 'delete' %>
             </div>
           </td>
         </tr>
