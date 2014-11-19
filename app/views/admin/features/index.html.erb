@@ -25,7 +25,7 @@
         <tr>
           <td width="4%" class="icon"><img src="/images/admin/li.png"></td>
           <td width="78%">
-            <%= feature.title %>
+            <%= link_to feature.title, edit_admin_category_vehicle_feature_path(params[:category_id], params[:vehicle_id],feature) %>
           </td>
           <td width="18%">
             <div class="tool">

@@ -25,12 +25,14 @@
         <tr>
           <td width="4%" class="icon"><img src="/images/admin/li.png"></td>
           <td width="78%">
-            <% if accessory.type == "OptionalAccessory" %>
-            [選配]
-            <% elsif accessory.type == "ComplimentaryAccessory" %>
-            [附贈]
+            <%= link_to edit_admin_category_vehicle_accessory_path(params[:category_id], params[:vehicle_id],accessory) do %>
+              <% if accessory.type == "OptionalAccessory" %>
+              [選配]
+              <% elsif accessory.type == "ComplimentaryAccessory" %>
+              [附贈]
+              <% end %>
+              <%= accessory.title %>
             <% end %>
-            <%= accessory.title %>
           </td>
           <td width="18%">
             <div class="tool">

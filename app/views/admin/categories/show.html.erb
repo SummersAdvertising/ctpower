@@ -13,7 +13,6 @@
           <%= bread.name if index == 0 %>
             <% if index >= 1  %>
               <span>/<%= bread.name %></span>
-              <!-- link_to  ancestor.name,  admin_hqlevel_path(ancestor.id, :locale => I18n.locale) -->
             <% end %>
 
             <% if index == (@breadcrumb.count - 1 ) %>
@@ -114,7 +113,7 @@
       </h3>
       <div class="button right">
         <%= link_to  admin_category_vehicles_path(@category), :method => :post, class: "right highlight toggle_new_category" do %>
-          新增產品<img src="/images/admin/add_folder.png">
+          新增商品<img src="/images/admin/add_folder.png">
         <% end %>
       </div>
     </div>

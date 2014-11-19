@@ -27,7 +27,7 @@ class GalleryUploader < CarrierWave::Uploader::Base
   end
   
   def extension_white_list
-    %w(jpg jpeg gif png pdf)
+    %w(jpg jpeg gif png pdf doc docx xls xlsx)
   end
   # temporarily doesn't need these
   # protected

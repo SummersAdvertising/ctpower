@@ -17,7 +17,7 @@
 <%= render 'admin/common/show_document_by_type', target: @vehicle, target_title: '附件', type: 'VehicleDMFile' %>
 
 <% if @gallery_count < 1 %>
-<div class='form'> 
+
   <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_dm_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
 
     <%= render 'admin/common/upload_document_by_type', target_title: '附件' %>
@@ -28,7 +28,7 @@
       <%= f.submit '上傳', class: 'highlight right'  %>
     </div>
   <% end %>
-</div>
+
 <% end %>
  
 </article>
