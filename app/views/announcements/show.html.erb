@@ -1,20 +1,23 @@
-
-<!-- Bootstrap -->
 <link rel="stylesheet/less" type="text/css" href="/css/news.less" />
 
-<% content_for :header do %>
- <h2>最新消息</h2>
-<% end %>
+
 
 <article>
-  <div id="crumb">
-    <section class="container">
-      <ol class="breadcrumb">
-        <li><%= link_to "首頁", root_path %></li>
-        <li class="active">最新消息</li>
-      </ol>
-    </section>
+  <div class="banner">
+    <div class="container">
+      <h1>最新消息</h1>
+    </div>    
   </div>
+    
+    <div id="crumb">
+        <section class="container" >
+          <ol class="breadcrumb">
+            <li><%= link_to "首頁", root_path %></li>
+            <li class="active">最新消息</li>
+          </ol>
+        </section>
+    </div>
+
   <div class="content" id="news-show-content">
     <section class="container row">
       <div class="col-sm-8 col-sm-offset-2">

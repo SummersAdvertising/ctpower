@@ -1,3 +1,39 @@
+<link href="/css/site.css" rel="stylesheet" type="text/css">
+
+
+<article>
+	<div class="banner">
+    <div class="container">
+    	<h1>BES 電池交換站點</h1>
+    </div>    
+    </div>
+    
+    <div id="crumb">
+        <section class="container" >
+          <ol class="breadcrumb">
+            <li><%= link_to "首頁", root_path %></li>
+            <li><%= link_to "BES 站點查詢", page_pages_path('spot')%></li>
+            <li class="active">站點查詢結果</li>
+          </ol>
+        </section>
+    </div>
+    
+    <section class="site">
+    <div class="container">
+        <div id="siteInfo">
+        	<h2><%= @station.name %></h2>
+          <h2 class="address"><%= @station.address %></h2>
+          <h2 class="phone"><%= @station.phone %></h2>
+        </div>
+        <iframe id="googleMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3614.591781917894!2d121.51708099999998!3d25.047924000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9729f13e59d%3A0xab597fb891352fc9!2z5Y-w54Gj6ZC16Lev566h55CG5bGA5Y-w5YyX54Gr6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1415950538049" frameborder="0" style="border:0"></iframe>
+        <hr>
+      <img src="/sample/spot.jpg" ><br>
+      <%= @station.intro %>
+    </div>
+    </section>
+</article>
+
+<!--
 Store show<br>
 <p id='status'></p>
 
@@ -13,5 +49,5 @@ Store show<br>
 <% end %>
 
 
-<br><br><br><br>
+-->
 

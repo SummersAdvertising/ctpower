@@ -1,7 +1,9 @@
-<% @q = Faq.order(:box_id).search(params[:q]) %>
+
+
+<!--<% @q = Faq.order(:box_id).search(params[:q]) %>
 <%= search_form_for @q, url: search_faqs_path, class: "form-inline quick-search-form" , method: :post  do |f| %>
     <div class='form-group'>
       <%= f.search_field :question_cont, class: "form-control", placeholder: "Search here", required: true %>
     </div>
     <%= f.submit('搜尋' , id: "quick-search", class: "btn btn-custom") %>
- <% end %>
+ <% end %>-->
