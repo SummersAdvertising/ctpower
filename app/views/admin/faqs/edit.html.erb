@@ -11,15 +11,9 @@
 <link rel="stylesheet" type="text/css" href="/js_plugins/colorbox/colorbox.css" />      
 
 <header>
-  <h2 class="left">FAQ</h2>
-  <div class="explain right"><p>圖片尺寸</p></div>
+  <h2 class="left">常見問題</h2>        
 </header>
 <article>
-  <div class="hgroup">
-    <div class="right">
-      
-    </div>
-  </div>
 
   <div class="form">
   <%= form_for(@faq, :url => admin_box_faq_path(@faq.box_id,@faq), html: { id: "patchthisfaq" } ) do |f| %>
