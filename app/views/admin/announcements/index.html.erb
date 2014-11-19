@@ -15,16 +15,16 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <% @announcements.each do |announcement| %>
         <tr <%= "class=off" if announcement.status == "disable" %> >
-          <td width="5%" class="icon">
+          <td width="6%" class="icon">
             <%= is_set_top(announcement.ranking) %>
           </td>
-          <td width="65%">
+          <td width="61%">
             <%= list_edit_lnk(announcement.title, announcement) %>
           </td>
           <td width="15%" align="right"><%= announcement.created_at.strftime("%Y年%m月%d日")%></td>
-          <td width="12%">
+          <td width="18%">
             <div class="tool">
-              <%# list_edit_btn(announcement) %><%= link_to("", admin_announcement_path(announcement), :method => :delete, :data => {:confirm => "確定刪除？"}, class: "delete") %>
+              <%= list_edit_btn(announcement) %><%= link_to("", admin_announcement_path(announcement), :method => :delete, :data => {:confirm => "確定刪除？"}, class: "delete") %>
             </div>
           </td>
         </tr>
