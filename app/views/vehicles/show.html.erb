@@ -1,12 +1,19 @@
+<link href="/js_plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+<script src="/js_plugins/colorbox/jquery.colorbox-min.js"></script>
 <link href="/css/intro.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/js/intro.js"></script>
+<script>
+$(document).ready(function(){
+  $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+});
+</script>
 
 
 <article>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <div class="block">
       <div class="row">
-        <div class="col-sm-4 col-xs-4 col-md-4"><a id="vLink" href="#" title="影片連結"></a></div>
+        <div class="col-sm-4 col-xs-4 col-md-4"><a id="vLink" href="<%= @vehicle.cf.html_safe if @vehicle.cf %>" title="影片連結"></a></div>
         <div class="col-sm-4 col-xs-4 col-md-4">
           <% @vehicle.galleries.where(type: VehicleDMFile).each do |attach| %>
             <a id="dLink" href="<%= "#{attach.attachment.url}" %>" title="型錄下載" target="_blank"></a>
