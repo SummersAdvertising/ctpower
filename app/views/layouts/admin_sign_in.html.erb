@@ -1,24 +1,37 @@
-
 <!doctype html>
 <html>
 <head>
-<!--[if lt IE 9]>
-<script src="/js/html5.js"></script>
-<![endif]-->
 <meta charset="utf-8">
 <meta name="Robots" content="index,follow"/>
 <meta http-equiv="content-language" content="zh-TW" />
-<title>CTPower 後台管理系統</title>
-<%= stylesheet_link_tag    "application", media: "all" %>
-<%= javascript_include_tag "application" %>
-<%= csrf_meta_tags %>
+<title>城市動力後台管理系統</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+<link rel="stylesheet/less" type="text/css" href="/css/admin/login.less" />
+<script src="/js/admin/less.min.js"></script>
+<script src="/js/admin/global.js"></script>
+
+  <script>
+  window.onload= function() {
+    <% if !flash[:notice].nil? %>
+     alertify['success']('<%= flash[:notice] %>', 2000);
+    <% end %>
+    
+    <% if !flash[:alert].nil? %>
+    alertify['error']("<%= flash[:alert].html_safe %>", 2000); 
+    <% end %>
+  }
+  </script>
 
 </head>
 
 <body>
-layoutadmin_sign_in
+
 <%= yield %>
 
-<div id="footer" _height="none"> Copyright © Summers </div>
+<footer> Copyright © Summers </footer>
 </body>
 </html>

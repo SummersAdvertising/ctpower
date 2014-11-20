@@ -1,5 +1,5 @@
 <header>
-  <h2 class="left">商品管理</h2>
+  <h2 class="left">車款介紹</h2>
   <nav class="left"></nav>
   
 </header>
@@ -13,7 +13,6 @@
           <%= bread.name if index == 0 %>
             <% if index >= 1  %>
               <span>/<%= bread.name %></span>
-              <!-- link_to  ancestor.name,  admin_hqlevel_path(ancestor.id, :locale => I18n.locale) -->
             <% end %>
 
             <% if index == (@breadcrumb.count - 1 ) %>
@@ -114,7 +113,7 @@
       </h3>
       <div class="button right">
         <%= link_to  admin_category_vehicles_path(@category), :method => :post, class: "right highlight toggle_new_category" do %>
-          新增產品<img src="/images/admin/add_folder.png">
+          新增商品<img src="/images/admin/add_folder.png">
         <% end %>
       </div>
     </div>
@@ -130,7 +129,7 @@
           </td>
           <td width="18%">
             <div class="tool">
-              <%= link_to("編輯", edit_admin_category_vehicle_path(@category, vehicle), class: 'edit') %><%= link_to("刪除", admin_category_vehicle_path(@category, vehicle), :method => :delete, :data => {:confirm => "確定刪除？"}, class: 'delete') %>
+              <%= link_to("", edit_admin_category_vehicle_path(@category, vehicle), class: 'edit') %><%= link_to("", admin_category_vehicle_path(@category, vehicle), :method => :delete, :data => {:confirm => "確定刪除？"}, class: 'delete') %>
             </div>
           </td>
         </tr>

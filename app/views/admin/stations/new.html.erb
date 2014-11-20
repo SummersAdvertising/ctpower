@@ -1,5 +1,5 @@
 <header>
-  <h2 class="left">門市資訊<span>/ 分店管理</span></h2>
+  <h2 class="left">地圖管理</h2>
   <nav class="left">
     <a href="javascript:void(0);" class="active">簡介</a>
     <%# link_to "照片", stationphoto_upload_admin_station_path(@station)%>
@@ -46,7 +46,7 @@
 
   <div class="button"> 
     <%= link_to image_tag("/images/admin/left.png")+"返回", admin_stations_path(), class: "left" %>
-    <a href="javascript: document.getElementById('create_this_station').submit();" class="right highlight" data-no-turbolink = true >儲存<img src="<%= image_path("save.png") %>"></a>
+    <a href="javascript: document.getElementById('create_this_station').submit();" class="right highlight" data-no-turbolink = true >儲存<img src="<%= image_path("/images/admin/save.png") %>"></a>
   </div>
   
 </article>

@@ -3,7 +3,7 @@ editor.video = {
 		var li = $("<li>");
 		li.attr("data-type", "video").attr("id", "tab-video");
 		var a = $("<a>").append("影片");
-		var icon = $("<img>").attr("src", "/images/film.png");
+		var icon = $("<img>").attr("src", "/images/admin/film.png");
 		a.prepend(icon);
 
 		li.append(a);

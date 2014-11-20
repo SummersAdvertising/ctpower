@@ -7,14 +7,14 @@ div ,td, p .noTransition {
 }
 </style>
 <header>
-  <h2 class="left">門市資訊<span>/ 分店管理</span></h2>
+  <h2 class="left">門市資訊<span>/ 分店管理</span></h2>  
   <nav class="left">
     <%= link_to "簡介", edit_admin_station_path(@station)%>
     <a href="javascript:void(0);" class="active">照片</a>
   </nav>
-  <div class="explain right"><p>圖片尺寸：609 px * 406 px</p></div>
 </header>
 <article>
+
   <% if @gallery_count < 5 %>
 
   <div class="form">
@@ -47,7 +47,7 @@ div ,td, p .noTransition {
         <div class="thumb left createAttachcontainer dragable" <%= "id=createAttachcontainer_#{attach.id.to_s}" %>> 
       <% end %>
       
-        <%= link_to '刪除', admin_gallery_path(attach.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete', title: '刪除' %>
+        <%= link_to '', admin_gallery_path(attach.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete', title: '刪除' %>
         <image src=<%= "#{attach.attachment.url}" %> />
       </div>
     <% end %>

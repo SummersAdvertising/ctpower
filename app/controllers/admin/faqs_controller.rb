@@ -34,7 +34,6 @@ class Admin::FaqsController < AdminController
   end
 
   def update
-    p params
     
     respond_to do |format|
       if @faq.update(faqs_params) && params[ :article ].nil? ^ @faq.article.update( params.require(:article).permit(:content) )
