@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-<link href="/css/faq.css" rel="stylesheet" type="text/css">
-=======
-<%= render 'faqs/search_form'%>
->>>>>>> FETCH_HEAD
 
+<link href="/css/faq.css" rel="stylesheet" type="text/css">
 
 <article>
   <div class="banner">
@@ -57,20 +53,20 @@
         <div class="tab-content">   
         <%= render 'faqs/search_form'%>
 
-<% if @faqs %>
-  <% @faqs.each do |faq| %>
-  <div class="qaBlock">
-  <div class="ques">
-    <h3 class='faq_quickview' data-faq='<%= faq.id %>'><%= faq.question %> </h3>
-  </div>
-  <div class="answ">
-    <p id='<%= "faqblock_#{faq.id}"%>'> 
-    <%# render partial: 'faq_block', locals: {faq: faq} %>
-    </p>
-  </div>
-  </div>    
-  <% end %>
-<% end %>
+        <% if @faqs %>
+          <% @faqs.each do |faq| %>
+          <div class="qaBlock">
+          <div class="ques">
+            <h3 class='faq_quickview' data-faq='<%= faq.id %>'><%= faq.question %> </h3>
+          </div>
+          <div class="answ">
+            <p id='<%= "faqblock_#{faq.id}"%>'> 
+            <%# render partial: 'faq_block', locals: {faq: faq} %>
+            </p>
+          </div>
+          </div>    
+          <% end %>
+        <% end %>
         </div>
       </div>
     </div>
