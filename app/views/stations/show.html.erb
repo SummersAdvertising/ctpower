@@ -1,17 +1,54 @@
-Store show<br>
-<p id='status'></p>
-
-<%= @station.name %><br>
-<%= @station.intro %><br>
-<%= @station.phone %><br>
-<%= @station.address %><br>
-<%= @station.ophour %><br>
-<%= @station.latlng.html_safe %><br>
-<%= @station.lat %> , <%= @station.lng %><br>
-<% if @station.galleries.where(type: 'StationPhotoGallery').first %>
-    <% a = @station.galleries.where(type: 'StationPhotoGallery').first.attachment.url  %>
-<% end %>
+<link href="/css/site.css" rel="stylesheet" type="text/css">
 
 
-<br><br><br><br>
+<article>
+	<div class="banner">
+    <div class="container">
+    	<h1>BES 電池交換站點</h1>
+    </div>    
+    </div>
+    
+    <div id="crumb">
+        <section class="container" >
+          <ol class="breadcrumb">
+            <li><%= link_to "首頁", root_path %></li>
+            <li><%= link_to "BES 站點查詢", page_pages_path('spot')%></li>
+            <li class="active">站點查詢結果</li>
+          </ol>
+        </section>
+    </div>
+    
+    <section class="site">
+    <div class="container">
+        <div id="siteInfo">
+        	<h2><%= @station.name %></h2>
+          <h2 class="address"><%= @station.address %></h2>
+          <h2 class="phone"><%= @station.phone %></h2>
+        </div>
+        <iframe id="googleMap" src="<%= @station.latlng.html_safe %>" frameborder="0" style="border:0"></iframe>
+        <hr>
+      <%= @station.intro %>
+      <% @station.galleries.where(type: StationPhotoGallery).each do |attach| %>
+        <image src=<%= "#{attach.attachment.url}" %> />
+      <% end %>
+    </div>
+    </section>
+</article>
+
+
+
+<%#= @station.name %>
+<%#= @station.intro %>
+<%#= @station.phone %>
+<%#= @station.address %>
+<%#= @station.ophour %>
+<%#= @station.latlng.html_safe %>
+<%#= @station.lat %><%#= @station.lng %>
+<%# if @station.galleries.where(type: 'StationPhotoGallery').first %>
+    <%# a = @station.galleries.where(type: 'StationPhotoGallery').first.attachment.url  %>
+<%# end %>
+
+
+
+
 

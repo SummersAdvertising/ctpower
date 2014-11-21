@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*-----------------------------------------------------------------------banner---*/
+.banner { background-image: url(../images/banner_list.jpg); }
+.banner h1 { color: #000; top: 160px; }
+/*-----------------------------------------------------------------------list---*/
+.list { padding-top: 100px; }
+.list h1 { font-size: 2.2em; color: #797979; }
+.list h2 { width:96%;margin:0 auto;background-color: #f1f1f1; font-size: 1.6em; color: #797979; border: 1px dotted #A4A4A4; padding: 5px 20px; }
+.list .col-md-4 img { width: 100%; }
+.list .col-md-4 { color: #717171; text-align: center; float: none; display: inline-block; padding-bottom: 80px; max-width: 340px; margin: 0 2%; }
+.list .col-md-4 h3 { font-size: 1.3em; padding-bottom: 5px; margin-top: 10px; }
+.list .col-md-4 h4 { font-size: 1.1em; padding-bottom: 20px; }
+.list .col-md-4 hr { border-bottom: 1px solid #e3e3e2; background-image: url(../images/tag_list.png); height: 12px; background-repeat: no-repeat; background-position: center top; width: 80%; margin: 0 auto; }
+.list .col-md-4:hover hr { border-color: #619cba; background-image: url(../images/tag_list2.png); }
+.list .col-md-4:hover h3 { color: #315ba9; }
+.list hr { width:96%;background-image: url(../images/news-06.png); height: 5px; border: none; clear: both; }
+.btn { width: 123px; font-size: 1.1em; font-weight: normal; line-height: 36px; padding: 0; background-image: none; border-color: #e3e3e2; color: #a9a8a8; }
+.btn:hover, .btn:focus, .btn:active { color: #619cba; border-color: #619cba; background-color: transparent; outline: none; }
+.btn span:after { padding: 0 5px; color: #797979; content: ""; background-image: url(../images/arrow_list.png); background-repeat: no-repeat; background-position: center center; }
+.btn:hover span:after, .btn:focus span:after, .btn:active span:after { background-image: url(../images/arrow_list2.png); }
+@media (max-width:1220px) and (min-width:1160px) {
+.list .col-md-4 { margin: 0 20px; }
+}
+@media (max-width:1159px) and (min-width:992px) {
+.list .col-md-4 { margin: 0 15px; max-width: 290px; }
+}
+@media (max-width:991px) and (min-width:768px) {
+.list { padding-top: 60px; }
+.list .col-md-4 { margin: 0; max-width: none; width: 30%; }
+}
+@media (max-width:767px) {
+.list .row { text-align: center; padding:0 15px;}
+.list { padding-top: 20px; }
+.list h1 { font-size: 2.0em; }
+.list h1 span { display: block; }
+.list .col-md-4 { margin: 0 auto; width: 100%; clear: both; float: none; display: block; padding-bottom: 40px; }
+.list hr { display: none; }
+.list .col-md-4 hr { display: block; }
+.list h2 { text-align: center; font-size: 1.4em; width:100%;}
+}

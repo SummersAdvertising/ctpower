@@ -1,3 +1,4 @@
+
 <article class="container-fluid" id="station-list">
   <div class="container row">
     <div class="col-md-8 col-md-offset-2 col-sm-12">
@@ -6,26 +7,58 @@
   </div>
   <div class="container row">
     <div class="col-md-8 col-md-offset-2 col-sm-12" id="content">
-     
-     <%= search_form_for @q, url: search_stations_path, class: "form-inline quick-search-form" , method: :post, remote: true do |f| %>
-       
-        <div class='form-group' style='display:none;'>
-          <%= f.select :country_eq, options_from_collection_for_select(@countries ,
-              "id", "name" ) , id: 'q_country_eq', class: "form-control" %>
-        </div>
-        <div class='form-group'>
-          <%= f.select :city_eq, options_from_collection_for_select(@cities ,
-              "id", "name" ) , id: 'q_city_eq', class: "form-control" %>
-        </div>
-        <div class='form-group'>
-          <%= f.select :district_eq, options_from_collection_for_select(@districts ,
-              "id", "name" ) ,{:prompt => '-- 請選擇 --'}, id: 'q_district_eq', class: "form-control" %>
-        </div>
-        <%= f.submit('搜尋' , id: "quick-search", class: "btn btn-custom") %>
-     <% end %>
 
-       <div id="result"></div>
-       <!--result--> 
+<link href="/css/spot.css" rel="stylesheet" type="text/css">
+
+<article>
+  <div class="banner">
+    <div class="container">
+      <h1>BES 電池交換站點</h1>
+    </div>    
     </div>
-  </div>
+    
+    <div id="crumb">
+        <section class="container" >
+          <ol class="breadcrumb">
+            <li><%= link_to "首頁", root_path %></li>
+            <li class="active">BES 站點查詢</li>
+            <li class="active">BES 電池交換站點</li>
+          </ol>
+        </section>
+    </div>
+    
+    <section class="spot">
+    <div class="container">
+        <iframe id="googleMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3614.591781917894!2d121.51708099999998!3d25.047924000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9729f13e59d%3A0xab597fb891352fc9!2z5Y-w54Gj6ZC16Lev566h55CG5bGA5Y-w5YyX54Gr6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1415950538049" frameborder="0" style="border:0"></iframe>
+        <div id="spot01">
+            <h1>BES 電池交換站點查詢</h1>
+            <%= search_form_for @q, url: search_stations_path, class: "form-inline quick-search-form" , method: :post, remote: true do |f| %>
+            
+            <div class='form-group' style='display:none;'>
+              <%= f.select :country_eq, options_from_collection_for_select(@countries ,
+                  "id", "name" ) , id: 'q_country_eq', class: "form-control" %>
+            </div>
+            <div class='btn-group'>
+              <button type="button" class="dropdown-toggle">
+              <%= f.select :city_eq, options_from_collection_for_select(@cities ,
+                  "id", "name" ) , id: 'q_city_eq', class: "dropdown-toggle" %>
+              
+              </button>
+            </div>
+            <div class='btn-group'>
+              <%= f.select :district_eq, options_from_collection_for_select(@districts ,
+                  "id", "name" ) ,{:prompt => '-- 請選擇 --'}, id: 'q_district_eq', class: "dropdown-toggle" %>
+            </div>
+            <%= f.submit('搜尋' , id: "quick-search", class: "btn") %>
+            <% end %>
+
+        </div>
+        
+        
+        <div id="spot02">
+          <div id="result"></div>
+
+        </div>
+    </div>
+    </section>
 </article>

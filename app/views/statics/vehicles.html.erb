@@ -1,16 +1,45 @@
-<% @categories.each do |category| %>
-  <h1><%= category.name %></h1>
-  <% category.vehicles.where(status: 'enable').limit(3).each do |vehicle| %>
-  <div style='float:left;'>
-    NAME:<%= link_to vehicle.name, vehicle_path(vehicle) %><br>
-    DESCRIPTION:<%= vehicle.description %><br>
-  </div>
-  
-  <div style='float:left;'>VehiclePhotoGallery <br>
-    <%= render 'layouts/show_by_type', target: vehicle, target_title: '圖', type: 'VehicleCover' %>
-  </div>
+<link href="/css/list.css" rel="stylesheet" type="text/css">
 
-  <div style=' clear: both;'></div>
-  <hr>
-  <% end %>
-<% end %>
+
+<article>
+  <div class="banner">
+    <div class="container">
+      <h1>電動機車車款介紹</h1>
+        <h2>/ Battery Exchange System</h2>
+    </div>    
+    </div>
+    
+    <div id="crumb">
+        <section class="container" >
+          <ol class="breadcrumb">
+            <li><%= link_to "首頁", root_path %></li>
+            <li class="active">車款介紹</li>
+          </ol>
+        </section>
+    </div>
+    
+    <section class="list">
+    <div class="container">
+        <h1>BES 電動機車 / <span>車款介紹</span></h1>
+      <% @categories.each do |category| %> 
+        <div class="row">
+        <h2><%= category.name %></h2>
+        
+        <% category.vehicles.where(status: 'enable').limit(6).each do |vehicle| %> 
+            <%= link_to vehicle_path(vehicle), {:class=>"col-md-4"} do %>
+                <%= render 'layouts/show_by_type', target: vehicle, target_title: '', type: 'VehicleCover' %>
+                <hr>
+                <h3><%= vehicle.name %></h3>
+                <h4><%= vehicle.description %></h4>
+                <button class="btn btn-default"><span>看更多</span></button>
+            <% end %>
+        <% end %>
+        </div>    
+        
+    <% end %>
+    <hr>    
+  </div>
+  </section>
+</article>
+
+

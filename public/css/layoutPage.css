@@ -1,0 +1,80 @@
+@charset "utf-8";
+/*-----------------------------------------------------------------------全域---*/
+html { overflow-x: hidden; }
+body { font-family: "微軟正黑體", Microsoft JhengHei; }
+article { z-index: 900; width: 100%; }
+a, a:hover, a:active, a:focus,.input-group-btn>.btn:hover, .input-group-btn>.btn:focus, .input-group-btn>.btn:active { outline: none; text-decoration: none; }
+a:hover { text-decoration: none; }
+.container { width: 100%; max-width: 1280px; margin: 0 auto; position: relative; }
+.form-control:focus, .btn:focus  {-webkit-box-shadow: none;box-shadow: none;outline:none;}
+@media (max-width:767px) {
+.container { padding:0 10px; }
+}
+/*-----------------------------------------------------------------------頁首---*/
+header { height: 114px; z-index: 1000; position: absolute; left: 0px; top: 0px; width: 100%; background-image: url(../images/bg_header.png); }
+.nav>li>a:hover, .nav>li>a:focus { background-color: transparent; }
+.nav>li>a { position: relative; display: block; padding: 0 15px; color: #FFF; padding-top: 60px; }
+.nav>li>a:hover { border-top: 6px solid #11ECF4; padding-top: 54px; }
+header h1 { padding-top: 10px; }
+header h1 img { width: 100% }
+#fb { padding-top: 50px; }
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus { background-color: transparent; border-color: #11ECF4; }
+.dropdown-menu { top: 113px; filter: alpha(opacity=80); -moz-opacity: 0.8; opacity: 0.8; background-color: #1c1f23; z-index: 1200; }
+.dropdown-menu>li>a { color: #FFF; line-height: 2em; }
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #fff100; text-decoration: none; background-color: #000; }
+@media (max-width:991px) and (min-width:768px) {
+header .container { width: 100%; }
+header h1 { width: 180px; padding-top: 20px; }
+.nav>li>a { padding-left: 10px; padding-right: 10px; }
+}
+@media (max-width:767px) {
+header { height: 56px; position: relative; background-image: url(../images/bg_header.jpg); background-repeat: repeat-x; }
+.visible-xs { margin-top: -12px; width: 100px; }
+header h1 { margin-top: -82px; margin-left: 40px; width: 180px; padding-top: 20px; }
+#fb { margin-top: -102px; }
+#nav-mb { top: 10px; left: -18px; }
+.dropdown-menu { top: 55px; left: 5px; }
+}
+
+
+/*-----------------------------------------------------------------------橫幅---*/
+.banner { background-size: cover; height: 269px; background-position: center top; }
+.banner h1 { font-size: 3em; position: absolute; left: 160px; top: 160px; line-height: 1em; margin: 0; }
+.banner h2 { font-size: 1.2em; position: absolute; left: 290px; top: 210px; line-height: 1em; margin: 0; color: #000; }
+@media (max-width:767px) {
+.banner { height: 160px; }
+.banner h1 { font-size: 2.0em; padding-top:60px;position: static;  }
+.banner h2 { font-size: 1.0em; padding:5px 0 0 45px;position: static;  }
+}
+
+
+/*-----------------------------------------------------------------------麵包屑---*/
+#crumb .container { border-bottom: 1px solid #ddd; }
+#crumb ol.breadcrumb { background: #fff; display: inline; position: relative; top: 10px; font-size: 1em; left: -20px;padding-left: 20px;}
+#crumb a { color: #797979; font-size: 1em; }
+#crumb a:hover { color: #ccc; }
+.breadcrumb>li+li:before { padding: 0 5px; color: #797979; content: ""; font-weight: 900; background-image: url(../images/img_crumb.png); background-repeat: no-repeat; background-position: center center; }
+@media (max-width:767px) {
+#crumb ol.breadcrumb{ padding-left: 20px;  }
+}
+
+
+/*-----------------------------------------------------------------------頁尾---*/
+footer { height: 400px; background-color: #025a7c; color: #FFF; background-image: url(../images/footer.jpg); background-repeat: repeat-x; background-position: left top; padding-top: 20px; }
+footer .container { position: relative; height: 380px; }
+footer address { padding-left: 130px; background-image: url(../images/img_qrcode.jpg); background-repeat: no-repeat; height: 115px; font-size: 1em; line-height: 2em; }
+footer address span { display: inline-block; border-left: 1px solid #FFF; padding-left: 10px; line-height: 1.2em; }
+footer h2 { font-size: 1.2em; padding-top: 15px; }
+footer h1 { position: absolute; right: 20px; bottom: 140px; width: 251px; }
+footer h1 img { width: 100%; }
+footer p { color: #449fd9; position: absolute; right: 35px; bottom: 120px; font-size: 0.8em; }
+@media (max-width:767px) {
+footer { height: 320px; }
+footer .container { height: 300px; }
+footer address { padding-left: 0px; background-image: none; height: 115px; font-size: 1em; line-height: 2em; }
+footer address span {
+display:=block; border-left: none; padding-left: 0; line-height: 2em; }
+footer h2 { font-size: 1.2em; }
+footer h1 { bottom: 40px; width: 200px; right: 5px; }
+footer p { bottom: 20px; right: 15px; white-space: nowrap; }
+}
