@@ -62,8 +62,6 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 .carousel-indicators li { width: 8px; height: 8px; }
 .carousel-indicators .active { width: 8px; height: 8px;}
 .block .row { margin-top: 40px; }
-
-
 .carousel-inner .item{width: 250%;left: -80%;}
 .carousel-caption{font-size: 2em;top:0px;left: 34%;right: 0;max-width: 270px;}
 }

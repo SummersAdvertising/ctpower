@@ -25,29 +25,30 @@
           <h2 class="address"><%= @station.address %></h2>
           <h2 class="phone"><%= @station.phone %></h2>
         </div>
-        <iframe id="googleMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3614.591781917894!2d121.51708099999998!3d25.047924000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9729f13e59d%3A0xab597fb891352fc9!2z5Y-w54Gj6ZC16Lev566h55CG5bGA5Y-w5YyX54Gr6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1415950538049" frameborder="0" style="border:0"></iframe>
+        <iframe id="googleMap" src="<%= @station.latlng.html_safe %>" frameborder="0" style="border:0"></iframe>
         <hr>
-      <img src="/sample/spot.jpg" ><br>
       <%= @station.intro %>
+      <% @station.galleries.where(type: StationPhotoGallery).each do |attach| %>
+        <image src=<%= "#{attach.attachment.url}" %> />
+      <% end %>
     </div>
     </section>
 </article>
 
-<!--
-Store show<br>
-<p id='status'></p>
-
-<%= @station.name %><br>
-<%= @station.intro %><br>
-<%= @station.phone %><br>
-<%= @station.address %><br>
-<%= @station.ophour %><br>
-<%= @station.latlng.html_safe %><br>
-<%= @station.lat %> , <%= @station.lng %><br>
-<% if @station.galleries.where(type: 'StationPhotoGallery').first %>
-    <% a = @station.galleries.where(type: 'StationPhotoGallery').first.attachment.url  %>
-<% end %>
 
 
--->
+<%#= @station.name %>
+<%#= @station.intro %>
+<%#= @station.phone %>
+<%#= @station.address %>
+<%#= @station.ophour %>
+<%#= @station.latlng.html_safe %>
+<%#= @station.lat %><%#= @station.lng %>
+<%# if @station.galleries.where(type: 'StationPhotoGallery').first %>
+    <%# a = @station.galleries.where(type: 'StationPhotoGallery').first.attachment.url  %>
+<%# end %>
+
+
+
+
 

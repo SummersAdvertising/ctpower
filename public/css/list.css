@@ -5,8 +5,7 @@
 /*-----------------------------------------------------------------------list---*/
 .list { padding-top: 100px; }
 .list h1 { font-size: 2.2em; color: #797979; }
-.list h2 { background-color: #f1f1f1; font-size: 1.6em; color: #797979; border: 1px dotted #A4A4A4; padding: 5px 20px; }
-.list .row { text-align: center; }
+.list h2 { width:96%;margin:0 auto;background-color: #f1f1f1; font-size: 1.6em; color: #797979; border: 1px dotted #A4A4A4; padding: 5px 20px; }
 .list .col-md-4 img { width: 100%; }
 .list .col-md-4 { color: #717171; text-align: center; float: none; display: inline-block; padding-bottom: 80px; max-width: 340px; margin: 0 2%; }
 .list .col-md-4 h3 { font-size: 1.3em; padding-bottom: 5px; margin-top: 10px; }
@@ -30,11 +29,12 @@
 .list .col-md-4 { margin: 0; max-width: none; width: 30%; }
 }
 @media (max-width:767px) {
+.list .row { text-align: center; padding:0 15px;}
 .list { padding-top: 20px; }
 .list h1 { font-size: 2.0em; }
 .list h1 span { display: block; }
 .list .col-md-4 { margin: 0 auto; width: 100%; clear: both; float: none; display: block; padding-bottom: 40px; }
 .list hr { display: none; }
 .list .col-md-4 hr { display: block; }
-.list h2 { text-align: center; font-size: 1.4em; }
+.list h2 { text-align: center; font-size: 1.4em; width:100%;}
 }

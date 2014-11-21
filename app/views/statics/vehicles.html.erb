@@ -21,11 +21,11 @@
     <section class="list">
     <div class="container">
         <h1>BES 電動機車 / <span>車款介紹</span></h1>
-        
-      <% @categories.each do |category| %>  
-        <h2><%= category.name %></h2>
+      <% @categories.each do |category| %> 
         <div class="row">
-        <% category.vehicles.where(status: 'enable').limit(3).each do |vehicle| %>
+        <h2><%= category.name %></h2>
+        
+        <% category.vehicles.where(status: 'enable').limit(6).each do |vehicle| %> 
             <%= link_to vehicle_path(vehicle), {:class=>"col-md-4"} do %>
                 <%= render 'layouts/show_by_type', target: vehicle, target_title: '', type: 'VehicleCover' %>
                 <hr>
@@ -34,28 +34,12 @@
                 <button class="btn btn-default"><span>看更多</span></button>
             <% end %>
         <% end %>
-        <hr>
-      <% end %>
-        </div>
-    </div>
-    </section>
+        </div>    
+        
+    <% end %>
+    <hr>    
+  </div>
+  </section>
 </article>
 
 
-<!--
-<% @categories.each do |category| %>
-  <h1><%= category.name %></h1>
-  <% category.vehicles.where(status: 'enable').limit(3).each do |vehicle| %>
-  <div style='float:left;'>
-    NAME:<%= link_to vehicle.name, vehicle_path(vehicle) %><br>
-    DESCRIPTION:<%= vehicle.description %><br>
-  </div>
-  
-  <div style='float:left;'>VehiclePhotoGallery <br>
-    <%= render 'layouts/show_by_type', target: vehicle, target_title: '圖', type: 'VehicleCover' %>
-  </div>
-
-  <div style=' clear: both;'></div>
-  <hr>
-  <% end %>
-<% end %>-->

@@ -4,7 +4,18 @@
 <script type="text/javascript" src="/js/intro.js"></script>
 <script>
 $(document).ready(function(){
-  $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+  if($(window).width()<768){
+    $("#vLink").colorbox({iframe:true, innerWidth:320, innerHeight:195});
+  }else{
+    $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+  }
+  $(window).resize(function(){
+    if($(window).width()<768){
+      $("#vLink").colorbox({iframe:true, innerWidth:320, innerHeight:195});
+    }else{
+      $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+    }  
+  });
 });
 </script>
 
@@ -13,7 +24,7 @@ $(document).ready(function(){
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <div class="block">
       <div class="row">
-        <div class="col-sm-4 col-xs-4 col-md-4"><a id="vLink" href="<%= @vehicle.cf.html_safe if @vehicle.cf %>" title="影片連結"></a></div>
+        <div class="col-sm-4 col-xs-4 col-md-4"><a id="vLink" href="<%= @vehicle.cf.html_safe if @vehicle.cf %>" title="<%= @vehicle.name %>"></a></div>
         <div class="col-sm-4 col-xs-4 col-md-4">
           <% @vehicle.galleries.where(type: VehicleDMFile).each do |attach| %>
             <a id="dLink" href="<%= "#{attach.attachment.url}" %>" title="型錄下載" target="_blank"></a>
