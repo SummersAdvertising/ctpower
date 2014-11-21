@@ -1,5 +1,10 @@
 <article class="container-fluid" id="station-list">
   <div class="container row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
+    <iframe src="https://mapsengine.google.com/map/embed?mid=zzLrcbgIym4Y.kCwa_hAQXmwc" width="640" height="480"></iframe>
+    </div>
+  </div>
+  <div class="container row">
     <div class="col-md-8 col-md-offset-2 col-sm-12" id="content">
      
      <%= search_form_for @q, url: search_stations_path, class: "form-inline quick-search-form" , method: :post, remote: true do |f| %>

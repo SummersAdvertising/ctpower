@@ -25,6 +25,7 @@
   <div style='float:left;'>COLORS<br>
     <% @vehicle.colors.each do |color| %>
       <%= color.name %> = <%= color.hexcode %><br>
+      <%= render 'layouts/show_by_type', target: color, target_title: '圖', type: 'VehicleColorDemo' %>
     <% end %>
   </div>
   <div style='float:left;'>Complimentary ACC. <br>

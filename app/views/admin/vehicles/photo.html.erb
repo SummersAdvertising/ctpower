@@ -12,25 +12,21 @@
   </nav>
 </header>
 <article>
-  <div class="hgroup">
-     <div class="button right">
-       
-     </div>
-  </div>
-  <div class='form'>
-    <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_photo_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
+  
+  
+  <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_photo_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
 
-      <%= render 'admin/common/upload_by_type', target_title: '產品圖' %>
-      
-      <%= f.hidden_field :status, :value => 'enable' %>
+    <%= render 'admin/common/upload_by_type', target_title: '產品圖' %>
+    
+    <%= f.hidden_field :status, :value => 'enable' %>
 
-      <%= f.submit 'Save', class: 'highlight right' %><br>
+    <%= f.submit 'Save', class: 'highlight right' %><br>
 
-    <% end %>
-  </div>
+  <% end %>
+  
 
   <div class="gallery">
-    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehiclePhotoGallery' %>
+    <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '', type: 'VehiclePhotoGallery' %>
   </div>
 
 </article>
