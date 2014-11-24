@@ -1,6 +1,5 @@
 <link href="/css/spot.css" rel="stylesheet" type="text/css">
 
-
 <article>
   <div class="banner">
     <div class="container">
@@ -43,29 +42,6 @@
             <%= f.submit('搜尋' , id: "quick-search", class: "btn") %>
             <% end %>
 
-          <!--
-            <div class="btn-group">
-              <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                新北市 <div class="arrowSelect"><span class="caret"></span></div>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">新北市</a></li>
-                <li><a href="#">台北市</a></li>
-                <li><a href="#">基隆市</a></li>
-              </ul>
-            </div>
-            
-            <div class="btn-group">
-              <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                區域  <div class="arrowSelect"><span class="caret"></span></div>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">三重區</a></li>
-                <li><a href="#">蘆洲區</a></li>
-                <li><a href="#">永和區</a></li>
-              </ul>
-            </div>
-            <button type="button" class="btn">搜　尋</button> -->
         </div>
         
         
@@ -76,24 +52,3 @@
     </div>
     </section>
 </article>
-
-
-<!--     
-     <%= search_form_for @q, url: search_stations_path, class: "form-inline quick-search-form" , method: :post, remote: true do |f| %>
-       
-        <div class='form-group' style='display:none;'>
-          <%= f.select :country_eq, options_from_collection_for_select(@countries ,
-              "id", "name" ) , id: 'q_country_eq', class: "form-control" %>
-        </div>
-        <div class='form-group'>
-          <%= f.select :city_eq, options_from_collection_for_select(@cities ,
-              "id", "name" ) , id: 'q_city_eq', class: "form-control" %>
-        </div>
-        <div class='form-group'>
-          <%= f.select :district_eq, options_from_collection_for_select(@districts ,
-              "id", "name" ) ,{:prompt => '-- 請選擇 --'}, id: 'q_district_eq', class: "form-control" %>
-        </div>
-        <%= f.submit('搜尋' , id: "quick-search", class: "btn btn-custom") %>
-     <% end %>
-
---> 
