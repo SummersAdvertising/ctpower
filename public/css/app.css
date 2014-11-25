@@ -1,0 +1,38 @@
+@charset "utf-8";
+/*-----------------------------------------------------------------------banner---*/
+.banner { background-image: url(../images/banner_app.jpg); }
+.banner h1 { color: #FFF;}
+/*-----------------------------------------------------------------------app---*/
+.app .container{padding-top:120px;}
+.app h1{font-size:2.6em;padding-bottom:80px;}
+#app01{float:left;width:32%;padding-top:40px;padding-right:40px;}
+#app01 img{width:100%;}
+#app02{float:left;width:60%;}
+.intro{text-align:center;padding-bottom:120px;width:580px;margin:0 auto;}
+.intro h2{color:#b10000;font-size:1.4em;text-align:left;}
+.intro p{color:#6f6f6f;font-size:1.2em;line-height:1.8em;text-align:left;}
+.intro span{color:#fd5f5f;}
+#highlight{background-color:#fcffb0;color:#6f6f6f;}
+#download{background-color:#f5f5f5;padding:40px 80px 120px 80px;color:#010101;font-size:1.3em;}
+#download h2{color:#b10000;font-size:1.4em;}
+#download p{background-color:#FFF;border:1px solid #838383;text-align:center;margin-top:40px;padding:36px 0;}
+#download p img{margin:0 20px;}
+#download p a:hover img{margin:0 20px;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;}
+@media (min-width:768px) and (max-width:1024px){
+	.app .container{padding-top:80px;}
+	.app h1{padding-bottom:40px;}
+	#app01,#app02{float:none;margin:0 auto;}
+	#app01{width:300px;padding-bottom:40px;}
+	#app02{width:100%;}
+	
+}
+@media (max-width:767px){
+	.app .container{padding-top:40px;}
+	.app h1{padding-bottom:20px;}
+	#app01{display:none;}
+	#app02{width:100%;float:none;margin:0 auto;}
+	.intro{width:100%;padding-bottom:40px;}
+	.intro img{display:block;margin:0 auto;}
+	#download{margin:0 -15px;padding:40px 10px 120px 10px;}
+	.qrcode{display:none;}
+}
