@@ -68,4 +68,5 @@ gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 gem 'simple_form'
 
+gem 'sanitize'
 #gem 'geokit-rails'

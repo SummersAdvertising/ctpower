@@ -1,6 +1,9 @@
 #encoding: utf-8
 class Reservation < ActiveRecord::Base
   
+  require 'sanitize'
+  before_validation :sanitize_content, :on => :create
+
   validates_presence_of :name, :message => "姓名不能為空白"
   validates_presence_of :content, :message => "留言不能為空白"
   
@@ -16,17 +19,25 @@ class Reservation < ActiveRecord::Base
 
   before_validation :check_attrs
   
-  def check_attrs
-    self.status = "new" if self.status.blank?
-  end
-
-  def get_status
-    case self.status
-    when "new"
-      "未處理"
-    when "done"
-      "已處理"
+  private
+    
+    def sanitize_content
+      self.name = Sanitize.fragment(self.name, Sanitize::Config::DEFAULT)
+      self.subject = Sanitize.fragment(self.subject, Sanitize::Config::DEFAULT)
+      self.content = Sanitize.fragment(self.content, Sanitize::Config::DEFAULT)
     end
-  end
+
+    def check_attrs
+      self.status = "new" if self.status.blank?
+    end
+
+    def get_status
+      case self.status
+      when "new"
+        "未處理"
+      when "done"
+        "已處理"
+      end
+    end
 
 end
