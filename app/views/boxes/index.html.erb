@@ -22,21 +22,13 @@
         <img id="qMark" src="/images/img_common.png">
         <p>以「電動機車電池交換系統」為發展主軸，藉由快速電池交換方式，可媲美進而漸漸汰換高污染的汽油車，促進電動機車的普及率。 藉此改善及推廣人們綠能車輛的方便性，創造全新的綠色交通形態。 </p>
         
-        <% @q = Faq.order(:box_id).search(params[:q]) %>
-        <%= search_form_for @q, url: search_faqs_path, class: "form-inline quick-search-form" , method: :post  do |f| %>
-            <div class="input-group">
-              <%= f.search_field :question_cont, class: "form-control", placeholder: "Search here", required: true %>
-            <span class="input-group-btn">
-            <%= f.submit('搜 尋' , id: "quick-search", class: "btn") %>
-            </span>
-            </div>
-         <% end %>
+        <%= render 'faqs/search_form'%>
 
       </div>
       <div role="tabpanel" id="faq02"> <a name="faqs"></a>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-        <%= render 'faqs/search_form'%>
+        
         <% @boxes.each do |box| %>   
           <% if box.id == @box.id %>
             <li role="presentation" class="active">
@@ -44,13 +36,11 @@
             <li role="presentation">
           <% end %>
             <%= link_to box.name, FAQ_path(box, anchor: "faqs") %>
-              <!--<a href="#t01" aria-controls="home" role="tab" data-toggle="tab"><%= box.name %></a>-->
             </li>
         <% end %>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">   
-        <%= render 'faqs/search_form'%>
 
         <% if @faqs %>
           <% @faqs.each do |faq| %>
@@ -59,9 +49,7 @@
             <h3 class='faq_quickview' data-faq='<%= faq.id %>'><%= faq.question %> </h3>
           </div>
           <div class="answ">
-            <p id='<%= "faqblock_#{faq.id}"%>'> 
-            <%# render partial: 'faq_block', locals: {faq: faq} %>
-            </p>
+            <p id='<%= "faqblock_#{faq.id}"%>'> </p>
           </div>
           </div>    
           <% end %>
@@ -116,3 +104,5 @@
     
     
   });
+
+  </script>

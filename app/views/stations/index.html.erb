@@ -29,11 +29,10 @@
                   "id", "name" ) , id: 'q_country_eq', class: "form-control" %>
             </div>
             <div class='btn-group'>
-              <button type="button" class="dropdown-toggle">
+              
               <%= f.select :city_eq, options_from_collection_for_select(@cities ,
                   "id", "name" ) , id: 'q_city_eq', class: "dropdown-toggle" %>
               
-              </button>
             </div>
             <div class='btn-group'>
               <%= f.select :district_eq, options_from_collection_for_select(@districts ,

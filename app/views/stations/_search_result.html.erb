@@ -4,29 +4,9 @@
         <div class="searchShow">
           <%= link_to station.name , station_path(station), {:class=>"siteName"}%>
             <h2 class="address"><%= station.address %></h2>
-            <h2 class="phone">02-2254-2199</h2>
+            <h2 class="phone"><%= station.phone %></h2>
         </div>
       <% end %>
 <% else %>
   <h3>利用此條件 查無站點 請重新查詢</h3>
 <% end %>
-
-
-<!--
-<% if stations.length > 0 %>
-<h1>BES 電池交換站點收尋結果</h1>       
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="30%" align="center">店名</td>
-      <td width="70%" align="center">資訊</td>
-    </tr>
-    <% stations.each do |station|%>
-      <tr>
-        <td align="center"><%= link_to station.name , station_path(station) %></td>
-        <td><%= station.address %>  <%= station.phone %></td>
-      </tr>
-    <% end %>
-  </table>
-<% else %>
-  利用此條件 查無站點 請重新查詢
-<% end %>-->

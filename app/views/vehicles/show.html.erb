@@ -24,13 +24,19 @@ $(document).ready(function(){
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <div class="block">
       <div class="row">
-        <div class="col-sm-4 col-xs-4 col-md-4"><a id="vLink" href="<%= @vehicle.cf.html_safe if @vehicle.cf %>" title="<%= @vehicle.name %>"></a></div>
+        <div class="col-sm-4 col-xs-4 col-md-4">
+          <% if @vehicle.cf %>
+            <%= link_to @vehicle.cf.html_safe, title: @vehicle.name, id: 'vLink'  %>
+          <% end %>
+        </div>
         <div class="col-sm-4 col-xs-4 col-md-4">
           <% @vehicle.galleries.where(type: VehicleDMFile).each do |attach| %>
             <a id="dLink" href="<%= "#{attach.attachment.url}" %>" title="型錄下載" target="_blank"></a>
           <% end %>
         </div>
-        <div class="col-sm-4 col-xs-4 col-md-4"><a id="oLink" href="#" title="預約試乘"></a></div>
+        <div class="col-sm-4 col-xs-4 col-md-4">
+          <%= link_to '', reservations_path, title: "預約試乘", id: "oLink" %>
+        </div>
       </div>
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -193,17 +199,6 @@ $(document).ready(function(){
   </section>
   
 </article>
-
-<!--
-
-    NAME:<%#= @vehicle.name %><br>
-    CF:<%#= @vehicle.cf.html_safe if @vehicle.cf %><br>
-    PRICE:<%#= @vehicle.price %> = ON SALE:<%= @vehicle.price_for_sale %><br>
-    DESCRIPTION:<%#= @vehicle.description %><br>
-    TILE_COLOR:<%#= @vehicle.title_color %><br>
-
--->
-
 
 <script>
 $('.colorTag ul li').click(function(){
