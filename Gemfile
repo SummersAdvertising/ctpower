@@ -46,7 +46,8 @@ group :development do
   
   gem 'rvm-capistrano'
   gem 'capistrano-ext'
-
+  # gem 'lol_dba'
+  # lol_dba db:find_indexes
 end
 
 gem 'sucker_punch', '~> 1.0'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114031036) do
+ActiveRecord::Schema.define(version: 20141126081518) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "accessories", ["id", "type"], name: "index_accessories_on_id_and_type"
+  add_index "accessories", ["vehicle_id"], name: "index_accessories_on_vehicle_id"
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +55,9 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.string   "type"
   end
 
+  add_index "announcements", ["article_id"], name: "index_announcements_on_article_id"
+  add_index "announcements", ["id", "type"], name: "index_announcements_on_id_and_type"
+
   create_table "articles", force: true do |t|
     t.string   "name"
     t.text     "content"
@@ -70,6 +76,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "updated_at"
   end
 
+  add_index "banners", ["id", "type"], name: "index_banners_on_id_and_type"
+
   create_table "boxes", force: true do |t|
     t.integer  "parent_id"
     t.string   "name"
@@ -78,6 +86,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "updated_at"
   end
 
+  add_index "boxes", ["parent_id"], name: "index_boxes_on_parent_id"
+
   create_table "categories", force: true do |t|
     t.integer  "parent_id"
     t.string   "name"
@@ -85,6 +95,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -102,6 +114,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "updated_at"
     t.string   "name"
   end
+
+  add_index "colors", ["vehicle_id"], name: "index_colors_on_vehicle_id"
 
   create_table "contacts", force: true do |t|
     t.string   "subject"
@@ -137,6 +151,9 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "updated_at"
   end
 
+  add_index "faqs", ["article_id"], name: "index_faqs_on_article_id"
+  add_index "faqs", ["box_id"], name: "index_faqs_on_box_id"
+
   create_table "features", force: true do |t|
     t.integer  "vehicle_id"
     t.string   "title"
@@ -144,6 +161,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "updated_at"
     t.string   "context"
   end
+
+  add_index "features", ["vehicle_id"], name: "index_features_on_vehicle_id"
 
   create_table "galleries", force: true do |t|
     t.string   "file_name"
@@ -158,6 +177,9 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "updated_at"
   end
 
+  add_index "galleries", ["attachable_id", "attachable_type"], name: "index_galleries_on_attachable_id_and_attachable_type"
+  add_index "galleries", ["id", "type"], name: "index_galleries_on_id_and_type"
+
   create_table "photos", force: true do |t|
     t.string   "image"
     t.string   "name"
@@ -165,6 +187,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "photos", ["article_id"], name: "index_photos_on_article_id"
 
   create_table "reservations", force: true do |t|
     t.string   "subject"
@@ -184,6 +208,8 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "specs", ["vehicle_id"], name: "index_specs_on_vehicle_id"
 
   create_table "stations", force: true do |t|
     t.string   "name"
@@ -213,5 +239,7 @@ ActiveRecord::Schema.define(version: 20141114031036) do
     t.string   "description"
     t.string   "title_color"
   end
+
+  add_index "vehicles", ["category_id"], name: "index_vehicles_on_category_id"
 
 end
