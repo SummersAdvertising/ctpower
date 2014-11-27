@@ -5,7 +5,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
   def index
-    @announcements = Announcement.includes(:galleries).for_index.all
+    @announcements = Announcement.includes(:galleries).for_index.page(params[:page])
   end
 
   # GET /announcements/1

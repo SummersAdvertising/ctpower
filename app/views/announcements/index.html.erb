@@ -54,13 +54,8 @@
           </div>
         </div>
       <% end %>
-
-      <div class="text-center">
-        <ul class="pagination">
-          <!--li class="active"><a href="#"><img src="images/news-03.png"></a></li-->
-          <li class="active"><a href="#">1</a></li>
-          <!--li class="active"><a href="#"><img src="images/news-04.png"></a></li-->
-        </ul>
+      <div class= "page">
+        <%= paginate @announcements ,:window => 2 %>
       </div>
     </section>
   </div>
