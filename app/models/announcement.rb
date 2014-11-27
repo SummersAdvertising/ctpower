@@ -15,6 +15,7 @@ class Announcement < ActiveRecord::Base
   def check_attrs
     self.title = "未命名文章" if self.title.blank?
     self.status = "enable" if self.status.blank?
+    self.subtitle = '副標題' if self.subtitle.blank?
   end
   
   def get_status
