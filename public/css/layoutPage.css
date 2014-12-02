@@ -55,7 +55,7 @@ header h1 { margin-top: -82px; margin-left: 40px; width: 180px; padding-top: 20p
 #crumb ol.breadcrumb { background: #fff; display: inline; position: relative; top: 10px; font-size: 1em; left: -20px;padding-left: 20px;}
 #crumb a { color: #797979; font-size: 1em; }
 #crumb a:hover { color: #ccc; }
-.breadcrumb>li+li:before { padding: 0 5px; color: #797979; content: ""; font-weight: 900; background-image: url(../images/img_crumb.png); background-repeat: no-repeat; background-position: center center; }
+.breadcrumb>li+li:before { padding: 0 10px 0 5px; color: #797979; content: ""; font-weight: 900; background-image: url(../images/icon_crumb.gif); background-repeat: no-repeat; background-position: center center; }
 @media (max-width:767px) {
 #crumb ol.breadcrumb{ padding-left: 20px;  }
 }

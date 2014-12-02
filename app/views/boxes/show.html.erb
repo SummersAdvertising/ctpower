@@ -97,12 +97,12 @@
 
     if(tag[x] == 0){
       $(this).css({'border-color':'#f47979'});
-      $(this).find('.answ').slideDown();
+      $(this).find('.answ').delay(100).slideDown();
       $(this).find('.ques').addClass('open').css({color:'#f47979'});
       tag[x] = 1;
     }else{
       $(this).css({'border-color':'#a2a2a2'});
-      $(this).find('.answ').slideUp();
+      $(this).find('.answ').delay(100).slideUp();
       $(this).find('.ques').removeClass('open').css({color:'#000'});
       tag[x] = 0;
     }

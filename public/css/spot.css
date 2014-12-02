@@ -48,10 +48,10 @@
 #spot02 h3 { text-align: center;margin: 0 auto; padding-bottom: 40px;}
 #spot02 .searchShow { border: 2px solid #cfcfcf; border-radius: 4px; padding: 6px 0; margin-bottom: 20px; text-align: center; vertical-align: middle; }
 .searchShow a.siteName, .searchShow h2 { margin: 0; min-height: 52px; height: auto;font-size: 1.3em; background-repeat: no-repeat; background-position: left center; display: inline-block; line-height: 1.5em; text-align: left; padding: 12px 0 12px 60px;  }
-.searchShow a.siteName{ color: #797979; background-image: url(../images/006.png); width: 28%;}
+.searchShow a.siteName{ color: #797979; background-image: url(../images/icon_station01.gif); width: 28%;}
 .searchShow a.siteName:hover{color:#096cdb;}
-.searchShow .address { background-image: url(../images/007.png); width: 38%;color:#428bca; }
-.searchShow .phone { background-image: url(../images/008.png); width: 24%;color:#428bca;}
+.searchShow .address { background-image: url(../images/icon_station02.gif); width: 38%;color:#428bca; }
+.searchShow .phone { background-image: url(../images/icon_station03.gif); width: 24%;color:#428bca;}
 @media (max-width:991px) {
 .searchShow a.siteName, .searchShow h2 { width: 100%; display: block; margin: 10px 0; }
 .searchShow .address { width: 100%; }

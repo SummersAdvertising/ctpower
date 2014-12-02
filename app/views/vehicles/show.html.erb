@@ -26,7 +26,7 @@ $(document).ready(function(){
       <div class="row">
         <div class="col-sm-4 col-xs-4 col-md-4">
           <% if @vehicle.cf %>
-            <%= link_to @vehicle.cf.html_safe, title: @vehicle.name, id: 'vLink'  %>
+            <%= link_to ' ',@vehicle.cf.html_safe, id: "vLink" %>
           <% end %>
         </div>
         <div class="col-sm-4 col-xs-4 col-md-4">
@@ -113,7 +113,7 @@ $(document).ready(function(){
   <!--連絡-->
   <section id="contact">
     <img id="sectionArrow" src="/images/arrow.png">
-    <a href="#" title="欲購買請與我們聯絡">欲購買請與我們聯絡</a>
+    <%= link_to "欲購買請與我們聯絡", reservations_path(), title: "欲購買請與我們聯絡" %>
   </section>
   <!--特色-->
   <section class="feature">

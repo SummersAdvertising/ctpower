@@ -39,10 +39,10 @@
           <li><%= link_to 'BES 操作流程', page_pages_path('processes') %></li>
           <li><%= link_to "BES 站點查詢", stations_path() %></li>
           <li><%= link_to "常見問題", FAQs_path() %></li>
-          <li><a href="#" >聯絡資訊</a></li>
+          <li><%= link_to "聯絡資訊", reservations_path() %></li>
           <li><%= link_to "E-bike", page_pages_path('comingsoon') %></li>
           <li><%= link_to "認識城市動力", page_pages_path('about') %></li>
-          <li><a href="#" >與我們合作</a></li>
+          <li><%= link_to "與我們合作", contacts_path() %></li>
         </ul>
       </nav>
       <h1 class="pull-left">
@@ -65,14 +65,14 @@
           <li><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">客戶服務</a>
             <ul class="dropdown-menu">
               <li><%= link_to "常見問題", FAQs_path() %></li>
-              <li><a href="#" >聯絡資訊</a></li>
+              <li><%= link_to "聯絡資訊", reservations_path() %></li>
             </ul>
           </li>
           <li><%= link_to "E-bike", page_pages_path('comingsoon') %></li>
           <li><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">認識城市動力</a>
             <ul class="dropdown-menu">
               <li><%= link_to "關於我們", page_pages_path('about') %></li>
-              <li><a href="#" >與我們合作</a></li>
+              <li><%= link_to "與我們合作", contacts_path() %></li>
             </ul>
           </li>
         </ul>
