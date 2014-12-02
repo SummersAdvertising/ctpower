@@ -4,8 +4,8 @@ class StaticsController < ApplicationController
   def index
     @announcements = Announcement.includes(:galleries).for_index.limit(3)
     @banners = Banner.sliders.includes(:galleries).where(status: 'enable').limit(5)
-    products_ids = Banner.vehicles.includes(:galleries).where(status: 'enable').limit(12).pluck(:related_product_id)
-    @pickups = Vehicle.where(id: products_ids)
+    products_ids = Banner.vehicles.where(status: 'enable').distinct.limit(3).pluck(:related_product_id)
+    @pickups = Vehicle.includes(:galleries).where(id: products_ids, status: 'enable')
   end
 
   def about
