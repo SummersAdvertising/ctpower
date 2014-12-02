@@ -48,5 +48,6 @@ class IndexSlider < Banner
 end
 
 class SelectedVehicle < Banner
-  
+  belongs_to :vehicles
+
 end

@@ -18,12 +18,15 @@
 
 
 <div id="slider">
-    <ul class="bxslider">
-      <li><img src="sample/slider-1.jpg" class="img-responsive"/></li>
-      <li><img src="sample/slider-2.jpg" class="img-responsive"/></li>
-      <li><img src="sample/slider-3.jpg" class="img-responsive"/></li>
-      <li><img src="sample/slider-4.jpg" class="img-responsive"/></li>
-    </ul>
+  <ul class="bxslider">
+    <% @banners.each do |banner| %>
+      <% if banner.galleries.first %>
+        <li>
+          <img src=<%= "#{banner.galleries.first.attachment.url}" %> class="img-responsive" />
+        </li>
+       <% end %>
+    <% end %>
+  </ul>
 </div>
 <article>  
   <div id="content-1" class="content">
@@ -69,6 +72,15 @@
   </div>
   <div id="content-2" class="content">
     <section class="container">
+      <% @pickups.each do |vehicle| %>
+        <%= link_to vehicle_path(vehicle), {:class=>"col-md-4"} do %>
+            <%= render 'layouts/show_by_type', target: vehicle, target_title: '', type: 'VehicleCover' %>
+            <hr>
+            <h3><%= vehicle.name %></h3>
+            <h4><%= vehicle.description %></h4>
+            <button class="btn btn-default"><span>看更多</span></button>
+        <% end %>
+      <% end %>
     </section>
   </div>
   <div id="content-3" class="content">
