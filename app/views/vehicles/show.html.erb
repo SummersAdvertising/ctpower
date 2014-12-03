@@ -54,7 +54,7 @@ $(document).ready(function(){
     
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div class="carousel-caption"><%= @vehicle.name %></div>
+      <div class='carousel-caption' style='color:#<%= "#{@vehicle.title_color}"%>;'><%= @vehicle.name %></div>
       <% j=0 %>
       <% @vehicle.galleries.where(type: VehicleSlider).each do |attach| %>
         <% if j==0 %>
