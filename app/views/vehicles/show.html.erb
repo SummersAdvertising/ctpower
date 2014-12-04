@@ -2,31 +2,37 @@
 <script src="/js_plugins/colorbox/jquery.colorbox-min.js"></script>
 <link href="/css/intro.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/js/intro.js"></script>
-<script>
-$(document).ready(function(){
-  if($(window).width()<768){
-    $("#vLink").colorbox({iframe:true, innerWidth:320, innerHeight:195});
-  }else{
-    $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
-  }
-  $(window).resize(function(){
+<script type="text/javascript" src="/js_plugins/else.js"></script>
+
+<% if @vehicle.cf %>
+  <script>
+  $(document).ready(function(){
+    fetch_video_url('<%= "#{@vehicle.cf.html_safe}"%>');
+
     if($(window).width()<768){
       $("#vLink").colorbox({iframe:true, innerWidth:320, innerHeight:195});
     }else{
       $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
-    }  
+    }
+    $(window).resize(function(){
+      if($(window).width()<768){
+        $("#vLink").colorbox({iframe:true, innerWidth:320, innerHeight:195});
+      }else{
+        $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+      }  
+    });
+    
   });
-});
-</script>
-
+  </script>
+<% end %>
 
 <article>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <div class="block">
       <div class="row">
-        <div class="col-sm-4 col-xs-4 col-md-4">
+        <div id='cf_container' class="col-sm-4 col-xs-4 col-md-4">
           <% if @vehicle.cf %>
-            <%= link_to ' ',@vehicle.cf.html_safe, id: "vLink" %>
+            <%= link_to ' ', 'javascritp:void(0);' , id: "vLink" %>
           <% end %>
         </div>
         <div class="col-sm-4 col-xs-4 col-md-4">
@@ -201,11 +207,11 @@ $(document).ready(function(){
 </article>
 
 <script>
-$('.colorTag ul li').click(function(){
-  var colorStyle = $(this).index();
-  $('.current').removeClass('current');
-  $('.motoImg img').css({'opacity':0});
-  $('.motoImg img').eq(colorStyle).addClass('current');
-  $('.motoImg img').stop(false,false).animate({'opacity':1},600);
-});
+  $('.colorTag ul li').click(function(){
+    var colorStyle = $(this).index();
+    $('.current').removeClass('current');
+    $('.motoImg img').css({'opacity':0});
+    $('.motoImg img').eq(colorStyle).addClass('current');
+    $('.motoImg img').stop(false,false).animate({'opacity':1},600);
+  });
 </script>
