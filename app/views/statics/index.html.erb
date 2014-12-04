@@ -70,8 +70,8 @@
 
     </section>
   </div>
-  <!-- <div id="content-2" class="content">
-    <section class="container"> -->
+  <div id="content-2" class="content">
+    <section class="container">
       <% @pickups.each do |vehicle| %>
         <%= link_to vehicle_path(vehicle), {:class=>"col-md-4"} do %>
             <%= render 'layouts/show_by_type', target: vehicle, target_title: '', type: 'VehicleCover' %>
@@ -81,8 +81,8 @@
             <button class="btn btn-default"><span>看更多</span></button>
         <% end %>
       <% end %>
-    <!-- </section>
-  </div> -->
+    </section>
+  </div>
   <div id="content-3" class="content">
     <section class="container clearfix">      
       <div class="pull-right">

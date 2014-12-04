@@ -1,6 +1,11 @@
 <link href="/js_plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
 <script src="/js_plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="/js_plugins/bxslider/jquery.bxslider.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="/js_plugins/bxslider/jquery.bxslider.css" />
 <link href="/css/intro.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+<![endif]-->
 <script type="text/javascript" src="/js/intro.js"></script>
 <script>
 $(document).ready(function(){
@@ -18,11 +23,33 @@ $(document).ready(function(){
   });
 });
 </script>
+<script>
+  $(document).ready(function(){
+    $('.bxslider').bxSlider({
+      controls:false,
+      auto:true,
+      mode:'fade',
+      width: '120%',
+      height: 900,
+    });
+    $(window).resize(function(){$('.bx-controls').css({height:$('.block').height()});})
+    $('.bx-controls').css({height:$('.block').height()});
+  });    
+</script>
 
-
-<article>
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <div class="block">
+<div id="slider">
+  <ul class="bxslider">
+      <% @vehicle.galleries.where(type: VehicleSlider).each do |attach,index| %>
+        <% if index==0 %>
+          <div class="item active">
+        <% else %>
+          <div class="item">
+        <% end %>
+          <image src=<%= "#{attach.attachment.url}" %> /></div>
+        <% end %>   
+  </ul>
+  <div class='caption' style='color:#<%= "#{@vehicle.title_color}"%>;'><%= @vehicle.name %></div>
+  <div class="block">
       <div class="row">
         <div class="col-sm-4 col-xs-4 col-md-4">
           <% if @vehicle.cf %>
@@ -38,37 +65,15 @@ $(document).ready(function(){
           <%= link_to '', reservations_path, title: "預約試乘", id: "oLink" %>
         </div>
       </div>
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <% i=0 %>
-        <% @vehicle.galleries.where(type: VehicleSlider).each do |attach| %>
-          <% if i==0 %>
-            <li data-target="#carousel-example-generic" data-slide-to="<%= i %>" class="active"></li>
-          <% else %>
-            <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
-          <% end %>
-          <% i=i+1 %>    
-        <% end %>
-      </ol>
-    </div>
-    
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class='carousel-caption' style='color:#<%= "#{@vehicle.title_color}"%>;'><%= @vehicle.name %></div>
-      <% j=0 %>
-      <% @vehicle.galleries.where(type: VehicleSlider).each do |attach| %>
-        <% if j==0 %>
-          <div class="item active">
-        <% else %>
-          <div class="item">
-        <% end %>
-          <image src=<%= "#{attach.attachment.url}" %> /></div>
-        <% j=j+1 %>    
-      <% end %>
-    </div>
-
-    </div>
   </div>
+</div>
+
+
+
+
+
+<article>
+
   <!--側邊選單-->
   <nav id="sideMenu">
     <ul>
@@ -192,7 +197,7 @@ $(document).ready(function(){
       </div>
     </div>
   </section>
-  <section class="accessory">
+  <section class="gallery">
     <div class="container">
       <%= render 'layouts/show_by_type', target: @vehicle, target_title: '', type: 'VehiclePhotoGallery' %>
     </div>

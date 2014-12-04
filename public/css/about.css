@@ -28,7 +28,7 @@
 #mark2 { right: 15px; }
 }
 /*-----------------------------------------------------------------------road---*/
-.road { background-image: url(../images/bg_road.jpg); height: 533px; background-size: cover; background-position: right top; padding-top: 80px; }
+.road { background-image: url(../images/bg_road.jpg); min-height: 533px;height:auto; background-size: cover; background-position: right top; padding-top: 80px; }
 #road01 { float: left; width: 355px; }
 .road h1 { background-image: url(../images/icon_road01.png); background-repeat: no-repeat; background-position: left top; font-size: 2.6em; line-height: 1.2em; color: #000; padding-top: 60px; }
 .road p { font-size: 1.1em; line-height: 1.8em; }
@@ -61,7 +61,7 @@
 /*-----------------------------------------------------------------------event---*/
 .event h1 { background-image: url(../images/bg_title.png); background-repeat: no-repeat; background-position: left top; padding: 20px 0 20px 0; color: #646363; }
 .event #event { background-image: url(../images/bg_year.jpg); background-repeat: no-repeat; background-position: left top; width: 80%; padding-left: 200px; margin-right: auto; margin-left: auto; }
-#event div { background-image: url(../images/bg_event.jpg); height: 336px; width: 100%; border-radius: 4px; margin-bottom: 60px; padding: 40px 0 0 40px; background-size: cover; }
+#event div { background-image: url(../images/bg_event.jpg); height: 336px; width: 100%; border-radius: 4px; margin-bottom: 60px; padding: 40px 0 0 40px; background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/bg_event.jpg', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/bg_event.jpg', sizingMethod='scale')"; }
 .event .table>tbody>tr>td { border: none; font-size: 1.6em; line-height: 1.4em; color: #000; padding-top: 10px; padding-bottom: 10px; }
 #event div#e05 { height: 382px; }
 #event div span{display:block;}

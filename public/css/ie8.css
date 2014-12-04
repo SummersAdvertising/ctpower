@@ -1,0 +1,19 @@
+.container{min-width:960px;}
+.road { padding:70px 0 20px 0;min-height:463px;}
+#road01 {   margin-right: 35px; }
+.road h1 {margin:0;padding-top: 60px;}
+.road .row { float: left; padding-top: 20px;height:auto;overflow: hidden; }
+.road .col-xs-6 { float:left;margin-left: 0px;margin-right: 20px;}
+#event div { width:100%;}
+.event #event { width:90%;}
+#spot01 .dropdown-toggle { height: 44px;}
+#spot01 h1 { float: none;padding-bottom: 20px;}
+#vLink,#dLink,#oLink,#vLink:hover,#dLink:hover,#oLink:hover{background-image: none;}
+#vLink{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_01.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_01.png', sizingMethod='scale')";}
+#dLink{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_02.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_02.png', sizingMethod='scale')";}
+#oLink{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03.png', sizingMethod='scale')";}
+#vLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_01h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_01h.png', sizingMethod='scale')";}
+#dLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_02h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_02h.png', sizingMethod='scale')";}
+#oLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03h.png', sizingMethod='scale')";}
+.motoImg{width:75%;}
+.block{padding-left: 50px;}

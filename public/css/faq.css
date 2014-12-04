@@ -4,7 +4,7 @@
 .banner h1 { color: #FFF; }
 /*-----------------------------------------------------------------------faq01---*/
 .faq { padding-top: 80px; }
-#faq01 { border: 1px solid #d8d8d8; position: relative; border-radius: 10px; color: #797979; padding: 20px 20px 40px 120px; margin: 0 auto; max-width: 1060px; }
+#faq01 { width:90%;border: 1px solid #d8d8d8; position: relative; border-radius: 10px; color: #797979; padding: 20px 20px 40px 120px; margin: 0 auto; max-width: 1060px; }
 #qMark { position: absolute; top: 50%; left: -78px; margin-top: -78px; }
 #faq01 h1 { font-size: 2.6em; }
 #faq01 p { font-size: 1.2em; line-height: 1.8em;  padding: 20px 0; }
@@ -28,7 +28,7 @@
 #faq02 { padding: 150px 0;height:auto;overflow:hidden;max-width: 1200px;margin: 0 auto;}
 #faq02 .nav-tabs>li { float: none;padding-bottom:10px; }
 #faq02 .nav-tabs { border-bottom: none; float: left; }
-#faq02 .nav>li>a { background-color: #f0f2f5; color: #000; padding: 0px; height: 46px; text-align: center; border: 2px solid #e3e4e8; border-radius: 4px; line-height: 46px; width: 165px; font-size: 1.2em; }
+#faq02 .nav>li>a { background-color: #f0f2f5; color: #000; padding: 0px!important; height: 46px; text-align: center; border: 2px solid #e3e4e8; border-radius: 4px; line-height: 46px; width: 165px; font-size: 1.2em; }
 #faq02 .nav>li>a:hover,#faq02 .nav>li>a:active,#faq02 .nav>li>a:focus { background-color:#e3e4e8;color: #FFF;}
 #faq02 .nav-tabs>li.active>a, #faq02 .nav-tabs>li.active>a:hover, #faq02 .nav-tabs>li.active>a:focus { background-color:#f47979;color: #FFF;}
 #faq02 .tab-content{padding:0 80px 0 220px;color:#000;}

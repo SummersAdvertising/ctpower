@@ -1,4 +1,7 @@
 <link href="/css/spot.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+<![endif]-->
 
 <article>
   <div class="banner">
@@ -28,15 +31,13 @@
               <%= f.select :country_eq, options_from_collection_for_select(@countries ,
                   "id", "name" ) , id: 'q_country_eq', class: "form-control" %>
             </div>
-            <div class='btn-group'>
-              <button type="button" class="dropdown-toggle">
-                <%= f.select :city_eq, options_from_collection_for_select(@cities ,
-                  "id", "name" ) , id: 'q_city_eq', class: "dropdown-toggle" %>
-              </button>
+            <div class='btn-group dropdown-toggle'>
+              <%= f.select :city_eq, options_from_collection_for_select(@cities ,
+                  "id", "name" ) , id: 'q_city_eq' %>
             </div>
-            <div class='btn-group'>
+            <div class='btn-group dropdown-toggle'>
               <%= f.select :district_eq, options_from_collection_for_select(@districts ,
-                  "id", "name" ) ,{:prompt => '-- 請選擇 --'}, id: 'q_district_eq', class: "dropdown-toggle" %>
+                  "id", "name" ) ,{:prompt => '-- 請選擇 --'}, id: 'q_district_eq' %>
             </div>
             <%= f.submit('搜尋' , id: "quick-search", class: "btn") %>
             <% end %>
