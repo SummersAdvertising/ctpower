@@ -12,6 +12,7 @@
 <% if @vehicle.cf %>
   <script>
   $(document).ready(function(){
+    
     fetch_video_url('<%= "#{@vehicle.cf.html_safe}"%>');
 
     if($(window).width()<768){
@@ -19,6 +20,7 @@
     }else{
       $("#vLink").colorbox({iframe:true, innerWidth:640, innerHeight:390});
     }
+    
     $(window).resize(function(){
       if($(window).width()<768){
         $("#vLink").colorbox({iframe:true, innerWidth:320, innerHeight:195});
@@ -28,9 +30,7 @@
     });
     
   });
-
-});
-</script>
+  </script>
 <script>
   $(document).ready(function(){
     $('.bxslider').bxSlider({
