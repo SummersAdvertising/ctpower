@@ -8,30 +8,21 @@
 .form-inline { font-size: 1.4em; margin-bottom: 80px; }
 .radio { display: block; padding: 60px 0 20px 0; }
 .form-inline .radio label { margin-right: 40px;position:relative;padding-left:40px;line-height:28px; }
-input[type=radio] {  
-    display: none;  
-}
-input[type=radio]:checked + label:before {
-content: "\2022";
-color: #f95959;
-font-size: 46px;
-text-align: center;
-line-height: 17px;
-border: 3px solid #f95959;
-}
-.radio label:before { content: ""; display: inline-block; width: 28px; height: 28px; border-radius: 14px; margin-right: 10px; position: absolute; left: 0px; bottom: 0; background-color: #FFF; border: 3px solid #c8c8c8;    }  
+input[type=radio] { display: none;  }
+input[type=radio]:checked + label:before {color: #f95959;border: 3px solid #f95959;}
+.radio label:before { content: "●";color: transparent;line-height: 22px;padding-left: 1px; display: inline-block; width: 28px; height: 28px; border-radius: 14px; margin-right: 10px; position: absolute; left: 0px; bottom: 0; background-color: #FFF; border: 3px solid #c8c8c8;    }  
 .form-inline label { font-weight: normal; }
 .form-inline .form-group { display: block; margin-bottom: 40px; }
 .form-inline .form-control { border-radius: 0px; width: 286px; height: 41px; margin-left: 40px; }
 .form-inline textarea.form-control { resize: none; height: 113px; width: 100%; margin-left: 0px }
-.code { display: block; float: left; border: 1px solid #d1d1d1; width: 100%; max-width: 360px; height: 80px; margin-top: 20px; }
+.code { display: block; float: left; width: 100%; margin-top: 20px; }
 .col-xs-6.form01 { width: 40%; }
 .col-xs-6.form02 { width: 60%; }
-.form-inline .btn { background-color: #ed5565; background-image: url(../images/icon_btn.png); background-repeat: no-repeat; padding-right: 10px; text-align: right; width: 168px; height: 55px; color: #FFF; float: right; margin-top: 45px; background-position: 20px center; font-size: 1.4em; letter-spacing: 0.5em; }
+.form-inline .btn { clear:both;background-color: #ed5565; background-image: url(../images/icon_btn.png); background-repeat: no-repeat; padding-right: 10px; text-align: right; width: 168px; height: 55px; color: #FFF; float: right; margin-top: 45px; background-position: 20px center; font-size: 1.4em; letter-spacing: 0.5em; }
 .form-inline .btn:hover { background-color: #EA394B; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); box-shadow: inset 0 1px 1px rgba(0,0,0,.075); -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
 .contact h2 { color: #767676; font-size: 1.8em; padding-bottom: 20px; }
 .link { text-align: center; padding-bottom: 40px; }
-.link .col-xs-6 { width: 468px; height: 196px; display: inline-block; background-repeat: no-repeat; font-size: 1.4em; text-align: left; margin-left: 40px; }
+.link .col-xs-6 { width: 468px; height: 196px; display: inline-block; background-repeat: no-repeat; font-size: 1.4em; text-align: left; margin:0 20px; }
 .link01 { background-image: url(../images/bg_fb.jpg); padding: 40px 20px; }
 .link01 h3 { color: #0056d7; font-weight: bold; }
 .link01 p { color: #555555; }
@@ -42,6 +33,7 @@ border: 3px solid #f95959;
 .centreList p, .centreList span { display: inline-block;margin:0; }
 .centreList p:after { content:'　/　'; }
 .centreList h3 { display: inline-block; font-size: 1em; background-image: url(../images/icon_arrow.gif); background-repeat: no-repeat; background-position: right center; padding-right: 20px; margin: 0; }
+iframe{display:none;}
 @media (max-width:1280px) {
 #contact { width: 96%; max-width: 1000px; }
 }
@@ -69,5 +61,11 @@ border: 3px solid #f95959;
 .link .col-xs-6 { margin: 20px auto; display: block; float: none; width: 96%; background-size: cover; margin: 0 auto; background-position: right bottom; }
 .link01 { background-position: right top; }
 .col-xs-6.link02 { display: none; }
-
+.code td{display:block;margin-top:20px;}
+.code a{display:inline-block;}
+.code td:last-child{display:none;}
+.recaptchatable{border:none!important;padding: 0!important;}
+.recaptchatable #recaptcha_response_field {height: 30px;}
+.recaptchatable .recaptcha_image_cell{padding: 0!important;}
+#recaptcha_area{overflow:hidden;}
 }

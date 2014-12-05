@@ -17,3 +17,9 @@
 #oLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03h.png', sizingMethod='scale')";}
 .motoImg{width:75%;}
 .block{padding-left: 50px;}
+.form-inline .radio label { padding-left:0px;}
+input[type=radio] {  display: inline-block;  }
+.radio label:before { border:none;content: "";background-color: transparent;}
+.col-xs-6.form01,.col-xs-6.form02 { width: 50%; }
+#contact { width: 90%; }
+.link .col-xs-6 { margin:20px;}

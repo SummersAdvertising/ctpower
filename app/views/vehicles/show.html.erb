@@ -30,7 +30,10 @@
     });
     
   });
+
   </script>
+<% end %>
+
 <script>
   $(document).ready(function(){
     $('.bxslider').bxSlider({
@@ -54,7 +57,7 @@
           <div class="item">
         <% end %>
           <image src=<%= "#{attach.attachment.url}" %> /></div>
-        <% end %>   
+      <% end %>   
   </ul>
   <div class='caption' style='color:#<%= "#{@vehicle.title_color}"%>;'><%= @vehicle.name %></div>
   <div class="block">
@@ -74,11 +77,11 @@
         </div>
     </div>
   </div>
-<% end %>
+
 </div>
 
 
-
+<article>
   <!--側邊選單-->
   <nav id="sideMenu">
     <ul>

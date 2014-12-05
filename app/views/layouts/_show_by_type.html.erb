@@ -2,18 +2,8 @@
 <%# target_title: display name for user %>
 <%# target: object %>
 <%# type: gallery type %>
+<%= target_title %>
 
-<div class="form">
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="7%"><%= target_title %></td>
-      <td width="93%">
-        <div class="thumb">
           <% target.galleries.where(type: type).each do |attach| %>
             <image src=<%= "#{attach.attachment.url}" %> />
           <% end %>
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>

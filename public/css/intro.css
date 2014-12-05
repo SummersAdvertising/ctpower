@@ -27,7 +27,7 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 #slider ul {z-index:0!important;border: none!important;padding: 0px!important;margin: 0px!important;top: 0px!important;bottom: 0px!important;left: 0px!important;right: 0px!important;}
 #slider {position: relative;}
 .bx-controls {left: auto;height: 140px; max-width: 1190px; width: 80%; position: absolute; left: 10%; right: 10%; bottom: -30px; margin: 0 auto; }
-.bx-wrapper .bx-pager.bx-default-pager {z-index: 90;}
+.bx-wrapper .bx-pager.bx-default-pager {z-index: 90;width:auto;}
 .bx-wrapper .bx-pager.bx-default-pager a{text-align:center;background-color: #c6c6c6;width: 18px; height: 18px; z-index: 90;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;}
 .bx-wrapper .bx-pager.bx-default-pager a:hover{background-color: #ed5565;}
 .bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ed5565;}
@@ -67,7 +67,7 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 @media (max-width:767px){
 .block {height:auto;bottom: -40px;padding: 0px 0 10px 0;width:100%;left: 0; right: auto;}
 .bx-controls {width:100%;left:0;right:auto;bottom: -40px;height:auto;}
-.bx-wrapper .bx-pager{ bottom: auto;top:-10px;text-align: center;right:0;}
+.bx-wrapper .bx-pager.bx-default-pager{ width:100%;bottom: auto;top:-10px;text-align: center;right:0;}
 .bx-wrapper .bx-pager.bx-default-pager a{width:10px;height:10px;}
 .col-sm-4, .col-md-4{padding:0 2%;width:33.3%;margin:0}
 .block .row { margin-top: 40px; }
