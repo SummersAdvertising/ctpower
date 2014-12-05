@@ -2,7 +2,7 @@
 class Admin::AccessoriesController < AdminController
   
   before_action :set_vehicle, only: [:index, :new, :create, :edit, :update]
-  before_action :set_accessory, only: [:create, :edit, :update]
+  before_action :set_accessory, only: [:create, :edit, :update, :destroy]
 
   before_action :set_accessory_types, only: [:new, :edit]
 
@@ -16,7 +16,7 @@ class Admin::AccessoriesController < AdminController
 
   def create
 
-    @accessory = @vehicle.accessories.new(params.require(:accessory).permit(:title, :context, :type)  )
+    @accessory = @vehicle.accessories.new(params.require(:accessory).permit(:title, :context_1, :context_2, :context_3, :type)  )
 
     respond_to do |format|
     if @accessory.save
@@ -54,6 +54,13 @@ class Admin::AccessoriesController < AdminController
         format.html { render :edit }
       end      
     end
+  end
+  
+  def destroy
+    
+    @accessory.destroy
+    
+    redirect_to :back
   end
 
   private

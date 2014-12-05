@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/js/intro.js"></script>
 <script type="text/javascript" src="/js_plugins/else.js"></script>
 
-<% if @vehicle.cf %>
+<% unless @vehicle.cf.blank? %>
   <script>
   $(document).ready(function(){
     
@@ -62,16 +62,18 @@
   <div class='caption' style='color:#<%= "#{@vehicle.title_color}"%>;'><%= @vehicle.name %></div>
   <div class="block">
     <div class="row">
-        <div id='cf_container' class="col-sm-4 col-xs-4 col-md-4">
-          <% if @vehicle.cf %>
-            <%= link_to ' ', 'javascritp:void(0);' , id: "vLink" %>
-          <% end %>
-        </div>
-        <div class="col-sm-4 col-xs-4 col-md-4">
-          <% @vehicle.galleries.where(type: VehicleDMFile).each do |attach| %>
-            <a id="dLink" href="<%= "#{attach.attachment.url}" %>" title="型錄下載" target="_blank"></a>
-          <% end %>
-        </div>
+        <% unless @vehicle.cf.blank? %>
+          <div id='cf_container' class="col-sm-4 col-xs-4 col-md-4">
+              <%= link_to ' ', 'javascritp:void(0);' , id: "vLink" %>
+          </div>
+        <% end %>
+        <% unless @vehicle.galleries.where(type: VehicleDMFile).count <= 0 %>
+          <div class="col-sm-4 col-xs-4 col-md-4">
+            <% @vehicle.galleries.where(type: VehicleDMFile).each do |attach| %>
+              <a id="dLink" href="<%= "#{attach.attachment.url}" %>" title="型錄下載" target="_blank"></a>
+            <% end %>
+          </div>
+        <% end %>
         <div class="col-sm-4 col-xs-4 col-md-4">
           <%= link_to '', reservations_path, title: "預約試乘", id: "oLink" %>
         </div>
@@ -167,44 +169,50 @@
     </div>
   </section>
   <!--配件-->
-  <section class="accessory">
-    <div class="container">
-      <h1>精選配件 / Accessory</h1>
-      <h4>附贈</h4>
-      <div class="row">
-        <% @com_accessories.each do |accessory| %>
-        <div class="col-xs-6 col-sm-3">
-          <%= render 'layouts/show_by_type', target: accessory, target_title: '', type: 'VehicleAccessory' %>
-          <div>
-            <h3><%= accessory.title %></h3>
-            <ul>
-                <li><%= accessory.context_1 %></li>
-                <li><%= accessory.context_2 %></li>
-                <li><%= accessory.context_3 %></li>
-            </ul>
+  <% unless @opt_accessories.count <= 0 && @com_accessories.count <= 0 %>
+    <section class="accessory">
+      <div class="container">
+        <h1>精選配件 / Accessory</h1>
+        <% unless @com_accessories.count <= 0 %>
+          <h4>附贈</h4>
+          <div class="row">
+            <% @com_accessories.each do |accessory| %>
+            <div class="col-xs-6 col-sm-3">
+              <%= render 'layouts/show_by_type', target: accessory, target_title: '', type: 'VehicleAccessory' %>
+              <div>
+                <h3><%= accessory.title %></h3>
+                <ul>
+                    <li><%= accessory.context_1 %></li>
+                    <li><%= accessory.context_2 %></li>
+                    <li><%= accessory.context_3 %></li>
+                </ul>
+                </div>
             </div>
-        </div>
-        <% end %>
-      </div>
-      <hr>
-      <h4>選配</h4>
-      <div class="row">
-        <% @opt_accessories.each do |accessory| %>
-        <div class="col-xs-6 col-sm-3">
-          <%= render 'layouts/show_by_type', target: accessory, target_title: '', type: 'VehicleAccessory' %>
-          <div>
-            <h3><%= accessory.title %></h3>
-            <ul>
-                <li><%= accessory.context_1 %></li>
-                <li><%= accessory.context_2 %></li>
-                <li><%= accessory.context_3 %></li>
-            </ul>
+            <% end %>
           </div>
-        </div>  
+          <% unless @opt_accessories.count <= 0 %> <hr> <% end %>
+        <% end %>
+        <% unless @opt_accessories.count <= 0 %>
+          <h4>選配</h4>
+          <div class="row">
+            <% @opt_accessories.each do |accessory| %>
+            <div class="col-xs-6 col-sm-3">
+              <%= render 'layouts/show_by_type', target: accessory, target_title: '', type: 'VehicleAccessory' %>
+              <div>
+                <h3><%= accessory.title %></h3>
+                <ul>
+                    <li><%= accessory.context_1 %></li>
+                    <li><%= accessory.context_2 %></li>
+                    <li><%= accessory.context_3 %></li>
+                </ul>
+              </div>
+            </div>  
+            <% end %>
+          </div>
         <% end %>
       </div>
-    </div>
-  </section>
+    </section>
+  <% end %>
   <section class="gallery">
     <div class="container">
       <%= render 'layouts/show_by_type', target: @vehicle, target_title: '', type: 'VehiclePhotoGallery' %>
