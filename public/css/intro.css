@@ -33,7 +33,8 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 .bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ed5565;}
 .bx-wrapper .bx-pager{text-align: right;bottom:60px;right:20px;}
 .block { background-image: url(../images/bg_block.png); height: 140px; max-width: 1190px; width: 80%; position: absolute; left: 10%; right: 10%; bottom: -30px;  padding: 40px 160px 0 80px; margin: 0 auto; }
-.block .row { margin: 0px; }
+.block .row { margin: 0px; text-align: center;}
+.block .row .col-md-4{ float:none;display: inline-block;width:32.33%;}
 .block .row a { background-repeat: no-repeat;background-size: contain;width:100%;display:block;padding-top:25%; }
 #vLink{background-image: url(../images/btn_01.png);}
 #dLink{background-image: url(../images/btn_02.png);}
