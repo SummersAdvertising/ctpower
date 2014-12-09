@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
           
           CtpowermailerJob.new.async.perform(CtpowerMailer, :contact_notice, @contact)
           
-          flash[:notice] = "更新成功"
+          flash[:notice] = "表單送出完成，我們將會盡快與您聯絡。"
           format.html { redirect_to contacts_path() }
         else
           # @contact = Contact.new
@@ -39,11 +39,12 @@ class ContactsController < ApplicationController
   end
   # subject 單選選項
   # 與我們合作頁選項(單選)
-  # BES加盟系統、經銷代銷
+  # 聯絡我們頁選項(單選)
+  # 預約試乘、意見回饋、其他  BES加盟系統、經銷代銷
   private
 
   def set_options
-    @options = [["bes","BES加盟系統"],["coop","經銷代銷"]]
+    @options = [["testdrive","預約試乘"],["opinion","意見回饋"],["bes","BES加盟系統"],["coop","經銷代銷"],["etc","其他"]]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

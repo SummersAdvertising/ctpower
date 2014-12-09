@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'fetch_from_city' => 'stations#fetch_from_city'
 
   resources :contacts, only: [:index, :create]
-  resources :reservations, only: [:index, :create]
+  # resources :reservations, only: [:index, :create]
 
   resources :FAQs, :controller => :boxes , :only => [ :index, :show] # resources :boxes, only: [:index, :show]
   

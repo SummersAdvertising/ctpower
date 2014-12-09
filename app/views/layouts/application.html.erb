@@ -23,7 +23,17 @@
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="/js/bootstrap.min.js"></script> 
 <script src="/js_plugins/bxslider/jquery.bxslider.min.js"></script> 
-
+<script>
+  window.onload= function() {
+    <% if !flash[:notice].nil? %>
+     alertify['success']('<%= flash[:notice] %>', 2000);
+    <% end %>
+    
+    <% if !flash[:alert].nil? %>
+    alertify['error']("<%= flash[:alert].html_safe %>", 2000); 
+    <% end %>
+  }
+  </script>
 </head>
 
 <body>
@@ -65,14 +75,13 @@
           <li><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">客戶服務</a>
             <ul class="dropdown-menu">
               <li><%= link_to "常見問題", FAQs_path() %></li>
-              <li><%= link_to "聯絡資訊", reservations_path() %></li>
+              <li><%= link_to "聯絡資訊", contacts_path() %></li>
             </ul>
           </li>
           <li><%= link_to "E-bike", page_pages_path('comingsoon') %></li>
           <li><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">認識城市動力</a>
             <ul class="dropdown-menu">
               <li><%= link_to "關於我們", page_pages_path('about') %></li>
-              <li><%= link_to "與我們合作", contacts_path() %></li>
             </ul>
           </li>
         </ul>
