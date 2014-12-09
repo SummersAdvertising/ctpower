@@ -17,10 +17,11 @@
 	}
 	h3{
 		margin:0 0 10% 0;
-		font-size:2.3em;
+		font-size:2.6em;
 		line-height: 1.3em;
 		@media(max-width: @sm-device) {
 			margin:0 0 5% 0;
+			font-size:2.3em;
 		}
 	}	
 }
@@ -40,6 +41,7 @@
 			padding-bottom:12%;
 		}
 	}
+	p{font-size:1.1em;line-height:1.8em;}
 }
 
 #content-2{
@@ -65,7 +67,8 @@
 				@media(max-width: @xs-device) {width:30%}
 			}
 		}
-	}	
+	}
+	p{font-size:1.2em;line-height:1.6em;}	
 }
 
 #content-3{
@@ -106,9 +109,12 @@
 			li{
 				list-style: none;
 				padding:0 0 0 25px;
-				background:url(../images/bes-14.png) 0 10px no-repeat;
+				font-size:1.2em;
+				line-height:1.8em;
+				background:url(../images/bes-14.png) 0 6px no-repeat;
 				@media(max-width: @sm-device) {
 					background-position:0 7px;
+					font-size:1em;
 				}
 			}
 		}
@@ -162,7 +168,9 @@
 			bottom:-10px;
 			color:#fff;
 			padding:5%;
-			line-height:1.3em;
+			line-height:1.5em;
+			font-size:1.3em;
+			@media(max-width: @sm-device) {font-size:1em;}
 		}
 	}
 }
@@ -173,7 +181,9 @@
 	h3 strong{font-weight:300;color:#fff100;}
 	ol{
 		padding:0;
-		li{list-style:none;padding:1.5% 0;}
+		li{list-style:none;padding:1.5% 0;font-size:1.3em;
+			@media(max-width: @sm-device) {font-size:1.2em;}
+		}
 	}
 	.pull-right{
 		width:50%;
@@ -196,8 +206,10 @@
 		li{
 			list-style:none;
 			padding:3% 0 3% 20px;
+			font-size:1.3em;
+			line-height:1.8em;
 			background:url(../images/bes-35.gif) 0 30px no-repeat;
-			@media(max-width: @xs-device) {background-position:0 15px;}
+			@media(max-width: @xs-device) {background-position:0 15px;font-size:1em;}
 		}
 	}
 	.pull-left{
@@ -228,6 +240,9 @@
 		@media(max-width: @sm-device) {
 			font-size:1.7em;
 		}
+	}
+	p{font-size:1.3em;line-height:1.8em;padding-top:20px;
+		@media(max-width: @sm-device) {font-size:1em;}
 	}
 	img{
 		display:inline-block;
@@ -263,6 +278,7 @@
 			}
 		}
 	}
+	p{font-size:1.1em;line-height:1.5em;}
 	.pull-left .ipr{text-align:right;padding:24px 70px 0 46px;}
 	.pull-right .ipr{text-align:left;padding:24px 46px 0 60px}	
 	#ipr-1{background-image:url(../images/bes-25.gif)}

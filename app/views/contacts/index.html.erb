@@ -1,26 +1,28 @@
 <link href="/css/contact.css" rel="stylesheet" type="text/css">
-
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+<![endif]-->
 
 <article>
   <div class="banner">
     <div class="container">
-      <h1>與我們合作</h1>
+      <h1>聯絡城市動力</h1>
     </div>    
     </div>
     
     <div id="crumb">
         <section class="container" >
           <ol class="breadcrumb">
-            <li><%= link_to "首頁", root_path %></li>
-            <li class="active">認識城市動力</li>
-            <li class="active">與我們合作</li>
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">客戶服務</a></li>
+            <li class="active">聯絡城市動力</li>
           </ol>
         </section>
     </div>
     
     <section class="contact">
     <div class="container">
-    <h1>與我們合作</h1>
+    <h1>聯絡城市動力</h1>
         <div id="contact">
         <form class="form-inline" role="form">
         <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact" } ) do |f| %>
@@ -54,12 +56,29 @@
         <% end %>
         </form>
         
-
+        <h2>關注我們</h2>
+        <div class="row link">
+          <a href="#" class="col-xs-6 link01">
+            <h3>Facebook</h3><p>加入粉絲團，不錯過任何一則最新消息</p>   
+          </a>
+          <div class="col-xs-6 link02">
+            <p>與城市動力成為好友，更多好康優惠與消息，即時了解</p>
+          </div>
+        </div>
+        
+        <h2>服務中心列表</h2>
+          <div class="centreList">
+            <h3>中和建一店</h3><p>地址：新北市中和區建一路7號</p><span>連絡電話：02-2228-1821</span>
+          </div>
+          <div class="centreList">
+            <h3>蘆州店</h3><p>地址：新北市蘆州區中山二路280號</p><span>連絡電話：02-2848-6381</span>
+          </div>
         </div>
     </div>
     </section>
 </article>
-
+<script src="/js/jquery.placeholder.js"></script> 
+<script>$('textarea').placeholder();</script>
 
 <!--
   <article>

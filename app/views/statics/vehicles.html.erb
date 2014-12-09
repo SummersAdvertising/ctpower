@@ -1,5 +1,7 @@
 <link href="/css/list.css" rel="stylesheet" type="text/css">
-
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+<![endif]-->
 
 <article>
   <div class="banner">
@@ -24,8 +26,11 @@
       <% @categories.each do |category| %> 
         <div class="row">
         <h2><%= category.name %></h2>
-        
+        <% vehicleIndex=1 %>
         <% category.vehicles.where(status: 'enable').limit(6).each do |vehicle| %> 
+            <%if vehicleIndex%4==0 %>
+              <hr>
+            <% end %>
             <%= link_to vehicle_path(vehicle), {:class=>"col-md-4"} do %>
                 <%= render 'layouts/show_by_type', target: vehicle, target_title: '', type: 'VehicleCover' %>
                 <hr>
@@ -33,11 +38,11 @@
                 <h4><%= vehicle.description %></h4>
                 <button class="btn btn-default"><span>看更多</span></button>
             <% end %>
+            
+            <% vehicleIndex=vehicleIndex+1 %>
         <% end %>
         </div>    
-        
-    <% end %>
-    <hr>    
+    <% end %>  
   </div>
   </section>
 </article>

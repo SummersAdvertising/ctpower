@@ -1,0 +1,102 @@
+
+.banner {
+    background-image: url("http://ctpower.summers.com.tw/images/banner_news.jpg");
+}
+.banner h1 {
+    color: #000;
+}
+.content {
+    padding: 5% 0;
+}
+@media (max-width: 767px) {
+.content {
+    padding: 10% 0;
+}
+}
+.content .title {
+    background: url("http://ctpower.summers.com.tw/images/news-01.png") repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
+    padding: 0 0 5%;
+}
+.content .title span {
+    border: 2px solid #ff6363;
+    border-radius: 50%;
+    color: #777;
+    display: block;
+    font-size: 1em;
+    height: 90px;
+    padding: 18px 0 0;
+    text-align: center;
+    width: 90px;
+}
+.content .title span strong {
+    color: #000;
+    font: 900 1.4em Arial black;
+}
+.content .title h3 {
+    font-size: 2em;
+    padding: 0 0 0 20px;
+    width: 100%;
+}
+#news-show-content .cover {
+    margin: 0 0 5%;
+}
+#news-show-content .pager li a {
+    background: none repeat scroll 0 0 #0380ae;
+    border: 0 none;
+    border-radius: 5px;
+    margin: 0 !important;
+    padding: 5px 15px 8px;
+}
+#news-show-content .pager .active a, #news-show-content .pager li a:hover {
+    background: none repeat scroll 0 0 #63bcdd;
+}
+#news-show-content .article {
+    margin: 0 0 5%;
+}
+#news-show-content .article p {
+    color: #767676;
+    padding: 2.5% 0 0;
+}
+#news-show-content .article img {
+    padding: 2.5% 0 0;
+}
+@media (max-width: 767px) {
+#news-list-content .cover {
+    margin: 0 0 5%;
+}
+}
+#news-list-content .list {
+    background: url("http://ctpower.summers.com.tw/images/news-06.png") repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
+    padding: 5% 0;
+}
+#news-list-content .article p {
+    color: #767676;
+    padding: 2.5% 0 0;
+}
+#news-list-content .more {
+    margin: 5% 0 0;
+    text-align: right;
+}
+#news-list-content .more a {
+    background-image: url("http://ctpower.summers.com.tw/images/news-02.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    height: 22px;
+    width: 83px;
+}
+#news-list-content .more a:hover {
+    background-image: url("http://ctpower.summers.com.tw/images/news-02h.gif");
+}
+#news-list-content .pagination {
+    margin: 5% 0 0;
+}
+#news-list-content .pagination li a {
+    background: none repeat scroll 0 0 #63bcdd;
+    border: 0 none;
+    color: #fff;
+}
+#news-list-content .pagination .active a, #news-list-content .pagination li a:hover {
+    background: none repeat scroll 0 0 #0380ae;
+}

@@ -43,7 +43,7 @@ class ContactsController < ApplicationController
   private
 
   def set_options
-    @options = [["bes","BES加盟系統"],["coop","經銷代銷"]]
+    @options = [["testdrive","預約試乘"],["opinion","意見回饋"],["bes","BES加盟系統"],["coop","經銷代銷"],["etc","其他"]]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -7,10 +7,10 @@
 #contact { width: 80%; margin: 0 auto; }
 .form-inline { font-size: 1.4em; margin-bottom: 80px; }
 .radio { display: block; padding: 60px 0 20px 0; }
-.form-inline .radio label { margin-right: 40px;position:relative;padding-left:40px;line-height:28px; }
+.form-inline .radio label { margin:0 40px 15px 0;position:relative;padding-left:40px;line-height:28px; }
 input[type=radio] { display: none;  }
-input[type=radio]:checked + label:before {color: #f95959;border: 3px solid #f95959;}
-.radio label:before { content: "●";color: transparent;line-height: 22px;padding-left: 1px; display: inline-block; width: 28px; height: 28px; border-radius: 14px; margin-right: 10px; position: absolute; left: 0px; bottom: 0; background-color: #FFF; border: 3px solid #c8c8c8;    }  
+input[type=radio]:checked + label:before {background-image: url(../images/icon_selected.gif);}
+.radio label:before { content: "";color: transparent;display: inline-block; width: 29px; height: 29px; margin-right: 10px; position: absolute; left: 0px; bottom: 0; background-image: url(../images/icon_select.gif);}  
 .form-inline label { font-weight: normal; }
 .form-inline .form-group { display: block; margin-bottom: 40px; }
 .form-inline .form-control { border-radius: 0px; width: 286px; height: 41px; margin-left: 40px; }
@@ -40,7 +40,7 @@ iframe{display:none;}
 @media (max-width:1070px) and (min-width:768px) {
 .contact .container { padding-top: 80px; }
 .col-xs-6.form01, .col-xs-6.form02 { width: 100%; float: none; }
-.form-inline { width: 100%; max-width: 500px; margin: 0 auto; }
+.form-inline { width: 100%; margin: 0 auto; }
 .link .col-xs-6 { margin: 20px auto; display: block; float: none; }
 }
 @media (max-width:900px) {

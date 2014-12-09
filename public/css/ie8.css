@@ -1,5 +1,5 @@
 .container{min-width:960px;}
-.road { padding:70px 0 20px 0;min-height:463px;}
+.road { padding:70px 0 20px 0;min-height:463px;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/bg_road.jpg', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/bg_road.jpg', sizingMethod='scale')";}
 #road01 {   margin-right: 35px; }
 .road h1 {margin:0;padding-top: 60px;}
 .road .row { float: left; padding-top: 20px;height:auto;overflow: hidden; }
@@ -19,7 +19,7 @@
 .block{padding-left: 50px;}
 .form-inline .radio label { padding-left:0px;}
 input[type=radio] {  display: inline-block;  }
-.radio label:before { border:none;content: "";background-color: transparent;}
+.radio label:before { content: "";background-image: none;}
 .col-xs-6.form01,.col-xs-6.form02 { width: 50%; }
 #contact { width: 90%; }
 .link .col-xs-6 { margin:20px;}

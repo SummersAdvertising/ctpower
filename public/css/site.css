@@ -4,7 +4,7 @@
 .banner h1 { color: #000; }
 
 /*-----------------------------------------------------------------------site01---*/
-.site{padding:150px 0;text-align:center;}
+.site{padding:150px 0;}
 #siteInfo {width:35%;float:left;height:422px;padding:60px 0;}
 #siteInfo h2 { margin: 0; min-height: 64px; height: auto; background-repeat: no-repeat; background-position: left center; display: block; line-height: 1.5em; text-align: left; padding: 12px 0 12px 60px; font-size: 1.3em; }
 #siteInfo h2 { color: #797979; background-image: url(../images/icon_station01.gif);  }
@@ -12,7 +12,7 @@
 #siteInfo .phone { background-image: url(../images/icon_station03.gif);color:#428bca;  }
 #googleMap{width:60%;float:left;height:294px;}
 .site hr { background-image: url(../images/news-06.png); height: 5px; border: none; clear: both; margin-top:60px;margin-bottom:100px;}
-.site img{width:100%;max-width:700px}
+.site img{max-width:100%;clear: both;display: block;margin:20px auto;}
 @media (max-width:1200px) and (min-width:768px) {
 .site{padding-top:80px;}#siteInfo  { width: 50%;height:360px}
 #googleMap{width:40%;}

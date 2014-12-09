@@ -103,22 +103,28 @@
       <div class="colorTag">
       <div id="arrow"></div>
       <ul>
+        <% colorIndex=0 %>
         <% @vehicle.colors.each do |color| %>
-          <li><a id="c01" href="javascript:;" title="<%= color.name %>"><h3><%= color.name %></h3><span style="background-color: #<%= color.hexcode %>;"></span></a></li>
+          <% if colorIndex==0 %>
+            <li class="active"><a id="c01" href="javascript:;" title="<%= color.name %>"><h3><%= color.name %></h3><span style="background-color: #<%= color.hexcode %>;"></span></a></li>
+          <% else %>
+            <li><a id="c01" href="javascript:;" title="<%= color.name %>"><h3><%= color.name %></h3><span style="background-color: #<%= color.hexcode %>;"></span></a></li>
+          <% end %>
+          <% colorIndex=colorIndex+1 %>
         <% end %>
       </ul>
       </div>
       <div class="motoImg">
-      <div id="arrow2"></div>
-      <% k=0 %>
+      <div id="arrow2"></div><p id="mColorName"></p>
+      <% imgIndex=0 %>
       <% @vehicle.colors.each do |color| %>
         <% color.galleries.where(type: VehicleColorDemo).each do |attach| %>
-           <% if k==0 %>
+           <% if imgIndex==0 %>
             <img class="current" src=<%= "#{attach.attachment.url}" %>>
            <% else %> 
             <img src=<%= "#{attach.attachment.url}" %>>
            <% end %> 
-           <% k=k+1 %>
+           <% imgIndex=imgIndex+1 %>
         <% end %>
       <% end %>
 
@@ -128,7 +134,7 @@
   <!--連絡-->
   <section id="contact">
     <img id="sectionArrow" src="/images/arrow.png">
-    <%= link_to "欲購買請與我們聯絡", reservations_path(), title: "欲購買請與我們聯絡" %>
+    <a href="<% reservations_path() %>" title="欲購買請與我們聯絡">欲購買請與<span>我們聯絡</span></a>
   </section>
   <!--特色-->
   <section class="feature">
@@ -222,11 +228,15 @@
 </article>
 
 <script>
+  $('#mColorName').text($('.colorTag ul li a').eq(0).attr('title'));
   $('.colorTag ul li').click(function(){
     var colorStyle = $(this).index();
+    $('#mColorName').text($(this).find('a').attr('title'));
     $('.current').removeClass('current');
+    $('.active').removeClass('active');
     $('.motoImg img').css({'opacity':0});
     $('.motoImg img').eq(colorStyle).addClass('current');
+    $(this).addClass('active');
     $('.motoImg img').stop(false,false).animate({'opacity':1},600);
   });
 </script>
