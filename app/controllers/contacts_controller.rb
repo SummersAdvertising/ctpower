@@ -15,9 +15,15 @@ class ContactsController < ApplicationController
       respond_to do |format|
         if @contact.save
           
-          CtpowermailerJob.new.async.perform(CtpowerMailer, :contact_notice, @contact)
-          
-          flash[:notice] = "更新成功"
+          if @contact.subject.in? ["testdrive", "opinion", "etc"]
+            # 預約試乘、意見回饋、其他，這三個類別要寄到bes_services@citypower.com.tw
+            CtpowermailerJob.new.async.perform(CtpowerMailer, :contact_notice, @contact)    
+          elsif @contact.subject.in? ["bes", "coop"]
+            # BES加盟系統、經銷代銷，要寄送到service@citypower.com.tw
+            CtpowermailerJob.new.async.perform(CtpowerMailer, :biz_contact_notice, @contact)    
+          end
+
+          flash[:notice] = "表單送出完成，我們將會盡快與您聯絡。"
           format.html { redirect_to contacts_path() }
         else
           # @contact = Contact.new
@@ -39,7 +45,8 @@ class ContactsController < ApplicationController
   end
   # subject 單選選項
   # 與我們合作頁選項(單選)
-  # BES加盟系統、經銷代銷
+  # 聯絡我們頁選項(單選)
+  # 預約試乘、意見回饋、其他  BES加盟系統、經銷代銷
   private
 
   def set_options
