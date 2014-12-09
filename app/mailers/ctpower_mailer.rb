@@ -1,7 +1,7 @@
 #encoding: utf-8
 class CtpowerMailer < ActionMailer::Base
   
-  default from: "city power <cs_service@citypower.com.tw>"
+  default from: "citypower台灣城市動力<cs_service@citypower.com.tw>"
   
   # send to admin
   def contact_notice(contact)
