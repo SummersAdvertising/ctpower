@@ -6,7 +6,9 @@ class Contact < ActiveRecord::Base
   
   validates_presence_of :name, :message => "姓名不能為空白", :on => :create
   validates_presence_of :content, :message => "留言不能為空白", :on => :create
-  
+  validates_presence_of :subject, :message => "請選擇聯絡項目", :on => :create
+  # validates_inclusion_of :subject, :in => ["testdrive", "opinion", "bes", "coop", "etc"], :on => :create
+
   validates_presence_of :email, :message => "Email不能為空白", :on => :create
   validates :email, :format => { :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i, :message => 'E-Mail 格式不符'  }, :on => :create
   validates_presence_of :phone, :message => "請輸入電話", :on => :create

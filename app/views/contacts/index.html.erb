@@ -2,7 +2,6 @@
 <!--[if lt IE 9]>
     <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
 <![endif]-->
-
 <article>
   <div class="banner">
     <div class="container">
@@ -27,8 +26,12 @@
         
         <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact", class: "form-inline" } ) do |f| %>
         <div class="radio">
-          <% @options.each do | option | %>
-            <%= f.radio_button :subject, option[0] %>
+          <% @options.each_with_index do | option, index | %>
+            <% if index == 0 %>
+              <%= f.radio_button :subject, option[0], checked: true %>
+            <% else %>
+              <%= f.radio_button :subject, option[0] %>
+            <% end %>
             <label for='<%= "contact_subject_#{option[0]}" %>' ><%= option[1] %> </label>
           <% end %>
         </div>
@@ -78,4 +81,5 @@
 </article>
 <script src="/js/jquery.placeholder.js"></script> 
 <script>$('textarea').placeholder();</script>
+
 
