@@ -1,19 +1,13 @@
-<link rel="stylesheet/less" type="text/css" href="/css/index.less" />
-<article _height="auto">
-<section class="content" style=" padding: 180px 0 120px; 0">
-  <div style="width: 567px; margin: 0 auto;">   
-    <hgroup>    
-      <h1 style="font-size: 36px; font-wieght: 600; padding: 24px;">
-      Not found.
-      </h1>
-    </hgroup>
-    <p style="padding-left: 36px;">
-      即將為您引導至首頁，請稍候或點擊 <a href="<%= root_url %>" style="color: orange; text-decoration: underline;">連結</a> 回到首頁
-    </p>
-  </div>
-</section>
+<link href="/css/404.css" rel="stylesheet" type="text/css">
+<article>
+  <section class="page404">
+    <div class="container">
+    <img src="/images/img_404.jpg">
+    <h1><span>查詢的網頁，可能已重新命名或移除</span>暫時無法使用！</h1>
+<a href="<%= root_url %>" class="btn" title="城市動力首頁">城市動力首頁 <span>&gt;</span></a>
+    </div>
+    </section>
 </article>
-
 <script>
-  setTimeout(function() { window.location.href = '<%= root_url %>'; }, 1000);
+  setTimeout(function() { window.location.href = '<%= root_url %>'; }, 3000);
 </script>

@@ -24,13 +24,19 @@
     <div class="container">
     <h1>聯絡城市動力</h1>
         <div id="contact">
-        <form class="form-inline" role="form">
-        <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact" } ) do |f| %>
+        <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact",class: "form-inline", role: "form" } ) do |f| %>
         <div class="radio">
+          <% optionIndex = 0 %>
           <% @options.each do | option | %>
+              <% if optionIndex == 0 %>
+                <%= f.radio_button :subject, option[0] ,checked: true %>
+                <label for='<%= "contact_subject_#{option[0]}" %>' ><%= option[1] %> </label>
+              <% else %>
                 <%= f.radio_button :subject, option[0] %>
                 <label for='<%= "contact_subject_#{option[0]}" %>' ><%= option[1] %> </label>
               <% end %>
+              <% optionIndex = optionIndex+1 %>
+          <% end %>
         </div>
         <div class="row">
           <div class="col-xs-6 form01">
@@ -54,11 +60,11 @@
           </div>
         </div>
         <% end %>
-        </form>
+
         
         <h2>關注我們</h2>
         <div class="row link">
-          <a href="#" class="col-xs-6 link01">
+          <a class="col-xs-6 link01" href="https://www.facebook.com/pages/%E5%9F%8E%E5%B8%82%E5%8B%95%E5%8A%9BCity-power/722780041116958?fref=ts" target="_blank" >
             <h3>Facebook</h3><p>加入粉絲團，不錯過任何一則最新消息</p>   
           </a>
           <div class="col-xs-6 link02">

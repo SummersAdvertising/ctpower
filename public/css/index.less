@@ -105,10 +105,19 @@
 		.animate;
 		&:hover{
 			.opacity;
+			@media(max-width: @sm-device) {
+				background-color:#0CA6F5;		
+			}
 		}
-		img{display:inline;}
+		img{display:inline;
+			@media(max-width: @sm-device) {
+				margin:0 auto;
+				display:block;	
+			}
+		}
 		@media(max-width: @sm-device) {
-			margin:10% 0 0 0;			
+			margin:10% 0 0 0;	
+			background-color:#0CA6F5;		
 		}
 	}
 	.title{

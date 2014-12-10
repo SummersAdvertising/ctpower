@@ -37,7 +37,7 @@
 #faq02 .tab-content .ques{ background-color: #fbfbfb; padding: 18px 10px; background-image: url(../images/icon_faq02.gif); background-repeat: no-repeat; background-position: right center; cursor: pointer; }
 #faq02 .tab-content .ques.open{background-image: url(../images/icon_faq01.gif);background-position: right center;}
 #faq02 .tab-content .answ{padding:20px 100px 20px 10px;font-size:1.3em;line-height:1.8em;overflow:hidden;}
-#faq02 .tab-content .answ h4{ background-image: url(../images/list_faq.gif); background-repeat: no-repeat; background-position: left center; padding-left: 24px;padding-top:10px; }
+#faq02 .tab-content .answ .part-subtitle{ background-image: url(../images/list_faq.gif); background-repeat: no-repeat; background-position: left center; padding-left: 24px;padding-top:10px; }
 #faq02 .tab-content .answ p{color:#767676;}
 @media (max-width:1300px) and (min-width:768px) {
 #faq02 .tab-content{padding-right:20px}

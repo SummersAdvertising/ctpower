@@ -158,6 +158,7 @@
 #content-4{
 	.loc{
 		position:relative;
+		overflow:hidden;
 		@media(max-width: @sm-device) {margin-top:25%}
 		p{
 			background:rgba(28,151,240,.6);
@@ -214,14 +215,38 @@
 	}
 	.pull-left{
 		width:50%;
-		@media(max-width: @sm-device) {width:100%;}
+		@media(max-width: 990px) {width:100%;}
 	}	
 	.pull-right{
 		width:45%;
-		@media(max-width: @sm-device) {width:100%;margin-top:15%;text-align:center}
-		img{
-			display:inline;
-		}	
+		background:url(../images/bes-33.jpg)no-repeat center center;
+		background-size:contain;
+		@media(max-width: 990px) {width:100%;max-width:498px;margin:0 auto;}
+		@media(max-width: @sm-device) {width:100%;margin-top:15%;margin:0 auto;}
+		a{
+			position:relative;
+			display:inline-block;
+			width:49%;
+			img{
+				display:inline;
+				width:100%;
+			}	
+			span{
+				position:absolute;
+				text-align:left;
+				font-size:1.2em;
+				@media(max-width: @sm-device) {font-size:1em;}
+			}
+			&:hover{
+			opacity:0.7;
+			-moz-opacity:0.7;
+			filter:alpha(opacity=70);
+			}
+		}
+		#f01{right:20px;}
+		#f02{right:0px;}
+		#f03{bottom:0;left:20px;}
+		#f04{bottom:0;right:20px;}
 	}
 }
 
@@ -234,7 +259,7 @@
 		.val{margin:20% 0 0 0;}
 	}
 	span{
-		font:900 2.5em "Arial black";
+		font:900 2.5em "Arial black",@font-family;
 		color:#fff;	
 
 		@media(max-width: @sm-device) {

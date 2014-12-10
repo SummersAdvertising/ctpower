@@ -1,0 +1,15 @@
+@charset "utf-8";
+body { background-color: #504f4f; }
+.page404 img { max-width: 860px;width:100%; margin: 0 auto; display: block; }
+.page404 h1 { color: #FFF; text-align: center; margin-top: -8%; line-height: 1.6em; font-size: 2.2em; }
+.page404 h1 span { display: block; }
+.page404 .btn { background-color: #2875bc; margin-top: -10%; color: #FFF; padding-top: 10px; font-size: 2em; -moz-box-shadow: 0px 4px 0px #1c2a56; -webkit-box-shadow: 0px 4px 0px #1c2a56; box-shadow: 0px 4px 0px #1c2a56; margin: 60px auto; display: block; width: 240px; border-radius: 0px; }
+.page404 .btn:hover { background-color: #579CDB; }
+.page404 .btn:focus, #spot01 .btn:active { outline: none; background-color: #1c2a56; }
+.page404 .btn span { font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
+@media (max-width:767px) {
+.page404 h1 {font-size: 1.5em;margin-top: 0;text-align:left;}
+.page404 h1 span { display: inline; }
+.page404 h1 span:after { content:'，'; }
+.page404 .btn {font-size: 1.8em;padding-top: 4px; }
+}
