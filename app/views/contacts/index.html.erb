@@ -24,13 +24,13 @@
     <div class="container">
     <h1>聯絡城市動力</h1>
         <div id="contact">
-        <form class="form-inline" role="form">
-        <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact" } ) do |f| %>
+        
+        <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact", class: "form-inline" } ) do |f| %>
         <div class="radio">
           <% @options.each do | option | %>
-                <%= f.radio_button :subject, option[0] %>
-                <label for='<%= "contact_subject_#{option[0]}" %>' ><%= option[1] %> </label>
-              <% end %>
+            <%= f.radio_button :subject, option[0] %>
+            <label for='<%= "contact_subject_#{option[0]}" %>' ><%= option[1] %> </label>
+          <% end %>
         </div>
         <div class="row">
           <div class="col-xs-6 form01">
@@ -54,7 +54,6 @@
           </div>
         </div>
         <% end %>
-        </form>
         
         <h2>關注我們</h2>
         <div class="row link">

@@ -4,13 +4,13 @@ class Contact < ActiveRecord::Base
   require 'sanitize'
   before_validation :sanitize_content, :on => :create
   
-  validates_presence_of :name, :message => "姓名不能為空白"
-  validates_presence_of :content, :message => "留言不能為空白"
+  validates_presence_of :name, :message => "姓名不能為空白", :on => :create
+  validates_presence_of :content, :message => "留言不能為空白", :on => :create
   
-  validates_presence_of :email, :message => "Email不能為空白"
-  validates :email, :format => { :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i, :message => 'E-Mail 格式不符'  }
-  validates_presence_of :phone, :message => "請輸入電話"
-  validates :phone, :format => { :with =>/[- #)(0-9]{4,10}[- #)(0-9]{4,10}/, :message => '聯絡電話 格式不符' }
+  validates_presence_of :email, :message => "Email不能為空白", :on => :create
+  validates :email, :format => { :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i, :message => 'E-Mail 格式不符'  }, :on => :create
+  validates_presence_of :phone, :message => "請輸入電話", :on => :create
+  validates :phone, :format => { :with =>/[- #)(0-9]{4,10}[- #)(0-9]{4,10}/, :message => '聯絡電話 格式不符' }, :on => :create
 
   scope :new_asks, -> { where(status: 'new').order(created_at: :asc)}
   scope :history_asks, -> { where(status: 'done').order(created_at: :desc) }
