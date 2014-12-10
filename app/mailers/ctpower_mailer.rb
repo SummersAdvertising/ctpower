@@ -49,6 +49,6 @@ class CtpowerMailer < ActionMailer::Base
       else 
         ""
     end
-
   end
+
 end

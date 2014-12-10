@@ -62,11 +62,10 @@
             <img src="/images/admin/comments.png">常見問題
           <% end %>
         </li>
-        <li class="menu-box"><a href="#"><img src="/images/admin/contact.png">聯絡我們</a>
-          <div class="menu">
-            <%= link_to "合作洽談", admin_contacts_path %>
-            <%= link_to "聯絡我們", admin_reservations_path %> 
-          </div>
+        <li>
+          <%= link_to admin_contacts_path do %>
+            <img src="/images/admin/contact.png">聯絡我們
+          <% end %>
         </li>
       </ul>
       <ul>

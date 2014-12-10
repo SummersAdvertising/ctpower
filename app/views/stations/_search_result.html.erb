@@ -1,5 +1,5 @@
 <% if stations.length > 0 %>
-<h1>BES 電池交換站點收尋結果</h1>
+<h1>BES 電池交換站點搜尋結果</h1>
       <% stations.each do |station|%>
         <div class="searchShow">
           <%= link_to station.name , station_path(station), {:class=>"siteName"}%>
@@ -8,6 +8,6 @@
         </div>
       <% end %>
 <% else %>
-<h1>BES 電池交換站點收尋結果</h1>
+<h1>BES 電池交換站點搜尋結果</h1>
   <h3>利用此條件 查無站點 請重新查詢</h3>
 <% end %>

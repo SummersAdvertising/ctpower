@@ -14,7 +14,7 @@
         <section class="container" >
           <ol class="breadcrumb">
             <li><%= link_to "首頁", root_path %></li>
-            <li><%= link_to "BES 站點查詢", page_pages_path('spot')%></li>
+            <li><%= link_to "BES 站點查詢", stations_path() %></li>
             <li class="active">站點查詢結果</li>
           </ol>
         </section>
@@ -27,7 +27,7 @@
           <h2 class="address"><%= @station.address %></h2>
           <h2 class="phone"><%= @station.phone %></h2>
         </div>
-        <iframe id="googleMap" src="<%= @station.latlng.html_safe %>" frameborder="0" style="border:0"></iframe>
+        <iframe id="googleMap" src="" frameborder="0" style="border:0"></iframe>
         <hr>
       <%= @station.intro %>
       <% @station.galleries.where(type: StationPhotoGallery).each do |attach| %>
@@ -35,7 +35,17 @@
       <% end %>
     </div>
     </section>
-</article>
+</article> 
+
+<script>
+  $( document ).ready(function() {
+    var map = $('<%= @station.latlng.html_safe %>');
+    emb = map.attr('src');
+
+    $("#googleMap").attr('src',emb);
+
+  });
+</script>
 
 
 
