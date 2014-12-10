@@ -26,7 +26,9 @@
     <% @banners.each do |banner| %>
       <% if banner.galleries.first %>
         <li>
-          <img src=<%= "#{banner.galleries.first.attachment.url}" %> class="img-responsive" />
+          <%= link_to banner.description, target: '_blank' do %>
+            <img src=<%= "#{banner.galleries.first.attachment.url}" %> class="img-responsive" />
+          <% end %>
         </li>
        <% end %>
     <% end %>
