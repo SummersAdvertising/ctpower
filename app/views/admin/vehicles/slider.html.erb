@@ -14,19 +14,16 @@
 </header>
 <article>
   <% if @gallery_count < 5 %>
-    <div class='form'>
-      <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_slider_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
+  <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_slider_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
+  <%= render 'admin/common/upload_by_type', target_title: '輪播' %>
+  <%= f.hidden_field :status, :value => 'enable' %>
 
-        <%= render 'admin/common/upload_by_type', target_title: '輪播' %>
-        
-        <%= f.hidden_field :status, :value => 'enable' %>
+  <div class="button"> 
+    <%= f.submit '上傳', class: 'highlight right' %>
+  </div>
 
-        <div class="button"> 
-          <%= f.submit '上傳', class: 'highlight right' %>
-        </div>
+  <% end %>
 
-      <% end %>
-    </div>
   <% end %>
   <div class="gallery">
     <%= render 'admin/common/show_by_type', target: @vehicle, target_title: '', type: 'VehicleSlider' %>
