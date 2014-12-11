@@ -70,4 +70,5 @@ iframe{display:none;}
 #recaptcha_area tr{height: auto !important;}
 .recaptcha_image_cell{width: 100% !important;max-width: 300px;}
 .recaptcha_image_cell img{height: auto !important;}
+ol{font-size: 1.2em;line-height: 1.8em;}
 }

@@ -35,19 +35,19 @@ header { height: 56px; position: relative; background-color:#131313; background-
 .visible-xs { margin-top: -12px; width: 100px; }
 header .pull-left{float: none!important;}
 header h1 { margin: -75px auto 0 auto;  width: 180px; padding-top: 20px; }
-#fb { margin-top: -85px; }
+#fb { margin-top: -83px; }
 #nav-mb { top: 10px; left: -18px; }
 .navbar{position: static;}
-.navbar-toggle { position: absolute;left:0;top:0;float:none;padding:0;margin:0; }
+.navbar-toggle { position: absolute;left:-5px;top:-2px;float:none;padding:0;margin:0; }
 .navbar-collapse  { top: 53px; left: 0px;width:100%;background-color: #131313;border-radius: 0px!important;padding: 0px;position: absolute; height:auto;}
 .navbar-collapse >li{margin-bottom: 1px;background-color: #202227;}
 .navbar-collapse >li>a { display:block; color: #FFF;padding:8px 0 8px 20px;line-height: 2em;}
 header .dropdown-toggle{background-image: url(../images/icon_menu.gif);background-position: right center;background-repeat: no-repeat;background-size: 30px 20px;}
-header .open .dropdown-toggle{background-image: url(../images/icon_menuh.gif);background-position: right center;background-repeat: no-repeat;background-size: 30px 20px;}
-.dropdown-menu {list-style: none;margin:0;padding:0;background-color: #202227; position: static;left:0;top:0;width: 100%;float:none;filter: alpha(opacity=100); -moz-opacity: 1; opacity: 1;}
-.dropdown-menu>li{margin-top: 1px;}
-.dropdown-menu>li>a { line-height: 2em;color: #FFF; display: block;background-color: #131313;padding:8px 0 8px 40px; }
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #fff100; text-decoration: none; background-color: #000; }
+/*header .open .dropdown-toggle{background-image: url(../images/icon_menuh.gif);background-position: right center;background-repeat: no-repeat;background-size: 30px 20px;}*/
+.dropdown ul {list-style: none;margin:0;padding:0;background-color: #202227; position: static;left:0;top:0;width: 100%;float:none;filter: alpha(opacity=100); -moz-opacity: 1; opacity: 1;}
+.dropdown ul>li{margin-top: 1px;}
+.dropdown ul>li>a { line-height: 2em;color: #FFF; display: block;background-color: #131313;padding:8px 0 8px 40px; }
+.dropdown ul>li>a:hover, .dropdown-menu>li>a:focus { color: #fff100; text-decoration: none; background-color: #000; }
 
 }
 

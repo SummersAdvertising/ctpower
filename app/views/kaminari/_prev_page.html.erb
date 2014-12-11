@@ -6,7 +6,7 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-  <li><%= link_to "<", url, :rel => 'prev', :remote => remote, class: "previous" %></li>
+  <li class="prev"><%= link_to "　", url, :rel => 'prev', :remote => remote, class: "previous", title: "上一頁" %></li>
 
   <!-- <li class="previous"> -->
     <%# link_to url, :rel => 'prev', :remote => remote do %>

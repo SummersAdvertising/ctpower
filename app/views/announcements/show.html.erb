@@ -30,27 +30,27 @@
         <ul class="pager">
           <li>
           <% if @previous_announcement %>
-            <%= link_to announcement_path(@previous_announcement) do%>
+            <%= link_to announcement_path(@previous_announcement),title: "上一篇" do%>
               <img src="/images/news-03.png">
             <% end %>
           <% else %>
-            <%= link_to announcements_path() do%>
+            <%= link_to "javascript:;",class: "noLink" do%>
               <img src="/images/news-03.png">
             <% end %>
           <% end %>
           </li>
           <li>
-            <%= link_to announcements_path do %>
+            <%= link_to announcements_path,title: "回目錄" do %>
               <img src="/images/news-05.png">
             <% end %>
           </li>
           <li>
             <% if @next_announcement %>
-              <%= link_to announcement_path(@next_announcement) do%>
+              <%= link_to announcement_path(@next_announcement),title: "下一篇" do%>
                 <img src="/images/news-04.png">
               <% end %>
             <% else %>
-              <%= link_to announcements_path() do%>
+              <%= link_to "javascript:;",class: "noLink" do%>
                 <img src="/images/news-04.png">
               <% end %>
             <% end %>

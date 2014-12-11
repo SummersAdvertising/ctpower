@@ -23,6 +23,7 @@
 #faq01 p { font-size: 1.1em;}
 #qMark {  top: 0; left: 50%; margin-left: -78px; }
 #faq01 .input-group { width: 100%; }
+#faq01 h1 { text-align: center }
 }
 /*-----------------------------------------------------------------------faq02---*/
 #faq02 { padding: 150px 0;height:auto;overflow:hidden;max-width: 1200px;margin: 0 auto;}
@@ -39,6 +40,7 @@
 #faq02 .tab-content .answ{padding:20px 100px 20px 10px;font-size:1.3em;line-height:1.8em;overflow:hidden;}
 #faq02 .tab-content .answ .part-subtitle{ background-image: url(../images/list_faq.gif); background-repeat: no-repeat; background-position: left center; padding-left: 24px;padding-top:10px; }
 #faq02 .tab-content .answ p{color:#767676;}
+#faq02 img, .img-responsive{width:auto;max-width: 100%;}
 @media (max-width:1300px) and (min-width:768px) {
 #faq02 .tab-content{padding-right:20px}
 #faq02 .tab-content .answ{padding-right:40px;}

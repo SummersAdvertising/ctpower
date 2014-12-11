@@ -103,28 +103,24 @@
       <div class="colorTag">
       <div id="arrow"></div>
       <ul>
-        <% colorIndex=0 %>
-        <% @vehicle.colors.each do |color| %>
-          <% if colorIndex==0 %>
+        <% @vehicle.colors.each_with_index do |color, index| %>
+          <% if index==0 %>
             <li class="active"><a id="c01" href="javascript:;" title="<%= color.name %>"><h3><%= color.name %></h3><span style="background-color: #<%= color.hexcode %>;"></span></a></li>
           <% else %>
             <li><a id="c01" href="javascript:;" title="<%= color.name %>"><h3><%= color.name %></h3><span style="background-color: #<%= color.hexcode %>;"></span></a></li>
           <% end %>
-          <% colorIndex=colorIndex+1 %>
         <% end %>
       </ul>
       </div>
       <div class="motoImg">
       <div id="arrow2"></div><p id="mColorName"></p>
-      <% imgIndex=0 %>
-      <% @vehicle.colors.each do |color| %>
+      <% @vehicle.colors.each_with_index do |color, index| %>
         <% color.galleries.where(type: VehicleColorDemo).each do |attach| %>
-           <% if imgIndex==0 %>
+           <% if index==0 %>
             <img class="current" src=<%= "#{attach.attachment.url}" %>>
            <% else %> 
             <img src=<%= "#{attach.attachment.url}" %>>
            <% end %> 
-           <% imgIndex=imgIndex+1 %>
         <% end %>
       <% end %>
 

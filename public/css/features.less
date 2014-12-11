@@ -21,7 +21,7 @@
 		line-height: 1.3em;
 		@media(max-width: @sm-device) {
 			margin:0 0 5% 0;
-			font-size:2.3em;
+			font-size:2em;
 		}
 	}	
 }
@@ -254,7 +254,11 @@
 	background-image:url(../images/bes-36.jpg);
 	.background;
 	text-align:center;
-	h3{color:#1740c5;margin:0 0 5% 0;}
+	h3{color:#1740c5;margin:0 0 5% 0;
+		@media(max-width: @sm-device) {
+		text-align:left;
+		}
+	}
 	@media(max-width: @sm-device) {
 		.val{margin:20% 0 0 0;}
 	}
