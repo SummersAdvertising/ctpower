@@ -10,6 +10,7 @@
     <%= link_to "型錄", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
     <%= link_to "其他", admin_category_vehicle_photo_path(@vehicle.category, @vehicle)%>
   </nav>
+    <div class="explain right"><p>圖片尺寸：470 * 470</p></div>
 </header>
 <article>
   <%= simple_form_for(@feature, :url => admin_category_vehicle_features_path(params[:category_id] , params[:vehicle_id], @feature), html: { id: "postthisfeature" } ) do |f| %>

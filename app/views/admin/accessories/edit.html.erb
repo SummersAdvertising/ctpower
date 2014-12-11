@@ -10,6 +10,7 @@
     <%= link_to "型錄", admin_category_vehicle_dm_path(@vehicle.category, @vehicle)%>
     <%= link_to "其他", admin_category_vehicle_photo_path(@vehicle.category, @vehicle)%>
   </nav>
+    <div class="explain right"><p>圖片尺寸：250 * 250</p></div>
 </header>
 <article>
   <%= simple_form_for(@accessory, :url => admin_category_vehicle_accessory_path(params[:category_id] , params[:vehicle_id], @accessory), html: { id: "patchthisaccessory", :multipart => true } ) do |f| %>
