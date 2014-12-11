@@ -72,12 +72,11 @@ $(document.body).on('appear', '#content-7 .col-sm-3', function(e, $affected) {
 });
 
 
-$('#content-8 .pull-left, #content-8 .pull-right, #content-8 .text-center').css({opacity:0});
-$('#content-8 .text-center').appear();
-$(document.body).on('appear', '#content-8 .text-center', function(e, $affected) {
-		$('#content-8 .pull-left').delay(500).animate({opacity:1},800);
-		$('#content-8 .pull-right').delay(1000).animate({opacity:1},800);
-		$('#content-8 .text-center').delay(1500).animate({opacity:1},800);
+$('#ipr-1, #ipr-2, #ipr-3, #ipr-4, #ipr-5, #ipr-6, #ipr-7, #ipr-8').css({opacity:0});
+$('#content-8').appear();
+$(document.body).on('appear', '#content-8', function(e, $affected) {
+		$('#ipr-1, #ipr-2, #ipr-3, #ipr-4').delay(500).animate({opacity:1},500);
+		$('#ipr-5, #ipr-6, #ipr-7, #ipr-8').delay(1500).animate({opacity:1},500);
 });
 
 

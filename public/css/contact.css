@@ -5,6 +5,8 @@
 /*-----------------------------------------------------------------------contact---*/
 .contact .container { padding-top: 120px; padding-bottom: 120px; }
 #contact { width: 80%; margin: 0 auto; }
+ol{font-size: 1.4em;color:#767676;line-height: 2.2em;padding-top: 20px;}
+ol li span{color:#fe555a;display: block;}
 .form-inline { font-size: 1.4em; margin-bottom: 80px; }
 .radio { display: block; padding: 60px 0 20px 0; }
 .form-inline .radio label { margin:0 40px 15px 0;position:relative;padding-left:40px;line-height:28px; }
@@ -62,11 +64,10 @@ iframe{display:none;}
 .link .col-xs-6 { margin: 20px auto; display: block; float: none; width: 96%; background-size: cover; margin: 0 auto; background-position: right bottom; }
 .link01 { background-position: right top; }
 .col-xs-6.link02 { display: none; }
-.code td{display:block;margin-top:20px;}
-.code a{display:inline-block;}
-.code td:last-child{display:none;}
-.recaptchatable{border:none!important;padding: 0!important;}
-.recaptchatable #recaptcha_response_field {height: 30px;}
-.recaptchatable .recaptcha_image_cell{padding: 0!important;}
-#recaptcha_area{overflow:hidden;}
+#recaptcha_image { width:auto !important; max-width: 100%; height: auto !important}
+#recaptcha_image img { width:100% ;}
+#recaptcha_response_field { width: 100% !important; max-width: 302px; }
+#recaptcha_area tr{height: auto !important;}
+.recaptcha_image_cell{width: 100% !important;max-width: 300px;}
+.recaptcha_image_cell img{height: auto !important;}
 }

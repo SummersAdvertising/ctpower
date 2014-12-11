@@ -23,6 +23,16 @@
     <div class="container">
     <h1>聯絡城市動力</h1>
         <div id="contact">
+          <ol>
+            <li>投資BES站點<br>
+            投資交換機櫃，可協助您賣車，並擁有交換費用收益</li>
+            <li>投資公共EBIKE 公共電動二輪車租賃系統<br>
+            除了EBIKE站的租金收益，車量外型皆可置放您的廣告訊息，在您想要的區域內服務可達到最佳的宣傳效果</li>
+            <li>經銷/代銷車款<br>
+            <span>若您已有店面，歡迎與我們合作銷售車輛</span>
+            <span>若想了解更多細節，歡迎與城市動力聯繫</span>
+            </li>
+          </ol>
         <%= form_for(@contact, :url => contacts_path(), html: { id: "newthiscontact",class: "form-inline", role: "form" } ) do |f| %>
         <div class="radio">
             <% @options.each_with_index do | option, index | %>

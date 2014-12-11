@@ -40,7 +40,7 @@
 		width:50%;
 		max-width:436px;
 		@media(max-width: @md-device) {
-			width:75%;	
+			width:100%;	
 			margin:10% 0;			
 		}		
 		p{
@@ -64,13 +64,16 @@
 	.pull-right{		
 		margin:150px 0 0 0;
 		@media(max-width: @md-device) {
-			margin:0;			
+			margin:10% auto;	
+			float:none!important;	
+			clear:both;
 		}
 	}
 	.pull-left{	
 		@media(max-width: @md-device) {
-			float:right;	
-			margin-left:25%;	
+			margin:0 auto;	
+			float:none!important;	
+			clear:both;
 		}		
 		h4{color:#e66869;}
 	}

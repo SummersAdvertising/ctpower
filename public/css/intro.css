@@ -21,7 +21,7 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 #sideMenu { display:none;}
 }
 /*banner-------------------------------------------------*/
-.caption { position: absolute; right: 15%; bottom: none; top: 120px; left: 15%; z-index: 10; padding-top: 20px; padding-bottom: 20px; color: #010101; text-align: left; text-shadow: none; font-size: 2.8em; height: 100px; }
+.caption { position: absolute; right: 15%; bottom: auto; top: 120px; left: 15%; z-index: 10; padding-top: 20px; padding-bottom: 20px; color: #010101; text-align: left; text-shadow: none; font-size: 2.8em; height: 100px; }
 .bx-wrapper {margin:0;}
 .bx-wrapper .bx-viewport {box-shadow: none;border: none!important;padding: 0px!important;margin: 0px!important;top: 0px!important;bottom: 0px!important;left: 0px!important;right: 0px!important;}
 #slider ul {z-index:0!important;border: none!important;padding: 0px!important;margin: 0px!important;top: 0px!important;bottom: 0px!important;left: 0px!important;right: 0px!important;}
@@ -32,7 +32,7 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 .bx-wrapper .bx-pager.bx-default-pager a:hover{background-color: #ed5565;}
 .bx-wrapper .bx-pager.bx-default-pager a.active{background-color: #ed5565;}
 .bx-wrapper .bx-pager{text-align: right;bottom:60px;right:20px;}
-.block { background-image: url(../images/bg_block.png); height: 140px; max-width: 1190px; width: 80%; position: absolute; left: 10%; right: 10%; bottom: -30px;  padding: 40px 160px 0 80px; margin: 0 auto; }
+.block { background-image: url(../images/bg_block.png); height: 140px; max-width: 1190px; width: 80%; position: absolute; left: 10%; right: 10%; bottom: -60px;  padding: 40px 160px 0 80px; margin: 0 auto; }
 .block .row { margin: 0px; text-align: center;white-space: nowrap;}
 .block .row .col-md-4{ float:none;display: inline-block;width:32.33%;}
 .block .row a { background-repeat: no-repeat;background-size: contain;width:100%;display:block;padding-top:25%; }
@@ -54,7 +54,6 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 .col-sm-4, .col-md-4{padding:0 10px;}
 .caption{left: 10%;font-size: 2.4em;}
 .bx-wrapper .bx-viewport {min-height:400!important;width:120%!important;left:-20%!important;}
-.bx-wrapper img{max-width: 120%!important;}
 }
 @media (max-width:900px) and (min-width:768px){
 .block {height:90px;bottom: -40px;padding: 20px 160px 0 40px;width:100%;left: 0; right: auto;}
@@ -62,19 +61,15 @@ article h1 { background-image: url(../images/bg_title.png); background-repeat: n
 .bx-wrapper .bx-pager{ bottom: 20px; }
 .col-sm-4, .col-md-4{padding:0 10px;}
 .caption{left: 10%;font-size: 2.4em;}
-.bx-wrapper .bx-viewport {min-height:400!important;width:120%!important;left:-20%!important;}
-.bx-wrapper img{max-width: 120%!important;}
 }
 @media (max-width:767px){
-.block {height:auto;bottom: -40px;padding: 0px 0 10px 0;width:100%;left: 0; right: auto;}
+.block {height:auto;bottom: 0;position:relative;padding: 0px 0 10px 0;width:100%;left: 0; right: auto;}
 .bx-controls {width:100%;left:0;right:auto;bottom: -40px;height:auto;}
-.bx-wrapper .bx-pager.bx-default-pager{ width:100%;bottom: auto;top:-10px;text-align: center;right:0;}
+.bx-wrapper .bx-pager.bx-default-pager{ width:100%;bottom: 10px;text-align: center;right:0;}
 .bx-wrapper .bx-pager.bx-default-pager a{width:10px;height:10px;}
-.col-sm-4, .col-md-4{padding:0 2%;width:33.3%;margin:0}
-.block .row { margin-top: 40px; }
-.caption{font-size: 2em;top:0px;left: 10%;right: 0;max-width: 270px;}
-.bx-wrapper .bx-viewport {min-height:500!important;width:140%!important;left:-40%!important;}
-.bx-wrapper img{max-width: 140%!important;}
+.col-sm-4, .col-md-4{padding:0 0.5%;width:33.3%;margin:0}
+.block .row { padding-top: 40px; }
+.caption{font-size: 1.8em;top:0px;left: 0;right: 0;text-align:center;padding:0;}
 }
 
 /*color-------------------------------------------------*/
