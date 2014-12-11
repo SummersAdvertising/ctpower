@@ -18,10 +18,10 @@
           <td width="6%" class="icon">
             <%= is_set_top(announcement.ranking) %>
           </td>
-          <td width="61%">
+          <td width="60%">
             <%= list_edit_lnk(announcement.title, announcement) %>
           </td>
-          <td width="15%" align="right"><%= announcement.created_at.strftime("%Y年%m月%d日")%></td>
+          <td width="16%" align="right"><%= announcement.created_at.strftime("%Y年%m月%d日")%></td>
           <td width="18%">
             <div class="tool">
               <%= list_edit_btn(announcement) %><%= link_to("", admin_announcement_path(announcement), :method => :delete, :data => {:confirm => "確定刪除？"}, class: "delete") %>
