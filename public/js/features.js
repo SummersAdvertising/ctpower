@@ -1,16 +1,13 @@
-$('#content-2 .row .col-sm-4').hide();
-$('#content-3 .cmp').css({opacity:0});
-
-
+$('#content-2 .row .col-sm-4').css({opacity:0});
 $('#content-2 .row').appear();
 $(document.body).on('appear', '#content-2 .row', function(e, $affected) {
-    $('#content-2 .row .col-sm-4').eq(0).fadeIn();
-  	$('#content-2 .row .col-sm-4').eq(1).delay(300).fadeIn();
-  	$('#content-2 .row .col-sm-4').eq(2).delay(600).fadeIn();
+    $('#content-2 .row .col-sm-4').eq(0).animate({opacity:1},600);
+  	$('#content-2 .row .col-sm-4').eq(1).delay(300).animate({opacity:1},600);
+  	$('#content-2 .row .col-sm-4').eq(2).delay(600).animate({opacity:1},600);
 
 });
 
-
+$('#content-3 .cmp').css({opacity:0});
 $('#content-3 .clearfix:eq(0)').appear();
 $(document.body).on('appear', '#content-3 .clearfix:eq(0)', function(e, $affected) {
     $('#content-3 .clearfix:eq(0)').find('.cmp').eq(0).animate({opacity:1},800);
@@ -36,20 +33,20 @@ $(document.body).on('appear', '#content-4 .row .col-sm-3', function(e, $affected
   	$('#content-4 .col-sm-3').eq(3).find('p').delay(900).animate({bottom:'-10'},400);
 });
 
-$('#content-5 li').hide();
+$('#content-5 li').css({opacity:0});
 $('#content-5 ol').appear();
 $(document.body).on('appear', '#content-5 ol', function(e, $affected) {
 		var x=0;
     for(var i=0;i<$('#content-5 li').length;i++){
     	x=i*300;
-    	$('#content-5 li').eq(i).delay(x).fadeIn(500);
+    	$('#content-5 li').eq(i).delay(x).animate({opacity:1},500);
     }
 });
 
-$('#content-6 .pull-right').hide();
+$('#content-6 .pull-right').css({opacity:0});
 $('#content-6').appear();
 $(document.body).on('appear', '#content-6', function(e, $affected) {
-		$('#content-6 .pull-right').delay(1000).fadeIn(800);
+		$('#content-6 .pull-right').delay(1000).animate({opacity:1},800);
 });
 
 
@@ -73,10 +70,10 @@ $(document.body).on('appear', '#content-7 .col-sm-3', function(e, $affected) {
 
 
 $('#ipr-1, #ipr-2, #ipr-3, #ipr-4, #ipr-5, #ipr-6, #ipr-7, #ipr-8').css({opacity:0});
-$('#content-8').appear();
-$(document.body).on('appear', '#content-8', function(e, $affected) {
+$('#content-8 .text-center').appear();
+$(document.body).on('appear', '#content-8 .text-center', function(e, $affected) {
 		$('#ipr-1, #ipr-2, #ipr-3, #ipr-4').delay(500).animate({opacity:1},500);
-		$('#ipr-5, #ipr-6, #ipr-7, #ipr-8').delay(1500).animate({opacity:1},500);
+		$('#ipr-5, #ipr-6, #ipr-7, #ipr-8').delay(1200).animate({opacity:1},500);
 });
 
 

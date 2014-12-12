@@ -41,6 +41,7 @@
 #faq02 .tab-content .answ .part-subtitle{ background-image: url(../images/list_faq.gif); background-repeat: no-repeat; background-position: left center; padding-left: 24px;padding-top:10px; }
 #faq02 .tab-content .answ p{color:#767676;}
 #faq02 img, .img-responsive{width:auto;max-width: 100%;}
+#faq02 .tab-content > h3{font-size: 2em;text-align: center;color:#797979;}
 @media (max-width:1300px) and (min-width:768px) {
 #faq02 .tab-content{padding-right:20px}
 #faq02 .tab-content .answ{padding-right:40px;}

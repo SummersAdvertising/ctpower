@@ -14,7 +14,7 @@ input[type=radio] { display: none;  }
 input[type=radio]:checked + label:before {background-image: url(../images/icon_selected.gif);}
 .radio label:before { content: "";color: transparent;display: inline-block; width: 29px; height: 29px; margin-right: 10px; position: absolute; left: 0px; bottom: 0; background-image: url(../images/icon_select.gif);}  
 .form-inline label { font-weight: normal; }
-.form-inline .form-group { display: block; margin-bottom: 40px; }
+.form-inline .form-group { display: block; margin-bottom: 40px;position: relative; }
 .form-inline .form-control { border-radius: 0px; width: 286px; height: 41px; margin-left: 40px; }
 .form-inline textarea.form-control { resize: none; height: 113px; width: 100%; margin-left: 0px }
 .code { display: block; float: left; width: 100%; margin-top: 20px; }
@@ -37,12 +37,14 @@ input[type=radio]:checked + label:before {background-image: url(../images/icon_s
 .centreList h3 { display: inline-block; font-size: 1em; background-image: url(../images/icon_arrow.gif); background-repeat: no-repeat; background-position: right center; padding-right: 20px; margin: 0; }
 iframe{display:none;}
 .field_with_errors{display: inline-block;}
+.form-group label.error,.col-xs-6.form02  label.error { position:absolute;right:5px;bottom:auto;color:#fe555a;font-size: 0.8em;padding-right: 10px;display: block;clear:both; }
 @media (max-width:1280px) {
 #contact { width: 96%; max-width: 1000px; }
 }
 @media (max-width:1070px) and (min-width:768px) {
 .contact .container { padding-top: 80px; }
-.col-xs-6.form01, .col-xs-6.form02 { width: 100%; float: none; }
+.col-xs-6.form01 { width:410px;float: none; }
+.col-xs-6.form02 { width: 100%; float: none; }
 .form-inline { width: 100%; margin: 0 auto; }
 .link .col-xs-6 { margin: 20px auto; display: block; float: none; }
 }
@@ -53,12 +55,15 @@ iframe{display:none;}
 }
 @media (max-width:768px) {
 .contact .container { padding-top: 40px; }
-.radio { padding-top: 20px; }
+.radio { padding: 20px 0 60px 0; }
+.form-inline .form-group {display: block;margin-bottom: 40px;position: relative;height: 40px;}
 .form-group label { width: 20%; float: left; text-align: right; padding-right: 40px; white-space: nowrap; line-height: 41px; }
+.form-group label.error,.col-xs-6.form02  label.error {position: absolute;right: 0;bottom: -40px;color: #fe555a;font-size: 0.8em;padding-right: 0;width: 100%;}
+.col-xs-6.form02  label.error {left:20px;bottom:0;}
 .form-inline .form-control { width: 80%; float: left; margin-left: 0; margin-bottom: 30px; }
 .radio label { display: block; margin-bottom: 20px; }
 .form-inline .row { margin-top: -40px; }
-.col-xs-6.form01, .col-xs-6.form02 { width: 100%; float: none; }
+.col-xs-6.form01, .col-xs-6.form02 { width: 100%; float: none;}
 .code { margin-top: 0px; }
 .form-inline { width: 100%; max-width: 500px; margin: 0 auto; }
 .link .col-xs-6 { margin: 20px auto; display: block; float: none; width: 96%; background-size: cover; margin: 0 auto; background-position: right bottom; }

@@ -48,15 +48,15 @@
           <div class="col-xs-6 form01">
               <div class="form-group">
                   <label for="formName">姓名</label>
-                  <%= f.text_field :name, required: true, class: 'form-control', id: 'formName' %>
+                  <%= f.text_field :name, required: true, class: 'form-control required', id: 'formName' %>
               </div>
               <div class="form-group">
                   <label for="formPhone">電話</label>
-                  <%= f.text_field :phone, required: true, class: 'form-control', id: 'formPhone' %>
+                  <%= f.text_field :phone, required: true, class: 'form-control required digits', id: 'formPhone' %>
               </div>
               <div class="form-group">
                   <label for="formEmail">信箱</label>
-                  <%= f.text_field :email, required: true, class: 'form-control', id: 'formEmail' %>
+                  <%= f.text_field :email, required: true, class: 'form-control required email', id: 'formEmail' %>
               </div>
           </div>
           <div class="col-xs-6 form02">
@@ -91,5 +91,7 @@
 </article>
 <script src="/js/jquery.placeholder.js"></script> 
 <script>$('textarea').placeholder();</script>
-
+<script src="/js_plugins/jq_validation/jquery.validate.min.js"></script> 
+<script src="/js_plugins/jq_validation/messages_zh_TW.js"></script> 
+<script>$('#newthiscontact').validate();</script>
 

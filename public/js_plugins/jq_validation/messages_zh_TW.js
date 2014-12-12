@@ -5,14 +5,14 @@
  */
 (function ($) {
 	$.extend($.validator.messages, {
-		required: "必填",
+		required: "*必填",
 		remote: "請修正此欄位",
 		email: "請輸入正確的電子信箱",
 		url: "請輸入合法的URL",
 		date: "請輸入合法的日期",
 		dateISO: "請輸入合法的日期 (ISO).",
 		number: "請輸入數字",
-		digits: "請輸入整數",
+		digits: "請輸入正確的電話號碼",
 		creditcard: "請輸入合法的信用卡號碼",
 		equalTo: "不相符",
 		accept: "請輸入有效的後缀字串",
