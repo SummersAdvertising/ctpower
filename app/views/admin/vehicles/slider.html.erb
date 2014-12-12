@@ -16,7 +16,7 @@
 <% if @gallery_count < 5 %>
   <%= simple_form_for(@vehicle, :url => admin_category_vehicle_upload_slider_path(params[:category_id] , @vehicle), html: { id: "patchthisvehicle", :multipart => true } ) do |f| %>
 
-    <%= render 'admin/common/upload_by_type', target_title: '圖' %>
+    <%= render 'admin/common/upload_by_type', target_title: '圖片' %>
     
     <%= f.hidden_field :status, :value => 'enable' %>
 
@@ -26,6 +26,6 @@
   
 <% end %>
 
-<%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖', type: 'VehicleSlider' %>
+<%= render 'admin/common/show_by_type', target: @vehicle, target_title: '圖片', type: 'VehicleSlider' %>
 
 <%= link_to "返回", admin_category_path(@vehicle.category) %>
