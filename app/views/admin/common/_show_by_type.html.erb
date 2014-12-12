@@ -7,13 +7,13 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="7%"><%= target_title %></td>
-      <td width="93%">
-        <div class="thumb">
-          <% target.galleries.select{ |v| v['type'] == type }.each do |attach| %>
+      <td width="93%">        
+        <% target.galleries.select{ |v| v['type'] == type }.each do |attach| %>
+          <div class="thumb">
             <image src=<%= "#{attach.attachment.url}" %> />
             <%= link_to '', admin_gallery_path(attach.id), method: :delete, data: { confirm: '確認刪除?' }, class: 'delete', title: '刪除' %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </td>
     </tr>
   </table>
