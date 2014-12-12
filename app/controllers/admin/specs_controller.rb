@@ -2,7 +2,7 @@
 class Admin::SpecsController < AdminController
   
   before_action :set_vehicle, only: [:index, :new, :create, :edit, :update]
-  before_action :set_spec, only: [:edit, :update]
+  before_action :set_spec, only: [:edit, :update, :destroy]
 
   def index
     @specs = @vehicle.specs
@@ -41,6 +41,13 @@ class Admin::SpecsController < AdminController
         format.html { render :back, notice: @spec.errors.full_messages }
       end      
     end
+  end
+  
+  def destroy
+    
+    @spec.destroy
+    
+    redirect_to :back
   end
 
   private
