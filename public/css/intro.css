@@ -98,7 +98,7 @@ article h1 { font-size: 2em;}
 .motoImg { width: 65%;padding-right:0px;}
 }
 @media (max-width:767px){
-.color {height: auto; }
+.color {height: auto;padding-top: 0px;  }
 .colorTag { width: 100%;float:none;margin-top: 20px;border-right:none;border-bottom: 1px solid #828282;height:auto;overflow:hidden;padding-bottom:20px;}
 .colorTag ul li a:hover span { -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3), inset 0 0 0 3px white; -moz-box-shadow: 0 0 4px rgba(0,0,0,0.3), inset 0 0 0 3px white; box-shadow: 0 0 4px rgba(0,0,0,0.3), inset 0 0 0 3px white; }
 .motoImg { width: 100%;float:none;height:auto;padding:40px 0 20px 0;position: relative;}
@@ -132,7 +132,7 @@ article h1 { font-size: 2em;}
 .feature .point { width: 100%; padding-top: 100%;  }
 }
 @media (max-width:767px){
-.feature{padding-top: 30px;background-image:none;padding-bottom:60px;}
+.feature{padding-top: 0px;background-image:none;padding-bottom:60px;}
 .feature .row { padding: 0 20px; text-align: center; }
 .feature .point { width: 100%; padding-top: 100%;  }
 .feature .intro {height:100%;}
@@ -148,7 +148,7 @@ article h1 { font-size: 2em;}
 .spec #th span { float: right; }
 .spec .table>tbody>tr>td { padding-left: 80px; border: 1px dotted #939392; width: 50%; }
 @media (max-width:767px){
-.spec { padding-top: 30px;height: auto;}
+.spec { padding-top: 0px;height: auto;}
 .spec #th { background-color: #FFF; width: 100%; margin: 60px 0 10px 0; padding: 10px 0px 10px 15px; margin: 20px 0 10px 0;}
 .spec .table>tbody>tr>td { padding-left: 10px;padding-right: 15px;width: auto;  }
 }
@@ -166,7 +166,7 @@ article h1 { font-size: 2em;}
 .accessory .col-sm-3 { padding:0 5px;  }
 }
 @media (max-width:767px){
-.accessory { padding-top: 30px;overflow:hidden;height:auto;padding-bottom:40px;}
+.accessory { padding-top: 0px;overflow:hidden;height:auto;padding-bottom:40px;}
 .accessory h4 { padding-top: 20px; }
 .accessory ul li { font-size: 0.9em;height: auto; }
 .accessory .col-sm-3 { padding:0 5px;  }
