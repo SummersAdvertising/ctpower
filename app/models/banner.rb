@@ -3,7 +3,7 @@ class Banner < ActiveRecord::Base
   has_many :galleries, -> { order('ranking, created_at') } , as: :attachable , dependent: :destroy
 
   before_validation :check_attrs
-  validates_presence_of :description, unless: :is_index_slider?
+  # validates_presence_of :description, unless: :is_index_slider?
 
   scope :sliders, -> { where(type: 'IndexSlider') } 
   scope :vehicles, -> { where(type: 'SelectedVehicle') } 

@@ -11,7 +11,7 @@ class CtpowerMailer < ActionMailer::Base
       @contact = contact
       @subject = get_subject
       # bes_services@citypower.com.tw
-      mail(:to => [ 'adam@summers.com.tw, chris@summers.com.tw' ], :subject => "城市動力 客服信件(#{@subject})")
+      mail(:to => [ 'bes_services@citypower.com.tw' ], :subject => "城市動力 客服信件(#{@subject})")
     end
   end
 
@@ -22,8 +22,8 @@ class CtpowerMailer < ActionMailer::Base
     ActiveRecord::Base.connection_pool.with_connection do
       @contact = contact
       @subject = get_subject
-      #service@citypower.com.tw
-      mail(:to => [ 'adam@summers.com.tw, chris@summers.com.tw' ], :subject => "城市動力 客服信件(#{@subject})")
+      # adam@summers.com.tw, chris@summers.com.tw
+      mail(:to => [ 'service@citypower.com.tw' ], :subject => "城市動力 客服信件(#{@subject})")
     end
   end
 
