@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<title>城市動力│City Power</title>
+<meta name="description" content="城市動力致力於建立更完善、安全並環保的電動車體系，讓安靜、無污染的電動機車為我們的城市生活帶來全新的風貌。">
+<meta name="keywords" content="城市動力,citypower,BES,EBIKE,電動機車,電動車,電動腳踏車,電池交換系統,環保,交換站,電池交換站">
+<title>citypower台灣城市動力</title>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= csrf_meta_tags %>
 
-<!-- Favicon and Apple Icons -->
+<!-- Favicon -->
 <link href='/images/favicon.ico' rel='shortcut icon' />
 <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
@@ -51,15 +51,15 @@
       <nav class="visible-xs nav navbar" id="nav-mb"> <a href="#" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mbMenu"> <img src="/images/ctrl.png"> </a>
         <ul class="navbar-collapse collapse" id="mbMenu">
           <li><%= link_to "車款介紹", vehicles_pages_path() %></li>
-          <li class="dropdown"><a class="dropdown-toggle" href="javascript:;">認識 BES</a>
-            <ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">認識 BES</a>
+            <ul class="dropdown-menu">
               <li><%= link_to '認識 BES 特色', page_pages_path('features') %></li>
               <li><%= link_to "BES 操作流程", page_pages_path('processes') %></li>
             </ul>
           </li>
           <li><%= link_to "BES 站點查詢", stations_path() %></li>
-          <li class="dropdown"><a class="dropdown-toggle" href="javascript:;">客戶服務</a>
-            <ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">客戶服務</a>
+            <ul class="dropdown-menu">
               <li><%= link_to "常見問題", FAQs_path() %></li>
               <li><%= link_to "聯絡我們", contacts_path() %></li>
             </ul>

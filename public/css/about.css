@@ -72,9 +72,10 @@
 .event .table>tbody>tr>td { font-size: 1.4em; }
 }
 @media (max-width:799px) {
+.event h1 { font-size: 2em;}
 .event .container{padding-right:0px; }
-.event .table>tbody>tr>td { font-size: 1.1em; display:block;padding:5px 0 0 0;}
-.event .table>tbody>tr>td.eventTxt { padding-bottom:30px;}
+.event .table>tbody>tr>td { font-size: 1.2em; display:block;padding:5px 0 0 0;}
+.event .table>tbody>tr>td.eventTxt { padding-bottom:40px;}
 .event #event { padding-left: 110px;margin-left:-10px;background-image: url(../images/bg_year2.jpg);}
 #event div {height: auto; padding: 20px 0 0px 5px;width: 100%;background-position:right center;background-size:auto;background-image: url(../images/bg_event2.jpg);background-size: cover; }
 #event div span{display:inline;}

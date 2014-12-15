@@ -54,20 +54,15 @@ var trigger7 = 0;
 $('#content-7 .col-sm-3').appear();
 $(document.body).on('appear', '#content-7 .col-sm-3', function(e, $affected) {
   if(trigger7 == 0){
+    $('.timer').each(count);
     trigger7 = 1;
   }
-  if(trigger7 == 1){
-    $('.timer').each(count);
-  
-    function count(options) {
-      var $this = $(this);
-      options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-      $this.countTo(options);
-    }
-    trigger7 = 3;
-  }
 });
-
+function count(options) {
+  var $this = $(this);
+  options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+  $this.countTo(options);
+}
 
 $('#ipr-1, #ipr-2, #ipr-3, #ipr-4, #ipr-5, #ipr-6, #ipr-7, #ipr-8').css({opacity:0});
 $('#content-8 .text-center').appear();
