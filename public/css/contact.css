@@ -15,7 +15,7 @@ input[type=radio]:checked + label:before {background-image: url(../images/icon_s
 .radio label:before { content: "";color: transparent;display: inline-block; width: 29px; height: 29px; margin-right: 10px; position: absolute; left: 0px; bottom: 0; background-image: url(../images/icon_select.gif);}  
 .form-inline label { font-weight: normal; }
 .form-inline .form-group { display: block; margin-bottom: 40px;position: relative; }
-.form-inline .form-control { border-radius: 0px; width: 286px; height: 41px; margin-left: 40px; }
+.form-inline .form-control { border-radius: 0px; width: 286px; height: 41px; margin-left: 40px;display: inline-block; }
 .form-inline textarea.form-control { resize: none; height: 113px; width: 100%; margin-left: 0px }
 .code { display: block; float: left; width: 100%; margin-top: 20px; }
 .col-xs-6.form01 { width: 40%; }

@@ -1,102 +1,39 @@
-
-.banner {
-    background-image: url("http://ctpower.summers.com.tw/images/banner_news.jpg");
-}
-.banner h1 {
-    color: #000;
-}
-.content {
-    padding: 5% 0;
-}
+@charset "utf-8";
+.animate { -webkit-transition: all ease .3s; -moz-transition: all ease .3s; }
+.background { background-repeat: no-repeat; background-position: center center; background-size: cover; }
+.opacity { opacity: .75; filter: alpha(opacity=75); }
+.reset { border: none !important; padding: 0px !important; margin: 0px !important; top: 0px !important; bottom: 0px !important; left: 0px !important; right: 0px !important; }
+.banner { background-image: url(../images/banner_news.jpg); }
+.banner h1 { color: #000; }
+.content { padding: 5% 0; }
 @media (max-width: 767px) {
-.content {
-    padding: 10% 0;
+.content { padding: 10% 0; }
 }
-}
-.content .title {
-    background: url("http://ctpower.summers.com.tw/images/news-01.png") repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
-    padding: 0 0 5%;
-}
-.content .title span {
-    border: 2px solid #ff6363;
-    border-radius: 50%;
-    color: #777;
-    display: block;
-    font-size: 1em;
-    height: 90px;
-    padding: 18px 0 0;
-    text-align: center;
-    width: 90px;
-}
-.content .title span strong {
-    color: #000;
-    font: 900 1.4em Arial black;
-}
-.content .title h3 {
-    font-size: 2em;
-    padding: 0 0 0 20px;
-    width: 100%;
-}
-#news-show-content .cover {
-    margin: 0 0 5%;
-}
-#news-show-content .pager li a {
-    background: none repeat scroll 0 0 #0380ae;
-    border: 0 none;
-    border-radius: 5px;
-    margin: 0 !important;
-    padding: 5px 15px 8px;
-}
-#news-show-content .pager .active a, #news-show-content .pager li a:hover {
-    background: none repeat scroll 0 0 #63bcdd;
-}
-#news-show-content .article {
-    margin: 0 0 5%;
-}
-#news-show-content .article p {
-    color: #767676;
-    padding: 2.5% 0 0;
-}
-#news-show-content .article img {
-    padding: 2.5% 0 0;
-}
+.content .title { background: url(../images/news-01.png) 0 bottom repeat-x; padding: 0 0 5% 0; }
+.content .title span { display: block; width: 90px; height: 90px; border: 2px solid #FF6363; border-radius: 50%; text-align: center; font-size: 1em; color: #777; padding: 18px 0 0 0; }
+.content .title span strong { font: 900 1.4em Arial black; color: #000; }
+.content .title h3 { width: 100%; padding: 0 0 0 20px; font-size: 2em; }
+.content img { margin: 10px 0; }
+#news-show-content .cover { margin: 0 0 5% 0; }
+#news-show-content .pager li a { background: #0380AE; border: 0; margin: 0 !important; padding: 5px 15px 5px 15px; border-radius: 5px; }
+#news-show-content .pager .active a, #news-show-content .pager li a:hover { background: #63BCDD; }
+#news-show-content .pager a.noLink, #news-show-content .pager a.noLink:hover { background: #DDD; cursor: default; }
+#news-show-content .article { margin: 0 0 5% 0; }
+#news-show-content .article p { padding: 2.5% 0 0 0; color: #767676; }
+#news-show-content .article img { padding: 2.5% 0 0 0; }
 @media (max-width: 767px) {
-#news-list-content .cover {
-    margin: 0 0 5%;
+#news-list-content .cover { margin: 0 0 5% 0; }
 }
-}
-#news-list-content .list {
-    background: url("http://ctpower.summers.com.tw/images/news-06.png") repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
-    padding: 5% 0;
-}
-#news-list-content .article p {
-    color: #767676;
-    padding: 2.5% 0 0;
-}
-#news-list-content .more {
-    margin: 5% 0 0;
-    text-align: right;
-}
-#news-list-content .more a {
-    background-image: url("http://ctpower.summers.com.tw/images/news-02.gif");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: inline-block;
-    height: 22px;
-    width: 83px;
-}
-#news-list-content .more a:hover {
-    background-image: url("http://ctpower.summers.com.tw/images/news-02h.gif");
-}
-#news-list-content .pagination {
-    margin: 5% 0 0;
-}
-#news-list-content .pagination li a {
-    background: none repeat scroll 0 0 #63bcdd;
-    border: 0 none;
-    color: #fff;
-}
-#news-list-content .pagination .active a, #news-list-content .pagination li a:hover {
-    background: none repeat scroll 0 0 #0380ae;
-}
+#news-list-content .list { background: url(../images/news-06.png) 0 bottom repeat-x; padding: 5% 0; }
+#news-list-content .article p { padding: 2.5% 0 0 0; color: #767676; }
+#news-list-content .more { text-align: right; margin: 5% 0 0 0; }
+#news-list-content .more a { display: inline-block; background-image: url(../images/news-02.gif); background-repeat: no-repeat; background-position: center center; background-size: cover; width: 83px; height: 22px; }
+#news-list-content .more a:hover { background-image: url(../images/news-02h.gif); }
+#news-list-content .pagination { margin: 5% 0 0 0; width: 100%; text-align: center; }
+#news-list-content .pagination li { display: inline-block; margin: 0 -2px; }
+#news-list-content .pagination li a { background: #63BCDD; border: 0; color: #fff; }
+#news-list-content .pagination a.active, #news-list-content .pagination li a:hover { background: #0380AE; }
+#news-list-content .pagination .next a, #news-list-content .pagination .next a:hover { background-image: url(../images/news-04.png); background-position: center center; background-repeat: no-repeat; background-color: #0380AE; }
+#news-list-content .pagination .prev a, #news-list-content .pagination .prev a:hover { background-image: url(../images/news-03.png); background-position: center center; background-repeat: no-repeat; background-color: #0380AE; }
+.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+.video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
