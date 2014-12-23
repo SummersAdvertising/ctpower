@@ -20,6 +20,7 @@
 #vLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_01h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_01h.png', sizingMethod='scale')";}
 #dLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_02h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_02h.png', sizingMethod='scale')";}
 #oLink:hover{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03h.png', sizingMethod='scale');-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/btn_03h.png', sizingMethod='scale')";}
+.colorTag ul li.active span { border: 3px solid #FFF;}
 .motoImg{width:75%;}
 .block{padding-left: 50px;min-width: 805px;}
 .accessory img { max-width:100%;width: auto;}
