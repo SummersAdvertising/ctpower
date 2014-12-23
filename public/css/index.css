@@ -126,6 +126,7 @@
 #content-5 .pull-left { color: #000; }
 #content-5 .pull-left ul { padding: 0; }
 #content-5 .pull-left li { list-style: none; padding: 0 0 10px 20px; background: url(../images/bes-14.png) 2px 6px no-repeat; font-size: 1.2em; }
+#mMoto{width:100%;margin:20px auto 0 auto;max-width:400px;}
 @media (max-width: 767px) {
 #content-5 .pull-left li { font-size: 1.1em; }
 }
