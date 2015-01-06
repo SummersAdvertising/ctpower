@@ -5,9 +5,9 @@
 /*-----------------------------------------------------------------------contact---*/
 .contact .container { padding-top: 120px; padding-bottom: 120px; }
 #contact { width: 80%; margin: 0 auto; }
-ol{font-size: 1.4em;color:#767676;line-height: 2.2em;padding-top: 20px;}
+ol{font-size: 1.4em;color:#767676;line-height: 2.2em;padding-bottom: 40px;}
 ol li span{color:#fe555a;display: block;}
-.form-inline { font-size: 1.4em; margin-bottom: 80px; }
+.form-inline { font-size: 1.4em; margin-bottom: 40px; }
 .radio { display: block; padding: 60px 0 20px 0; }
 .form-inline .radio label { margin:0 40px 15px 0;position:relative;padding-left:40px;line-height:28px; }
 input[type=radio] { display: none;  }
@@ -62,7 +62,7 @@ iframe{display:none;}
 .col-xs-6.form02  label.error {left:20px;bottom:0;}
 .form-inline .form-control { width: 80%; float: left; margin-left: 0; margin-bottom: 30px; }
 .radio label { display: block; margin-bottom: 20px; }
-.form-inline .row { margin-top: -40px; }
+.form-inline .row { margin-top: -40px;padding-bottom: 40px; }
 .col-xs-6.form01, .col-xs-6.form02 { width: 100%; float: none;}
 .code { margin-top: 0px; }
 .form-inline { width: 100%; max-width: 500px; margin: 0 auto; }

@@ -40,8 +40,6 @@
       controls:false,
       auto:true,
       mode:'fade',
-      width: '100%',
-      height: 900,
     });
     $(window).resize(function(){$('.bx-controls').css({height:$('.block').height()});})
     $('.bx-controls').css({height:$('.block').height()});
@@ -97,7 +95,7 @@
   
   <!--車色-->
   <section class="color">
-    <div class="container">
+    <div class="container" id="color">
       <h1>車色 / Color</h1>
       <h2>顏色以展示中心實車為準</h2>
       <div class="colorTag">
@@ -134,7 +132,7 @@
   </section>
   <!--特色-->
   <section class="feature">
-    <div class="container">
+    <div class="container" id="feature">
       <h1>特色 / Feature</h1>
       <div class="row">
         <% @features.each do |feature| %>
@@ -153,7 +151,7 @@
   </section>
   <!--規格-->
   <section class="spec">
-    <div class="container">
+    <div class="container" id="spec">
       <h1>規格 / Spec.</h1>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
         <tr>
@@ -173,7 +171,7 @@
   <!--配件-->
   <% unless @opt_accessories.count <= 0 && @com_accessories.count <= 0 %>
     <section class="accessory">
-      <div class="container">
+      <div class="container" id="accessory">
         <h1>精選配件 / Accessory</h1>
         <% unless @com_accessories.count <= 0 %>
           <h4>附贈</h4>
