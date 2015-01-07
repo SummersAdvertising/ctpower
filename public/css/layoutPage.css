@@ -14,7 +14,7 @@ a:hover { text-decoration: none; }
 /*-----------------------------------------------------------------------頁首---*/
 header { height: 114px; z-index: 1000; position: absolute; left: 0px; top: 0px; width: 100%; background-image: url(../images/bg_header.png); }
 .nav>li>a:hover, .nav>li>a:focus { background-color: transparent; color: #cdcdcd; }
-.nav>li>a { position: relative; display: block; color: #FFF; padding-top: 56px!important; }
+.nav>li>a { position: relative; display: block; color: #FFF; padding-top: 56px!important;padding-bottom:40px; }
 .nav>li>a:hover { border-top: 6px solid #11ECF4;  }
 header h1 { padding-top: 10px; }
 header h1 img { width: 100% }

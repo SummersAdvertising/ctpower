@@ -10,16 +10,16 @@ $(document).ready(function(e) {
 			$('#sideMenu').stop(true,true).animate({top:-400,opacity:0},800);
 			checkScroll = 0;
 		}
-		if(scrollY.scrollTop() >= 3747){
+		if(scrollY.scrollTop() >= $('#accessory').offset().top-200){
 			$('#btn04').parent('li').addClass('active').siblings('.active').removeClass('active');
 			$('#btn04').parent('li').addClass('active');
-		}else if(scrollY.scrollTop() >= 2934){
+		}else if(scrollY.scrollTop() >= $('#spec').offset().top-200){
 			$('#btn03').parent('li').addClass('active').siblings('.active').removeClass('active');
 			$('#btn03').parent('li').addClass('active');
-		}else if(scrollY.scrollTop() >= 1474){
+		}else if(scrollY.scrollTop() >= $('#feature').offset().top-200){
 			$('#btn02').parent('li').addClass('active').siblings('.active').removeClass('active');
 			$('#btn02').parent('li').addClass('active');
-		}else if(scrollY.scrollTop() >= 500){
+		}else if(scrollY.scrollTop() >= $('#color').offset().top-200){
 			$('#btn01').parent('li').addClass('active').siblings('.active').removeClass('active');
 			$('#btn01').parent('li').addClass('active');
 		}
@@ -27,22 +27,22 @@ $(document).ready(function(e) {
 	
 
 	$('#btn01').click(function(){
-		$('html, body').animate({scrollTop: 767}, 500);
+		$('html, body').animate({scrollTop: $('#color').offset().top}, 500);
 		$(this).parent('li').addClass('active').siblings('.active').removeClass('active');
 		$(this).parent('li').addClass('active');
 	});
 	$('#btn02').click(function(){
-		$('html, body').animate({scrollTop: 1810}, 500);
+		$('html, body').animate({scrollTop: $('#feature').offset().top}, 500);
 		$(this).parent('li').addClass('active').siblings('.active').removeClass('active');
 		$(this).parent('li').addClass('active');
 	});
 	$('#btn03').click(function(){
-		$('html, body').animate({scrollTop: 3338}, 500);
+		$('html, body').animate({scrollTop: $('#spec').offset().top}, 500);
 		$(this).parent('li').addClass('active').siblings('.active').removeClass('active');
 		$(this).parent('li').addClass('active');
 	});
 	$('#btn04').click(function(){
-		$('html, body').animate({scrollTop: 4157}, 500);
+		$('html, body').animate({scrollTop: $('#accessory').offset().top}, 500);
 		$(this).parent('li').addClass('active').siblings('.active').removeClass('active');
 		$(this).parent('li').addClass('active');
 	});
@@ -52,11 +52,5 @@ $(document).ready(function(e) {
 		$(this).parent('li').addClass('active');
 	});
 	
-	/*color*//*
-	$('.colorTag ul li').click(function(){
-		var colorStyle = $(this).index()+1;
-		$('.motoImg img').css({'opacity':0});
-		$('.motoImg img').attr('src','/sample/moto0'+colorStyle+'.png');
-		$('.motoImg img').animate({'opacity':1},600);
-	});*/
+
 });
