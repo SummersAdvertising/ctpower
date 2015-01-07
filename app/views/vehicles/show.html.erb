@@ -59,7 +59,7 @@
           <image src=<%= "#{attach.attachment.url}" %> /></div>
       <% end %>   
   </ul>
-  <div class='caption' style='color:#<%= "#{@vehicle.title_color}"%>;'><%= @vehicle.name %></div>
+  <!-- <div class='caption' style='color:#<%# "#{@vehicle.title_color}"%>;'><%# @vehicle.name %></div> -->
   <div class="block">
     <div class="row">
         <% unless @vehicle.cf.blank? %>

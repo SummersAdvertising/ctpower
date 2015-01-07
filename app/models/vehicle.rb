@@ -18,6 +18,7 @@ class Vehicle < ActiveRecord::Base
   before_validation :check_attrs
   #callback
   after_create :create_default_specs
+  after_destroy :destroy_selected_vehicles_in_banner
 
   validates_presence_of :name, :title_color #, :cf
 
@@ -53,6 +54,10 @@ class Vehicle < ActiveRecord::Base
     
     Spec.create(@default_specs)
 
+  end
+
+  def destroy_selected_vehicles_in_banner
+    Banner.where(type: 'SelectedVehicle', related_product_id: self.id).destroy_all
   end
 
 end
