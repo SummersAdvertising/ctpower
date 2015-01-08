@@ -22,7 +22,9 @@
           <p><%= contact.content %></p></td>
           <td width="13%">
             <div class="tool">
-              <%= get_contact_status(contact) %><%# contacts_helper %>
+              <%= get_contact_status(contact) %>
+              <%# soft_delete_contact(contact) %>
+              <%# reset_contact_status(contact) %><%# contacts_helper %>
             </div>
           </td>
         </tr>

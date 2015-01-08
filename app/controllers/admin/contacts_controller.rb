@@ -22,4 +22,30 @@ class Admin::ContactsController < AdminController
     end
   end
   
+  def reset_status
+    @contact = Contact.find_by_id(params[:id])
+
+    if(@contact)
+      @contact.status = "new"
+      @contact.save
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+    end
+  end
+
+  def soft_delete
+    @contact = Contact.find_by_id(params[:id])
+
+    if(@contact)
+      @contact.status = "dead"
+      @contact.save
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+    end
+  end
+
 end

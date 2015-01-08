@@ -9,6 +9,14 @@ module ContactsHelper
     end
   end
 
+  def reset_contact_status(contact)
+    link_to( "設為未處理", reset_status_admin_contact_path(contact), :method => "put" , class: "uvs")
+  end
+
+  def soft_delete_contact(contact)
+    link_to( "刪除", soft_delete_admin_contact_path(contact), :method => "put" , class: "uvs")
+  end
+
   def get_subject(contact)
     #預約試乘、意見回饋、其他  BES加盟系統、經銷代銷
     case contact.subject

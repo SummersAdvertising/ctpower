@@ -110,8 +110,6 @@ Rails.application.routes.draw do
       end 
     end
     
-    resources :contacts, only: [:index]
-    
     resources :boxes do 
       resources :faqs do 
         member do 
@@ -126,9 +124,13 @@ Rails.application.routes.draw do
       end 
     end
 
-    resources :contacts, :only => [:index, :update] do
+    resources :contacts, :only => [:index, :update, :reset_status] do
       collection do 
         get 'history', action: 'history'
+      end
+      member do 
+        put 'reset_status', action: 'reset_status'
+        put 'soft_delete', action: 'soft_delete'
       end
     end
     
