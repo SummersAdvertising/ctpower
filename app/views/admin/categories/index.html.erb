@@ -10,11 +10,11 @@
     </div>
   </div>
   <div class="list">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <table id='dragable_container' width="100%" border="0" cellspacing="0" cellpadding="0">
       
       <% @categories.each do |category| %>
 
-        <tr class="show_category_<%= category.id %>" >
+        <tr <%= "id=Categorycontainer_#{category.id.to_s}" %> class='dragable show_category_<%= category.id %>' >
           <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
           <td width="76%">
             <%= link_to(category.name, admin_category_path(category)) %>
@@ -26,8 +26,8 @@
           </td>
         </tr>
         
-        <tr class="list-edit edit_category_<%= category.id %>" style="display:none">
-          <%= form_for(category, :url => admin_category_path(category) , html: { id: "patchthiscate_#{category.id}", :multipart => true }) do |f| %>
+        <tr id='edit_part_<%= category.id %>' class="list-edit edit_category_<%= category.id %>" style="display:none">
+          <%= form_for(category, :url => admin_category_path(category) , html: { id: "patchthiscate_#{category.id}", method: "patch" }) do |f| %>
           
           <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
           <td width="76%">
@@ -40,6 +40,7 @@
               <a href="javascript: document.getElementById('patchthiscate_<%= category.id %>').submit();" class="uvs" data-no-turbolink = true >儲存</a><%= link_to "取消", "javascript:void(0);" ,:data => { :id => category.id }, :class => "uvs" %>
             </div>
           </td>
+
           <% end %>
         </tr>
 
@@ -110,3 +111,58 @@ $(document).ready(function(){
   }
 });
 </script>
+<script>
+  $(function() {
+    var prevEvent = null;
+      $( "#dragable_container" ).sortable({
+        items: ".dragable" ,
+        placeholder: "ui-state-highlight",
+        update: function( event, ui ) {
+            
+          if(event.timeStamp == prevEvent){
+            return null;
+          }
+          
+          prevEvent = event.timeStamp;  
+          var newRankings_array = $('#dragable_container').sortable('toArray');
+          var orderSet = [];
+          $.each(newRankings_array, function( index, value){
+                orderSet.push(value.replace("Categorycontainer_",""));
+            });
+            var order2Push = JSON.stringify(orderSet);
+            
+            $.ajaxSetup({
+              headers: {
+                  'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+
+          // reorder 
+          $.ajax({
+            type: "PATCH",
+            url: "/admin/categories/"+orderSet[0]+"/reorder",
+            data: { categories: {  reorderset: orderSet } },
+            success: function(data){
+              //rearrange
+              // $.each(newRankings_array, function( index, value){
+              //   $('#edit_part_'+value.replace("Categorycontainer_","") ).insertAfter('#'+value);
+              //   console.log(value);
+              // });
+            
+              // alertify['success'](data[0][1], 2000);
+              window.location.reload();
+              return false   
+            },
+            error: function(data){
+              alertify['success'](data[0][1], 2000);
+              return false  
+            }
+          });
+
+        }
+      });
+      
+        
+      $( "#dragable_container" ).disableSelection();
+    });  
+  </script>

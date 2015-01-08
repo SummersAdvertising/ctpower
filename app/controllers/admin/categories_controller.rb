@@ -48,6 +48,29 @@ class Admin::CategoriesController < AdminController
     redirect_to :back
   end
 
+  def reorder
+    errorFlag = false
+    params[:categories][:reorderset].each_with_index do | id , index |
+      the_id = Category.find(id)
+      if !the_id.nil?
+        the_id.update_attribute(:ranking , index+1 )
+      else
+        errorFlag = true
+      end
+    end
+
+    respond_to do |format|
+      if errorFlag
+        flash[:notice] = "重新排序失敗"
+        format.json { head :no_content }
+      else
+        flash[:notice] = "重新排序成功"
+        format.json do render json: flash end
+      end
+    end
+
+  end  
+
   def destroy
 
     #@category.destroy if @category && @category.vehicles.count == 0
