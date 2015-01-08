@@ -153,7 +153,7 @@ class Admin::VehiclesController < AdminController
       if errorFlag
         format.json { head :no_content }
       else
-        flash[:notice] = "重新排序成功"
+        # flash[:notice] = "重新排序成功"
         format.json do render json: flash end
       end
     end

@@ -61,10 +61,10 @@ class Admin::CategoriesController < AdminController
 
     respond_to do |format|
       if errorFlag
-        flash[:notice] = "重新排序失敗"
+        # flash[:notice] = "重新排序失敗"
         format.json { head :no_content }
       else
-        flash[:notice] = "重新排序成功"
+        # flash[:notice] = "重新排序成功"
         format.json do render json: flash end
       end
     end
