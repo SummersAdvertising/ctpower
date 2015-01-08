@@ -24,8 +24,8 @@
         <a href="javascript:void(0);" class="right highlight toggle_new_category">新增分類<img src="/images/admin/add_folder.png"></a>
       </div>
     </div>
+
     <div class="list">
-    
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         
         <% @categories.each do |category| %>
@@ -87,7 +87,7 @@
 
       </table>
     </div>
-
+    
     <div class="button">
       <a href="<%= admin_categories_path %>" class="left">
         <img src="/images/admin/left.png">返回
@@ -118,10 +118,10 @@
       </div>
     </div>
     <div class="list">      
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <table id='dragable_container' width="100%" border="0" cellspacing="0" cellpadding="0">
         <% @category.vehicles.each do |vehicle| %>
 
-        <tr <%= "class=off" if vehicle.status == "disable" %> >
+        <tr <%= "id=Vehiclecontainer_#{vehicle.id.to_s}" %> class='dragable <%= "off" if vehicle.status == "disable" %>' >
           <td width="6%"><img src="/images/admin/file.png"></td>
           <td width="76%">
             <%= link_to(vehicle.name, edit_admin_category_vehicle_path(@category, vehicle)) %>
@@ -135,7 +135,6 @@
         </tr>
         <% end %>
       </table>
-
     </div>
     <div class="button">
       <a href="<%= admin_category_path(@category.parent_id) %>" class="left">
@@ -187,3 +186,53 @@ $(document).ready(function(){
   }
 });
 </script>
+<script>
+  $(function() {
+    var prevEvent = null;
+      $( "#dragable_container" ).sortable({
+        items: ".dragable" ,
+        placeholder: "ui-state-highlight",
+        update: function( event, ui ) {
+            
+          if(event.timeStamp == prevEvent){
+            return null;
+          }
+          
+          prevEvent = event.timeStamp;  
+          var newRankings_array = $('#dragable_container').sortable('toArray');
+          var orderSet = [];
+          $.each(newRankings_array, function( index, value){
+                orderSet.push(value.replace("Vehiclecontainer_",""));
+            });
+            var order2Push = JSON.stringify(orderSet);
+            
+            $.ajaxSetup({
+              headers: {
+                  'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+
+          // reorder 
+          $.ajax({
+            type: "PATCH",
+            url: "/admin/vehicles/"+orderSet[0]+"/reorder",
+            data: { vehicles: {  reorderset: orderSet } },
+            success: function(data){
+
+              alertify['success'](data[0][1], 2000);
+              
+              return false   
+            },
+            error: function(data){
+            
+              return false  
+            }
+          });
+
+        }
+      });
+      
+        
+      $( "#dragable_container" ).disableSelection();
+    });  
+  </script>

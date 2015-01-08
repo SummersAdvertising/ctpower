@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126081518) do
+ActiveRecord::Schema.define(version: 20150108081239) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20141126081518) do
     t.integer  "depth"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ranking",    default: 999
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
@@ -238,6 +239,7 @@ ActiveRecord::Schema.define(version: 20141126081518) do
     t.datetime "updated_at"
     t.string   "description"
     t.string   "title_color"
+    t.integer  "ranking",        default: 999
   end
 
   add_index "vehicles", ["category_id"], name: "index_vehicles_on_category_id"

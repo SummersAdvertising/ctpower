@@ -11,6 +11,7 @@ class Vehicle < ActiveRecord::Base
   has_many :galleries, -> { order('ranking, created_at') } , as: :attachable , dependent: :destroy
 
   #before_destroy { |record| Banner.destroy_all "related_vehicle_id = #{record.id}"  }
+  default_scope { order(:ranking) }
   scope :front_show_by_cate, ->(category_id) { where("category_id = ? AND status = ?", category_id, "enable") }
 
   store :context, accessors: [ :context_1, :context_2, :context_3 ]

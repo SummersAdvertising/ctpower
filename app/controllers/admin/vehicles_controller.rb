@@ -138,6 +138,28 @@ class Admin::VehiclesController < AdminController
 
   end
 
+  def reorder
+    errorFlag = false
+    params[:vehicles][:reorderset].each_with_index do | id , index |
+      the_id = Vehicle.find(id)
+      if !the_id.nil?
+        the_id.update_attribute(:ranking , index+1 )
+      else
+        errorFlag = true
+      end
+    end
+
+    respond_to do |format|
+      if errorFlag
+        format.json { head :no_content }
+      else
+        flash[:notice] = "重新排序成功"
+        format.json do render json: flash end
+      end
+    end
+
+  end  
+
   def destroy
     
     @vehicle.destroy

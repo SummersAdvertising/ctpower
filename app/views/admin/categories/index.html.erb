@@ -14,7 +14,6 @@
       
       <% @categories.each do |category| %>
 
-        
         <tr class="show_category_<%= category.id %>" >
           <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
           <td width="76%">
@@ -26,8 +25,6 @@
             </div>
           </td>
         </tr>
-
-        
         
         <tr class="list-edit edit_category_<%= category.id %>" style="display:none">
           <%= form_for(category, :url => admin_category_path(category) , html: { id: "patchthiscate_#{category.id}", :multipart => true }) do |f| %>
@@ -49,25 +46,24 @@
       <% end %>
 
     <!-- new -->
-
     <tr class="list-new list-edit edit_category" style="display:none;">
-    <%= form_for(@category, :url => admin_categories_path , html: {id: "create_new_cate", :multipart => true }) do |f| %>
-    <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
-    <td width="76%">
-      <div style="position:relative">
-        <%= f.text_field :name, :placeholder => "分類名稱" , class: "text new_cate_name_input" ,placeholder:"分類名稱", style:"width:50%"%>
+      <%= form_for(@category, :url => admin_categories_path , html: {id: "create_new_cate", :multipart => true }) do |f| %>
+        <td width="6%" style="background:url(/images/admin/folder.png) center center no-repeat"></td>
+        <td width="76%">
+          <div style="position:relative">
+            <%= f.text_field :name, :placeholder => "分類名稱" , class: "text new_cate_name_input" ,placeholder:"分類名稱", style:"width:50%"%>
 
-        <%= f.hidden_field :parent_id, value: 1 %>
-        <%= f.hidden_field :depth, value: 1 %>
-      </div>
-    </td>
-    <td align="right" width="18%">
-      <div class="tool">
-        <a href="javascript: document.getElementById('create_new_cate').submit();" class="uvs" data-no-turbolink = true >儲存</a><%= link_to("取消", "javascript:void(0);", :class => "uvs cancel_new_category") %>
-      </div>
-    </td>
-    <% end %>
-  </tr>
+            <%= f.hidden_field :parent_id, value: 1 %>
+            <%= f.hidden_field :depth, value: 1 %>
+          </div>
+        </td>
+        <td align="right" width="18%">
+          <div class="tool">
+            <a href="javascript: document.getElementById('create_new_cate').submit();" class="uvs" data-no-turbolink = true >儲存</a><%= link_to("取消", "javascript:void(0);", :class => "uvs cancel_new_category") %>
+          </div>
+        </td>
+      <% end %>
+    </tr>
 
     </table>
   </div>

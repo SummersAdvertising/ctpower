@@ -97,6 +97,17 @@ Rails.application.routes.draw do
         resources :colors
 
       end
+
+      member do
+        patch 'reorder' , :action => 'reorder'
+      end 
+
+    end
+
+    resources :vehicles do 
+      member do
+        patch 'reorder' , :action => 'reorder'
+      end 
     end
     
     resources :contacts, only: [:index]
