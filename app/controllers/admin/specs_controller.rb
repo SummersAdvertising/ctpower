@@ -35,8 +35,7 @@ class Admin::SpecsController < AdminController
     
     respond_to do |format|
       if @spec.save
-        format.html { redirect_to :back, notice: '更新成功' }
-        #format.html { redirect_to admin_product_cate_product_path(@vehicle.product_cate_id, @vehicle) }
+        format.html { redirect_to admin_category_vehicle_specs_path(@vehicle.category_id, @vehicle), notice: '更新成功' }
       else
         format.html { render :back, notice: @spec.errors.full_messages }
       end      
