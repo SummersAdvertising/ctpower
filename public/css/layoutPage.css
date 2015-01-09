@@ -12,22 +12,21 @@ a:hover { text-decoration: none; }
 .container { padding:0 10px; }
 }
 /*-----------------------------------------------------------------------頁首---*/
-header { height: 114px; z-index: 1000; position: absolute; left: 0px; top: 0px; width: 100%; background-image: url(../images/bg_header.png); }
+header { height: 90px; z-index: 1000; position: absolute; left: 0px; top: 0px; width: 100%; background-image: url(../images/bg_header.png); }
 .nav>li>a:hover, .nav>li>a:focus { background-color: transparent; color: #cdcdcd; }
-.nav>li>a { position: relative; display: block; color: #FFF; padding-top: 56px!important;padding-bottom:40px; }
+.nav>li>a { position: relative; display: block; color: #FFF; padding-top: 56px!important; }
 .nav>li>a:hover { border-top: 6px solid #11ECF4;  }
-header h1 { padding-top: 10px; }
 header h1 img { width: 100% }
 #fb { padding-top: 50px;}
 #fb a{ width:34px;height:33px;display: inline-block;background-image: url(../images/fb.png); }
 #fb a:hover { background-image: url(../images/fbh.png);}
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus { background-color: transparent; border-color: #11ECF4; }
-.dropdown-menu { top: 115px; filter: alpha(opacity=80); -moz-opacity: 0.8; opacity: 0.8; background-color: #1c1f23; z-index: 1200;border-radius: 4px!important; }
+.dropdown-menu { top: 90px; filter: alpha(opacity=80); -moz-opacity: 0.8; opacity: 0.8; background-color: #1c1f23; z-index: 1200;border-radius: 4px!important; }
 .dropdown-menu>li>a { color: #FFF; line-height: 2em; }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #fff100; text-decoration: none; background-color: #000; }
 @media (max-width:991px) and (min-width:768px) {
 header .container { width: 100%; }
-header h1 { width: 180px; padding-top: 20px; }
+header h1 { width: 190px; }
 .nav>li>a { padding-left: 10px; padding-right: 10px; }
 }
 @media (max-width:767px) {
