@@ -9,5 +9,6 @@
       <% end %>
 <% else %>
 <h1>BES 電池交換站點搜尋結果</h1>
-  <h3>利用此條件 查無站點 請重新查詢</h3>
+  <!-- <h3>利用此條件 查無站點 請重新查詢</h3> -->
+  <h3>條件：<%= @target_city_name if @target_city_name %>, <%= @target_district_name if @target_district_name %> 查無站點 請重新查詢</h3>
 <% end %>

@@ -18,6 +18,20 @@ class StationsController < ApplicationController
     @q = Station.search(params[:q])
     @stations = @q.result(distinct: true).includes(:galleries)
 
+    if @stations.count <= 0
+      
+      if params[:q]['city_eq']
+         target_city = City.where(id: params[:q]['city_eq'].to_i).limit(1).pluck(:name)
+         @target_city_name = target_city[0]
+      end
+
+      if params[:q]['district_eq']
+        target_district = District.where(id: params[:q]['district_eq'].to_i).limit(1).pluck(:name)
+        @target_district_name = target_district[0]
+      end
+
+    end
+
     respond_to do |format|
       format.js
     end    

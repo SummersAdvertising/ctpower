@@ -24,5 +24,18 @@ $ ->
         #console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
         #console.log("Dynamic country select OK!")
+  
+  #onload, reset districts  
+  if $("#q_city_eq option:selected").val()
+    $.ajax 'fetch_from_city',
+      type: 'GET'
+      dataType: 'script'
+      data: {
+        city_id: $("#q_city_eq option:selected").val()
+      }
+      error: (jqXHR, textStatus, errorThrown) ->
+        #console.log("AJAX Error: #{textStatus}")
+      success: (data, textStatus, jqXHR) ->
+        #console.log("Dynamic country select OK!")
 
  
