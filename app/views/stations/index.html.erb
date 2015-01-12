@@ -21,15 +21,6 @@
     
     <section class="spot">
     <div class="container">
-        <div id="qrcode">
-          <h3>App 下載專區</h3>
-          <div><h4>適用於android</h4>
-          <img src="/images/img_app_android2.gif" width="110">
-          </div>
-          <div><h4>適用於android</h4>
-          <img src="/images/img_app_android2.gif" width="110">
-          </div>
-        </div>
         <div id="spot01">
             <h1>BES 電池交換站點查詢</h1>
             <%= search_form_for @q, url: search_stations_path, class: "form-inline quick-search-form" , method: :post, remote: true do |f| %>
@@ -49,12 +40,22 @@
             <%= f.submit('搜尋' , id: "quick-search", class: "btn") %>
             <% end %>
         </div>
+
         <div id="spot02">
           <div id="result"></div>
-
         </div>
+
+        <div id="qrcode">
+          <h3>也可透過 App 查詢</h3>
+          <div><h4>適用於android</h4>
+          <img src="/images/img_app_android2.gif" width="110">
+          </div>
+          <div><h4>適用於android</h4>
+          <img src="/images/img_app_android2.gif" width="110">
+          </div>
+        </div>
+
         <iframe id="googleMap" src="https://mapsengine.google.com/map/embed?mid=zzLrcbgIym4Y.kCwa_hAQXmwc"  frameborder="0" style="border:0"></iframe>
-        
     </div>
     </section>
 </article>
