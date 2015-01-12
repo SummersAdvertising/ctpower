@@ -35,7 +35,7 @@
 #spot01 .dropdown-menu { top: 37px; border-radius: 0 0 4px 4px; filter: alpha(opacity=100); -moz-opacity: 1; opacity: 1; background-color: #FFF; width: 99%; box-shadow: none;border-top:none; }
 #spot01 .btn { background-color: #096cdb; color: #FFF; width: 167px; font-size: 1.2em; -moz-box-shadow: 0px 4px 0px #0e0087; -webkit-box-shadow: 0px 4px 0px #0e0087; box-shadow: 0px 4px 0px #0e0087; height: 38px; }
 #spot01 .btn:hover { background-color: #277ad7; }
-#spot01 .btn:focus, #spot01 .btn:active { outline: none; background-color: #1065C2; }
+#spot01 .btn:focus, #spot01 .btn:active { outline: none; background-color: #1065C2; -moz-box-shadow:inset 0px 2px 0px #0e0087; -webkit-box-shadow:inset 0px 2px 0px #0e0087; box-shadow:inset 0px 2px 0px #0e0087; }
 #spot01 .btn-group { margin-right: 4%; }
 @media (min-width: 768px) and (max-width:1100px) {
 #spot01 { padding-top: 160px; }
