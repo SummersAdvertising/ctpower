@@ -3,11 +3,6 @@
     <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
 <![endif]-->
 
-<style>
-#faq02{padding-top: 40px;max-width:900px;  }
-#faq02 .tab-content{padding:0;}
-</style>
-
 <article>
   <div class="banner">
     <div class="container">
@@ -25,6 +20,7 @@
   </div>
   <section class="faq">
     <div class="container">
+
       <div id="faq01">
         <h1>BES 常見問題</h1>
         <img id="qMark" src="/images/img_common.png">
@@ -32,10 +28,17 @@
         
         <%= render 'faqs/search_form'%>
 
-      </div><a name="faqs"></a>
-      <div role="tabpanel" id="faq02"> 
+      </div>
+      
+      <div role="tabpanel" id="faq02"> <a name="faqs"></a>
         <!-- Nav tabs -->
-        
+        <ul class="nav nav-tabs" role="tablist">
+          <% @boxes.each do |box| %>   
+            <li role="presentation">
+            <%= link_to box.name, FAQ_path(box, anchor: "faqs") %>
+            </li>
+          <% end %>
+        </ul>
         <!-- Tab panes -->
         <div class="tab-content">   
 
@@ -55,6 +58,7 @@
           <% end %>
 
         </div>
+
       </div>
     </div>
   </section>

@@ -29,6 +29,7 @@ class FaqsController < ApplicationController
   def search
     @q = Faq.search(params[:q])
     @faqs = @q.result(distinct: true).includes(:article)
+    @boxes = Box.without_root_node
   end
 
   private
