@@ -22,12 +22,12 @@ class StationsController < ApplicationController
       
       if params[:q]['city_eq']
          target_city = City.where(id: params[:q]['city_eq'].to_i).limit(1).pluck(:name)
-         @target_city_name = target_city[0]
+         @target_city_name = target_city[0] if target_city
       end
 
       if params[:q]['district_eq']
         target_district = District.where(id: params[:q]['district_eq'].to_i).limit(1).pluck(:name)
-        @target_district_name = target_district[0]
+        @target_district_name = target_district[0] if target_district
       end
 
     end
