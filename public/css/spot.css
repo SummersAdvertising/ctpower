@@ -11,7 +11,7 @@
 #qrcode div{display:inline-block;padding-right: 40px;}
 #qrcode h4{font-size: 0.8em;background: url(../images/icon_android.gif) no-repeat;height:25px;line-height:25px;padding-left:25px;}
 @media (min-width: 768px) and (max-width:1100px) {
-#qrcode{position: static;float:right;}
+#qrcode{position: static;float:left;}
 }
 @media (max-width:767px) {
 .spot { padding: 40px 0 40px 0; }
