@@ -37,7 +37,7 @@ class Admin::FaqsController < AdminController
     
     respond_to do |format|
       if @faq.update(faqs_params) && params[ :article ].nil? ^ @faq.article.update( params.require(:article).permit(:content) )
-        format.html { redirect_to edit_admin_box_faq_path(params[:box_id],@faq), notice: 'Faq was successfully updated.' }
+        format.html { redirect_to admin_box_path(@faq.box_id), notice: 'Faq was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: :edit }
