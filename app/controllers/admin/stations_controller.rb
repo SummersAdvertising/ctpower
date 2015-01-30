@@ -27,7 +27,7 @@ class Admin::StationsController < AdminController
 
     respond_to do |format|
       if @station.save
-        format.html { redirect_to admin_stations_path(), notice: 'station was successfully created.' }
+        format.html { redirect_to edit_admin_station_path(@station), notice: 'station was successfully created.'}
       else
         format.html { redirect_to :back, notice: @station.errors.full_messages }
       end
@@ -104,7 +104,7 @@ class Admin::StationsController < AdminController
 
     respond_to do |format|
       if @station.update(station_params)
-        format.html { redirect_to :back, notice: '更新成功' }
+        format.html { redirect_to admin_stations_path(), notice: '更新成功' }
         format.json { head :no_content }
       else
         format.html { render action: :back }

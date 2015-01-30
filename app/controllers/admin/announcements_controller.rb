@@ -90,7 +90,7 @@ class Admin::AnnouncementsController < AdminController
 
       respond_to do |format|
         if @announcement.update(announcement_params) && params[ :article ].nil? ^ @announcement.article.update( params.require(:article).permit(:content) )
-          format.html { redirect_to edit_admin_announcement_path(@announcement), notice: 'Announcement was successfully updated.' }
+          format.html { redirect_to admin_announcements_path(), notice: 'Announcement was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: :edit }
