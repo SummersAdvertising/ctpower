@@ -1,6 +1,11 @@
 $(document).ready(function(e) {
 	/*menu effect*/
 	checkScroll = 0;
+	if(!$('.accessory')[0]){
+		$('#btn04').parent('li').hide();
+	}else{
+		$('#btn04').parent('li').show();
+	}
 	var scrollY = $(window).scroll(function(){
 		if((scrollY.scrollTop() >= 500) &&(checkScroll == 0)){
 			$('#sideMenu').stop(true,true).animate({top:200,opacity:1},800);

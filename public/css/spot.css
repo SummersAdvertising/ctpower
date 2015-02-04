@@ -4,14 +4,22 @@
 .banner h1 { color: #000; }
 /*-----------------------------------------------------------------------spot---*/
 .spot { padding: 0px 0 40px 0; }
-#googleMap { width: 100%; height: 520px; margin-top: 40px; }
+#googleMap { width: 100%; height: 520px; }
+#mapTxt { padding: 20px 0; margin-top: 40px;clear: both;width: 100%;}
+#mapTxt h3.txt1, #mapTxt h3.txt2, #mapTxt h3.txt3{display: inline-block;vertical-align:top;line-height:40px;padding-left:50px;width:33%;font-size: 1.1em;}
+#mapTxt h3.txt1{background: url('../images/icon_site01.gif') left center no-repeat;}
+#mapTxt h3.txt2{background: url('../images/icon_site02.gif') left center no-repeat;}
+#mapTxt h3.txt3{background: url('../images/icon_site03.gif') left center no-repeat;}
 .spot h1 { font-size: 2.4em; color: #797979; }
-#qrcode{position: absolute;top:100px;right:0;text-align: center;}
+#qrcode {position: absolute;top:100px;right:0;text-align: center;}
 #qrcode h3{color: #797979;font-size: 1.8em;}
 #qrcode div{display:inline-block;}
 #qrcode h4{font-size: 0.8em;background: url(../images/icon_android.gif) no-repeat;height:25px;line-height:25px;padding-left:25px;}
 @media (min-width: 768px) and (max-width:1100px) {
 #qrcode{position: static;float:left;}
+}
+@media (max-width: 1000px) {
+#mapTxt h3.txt1, #mapTxt h3.txt2, #mapTxt h3.txt3{display: block;width:100%;}
 }
 @media (max-width:767px) {
 .spot { padding: 40px 0 40px 0; }
