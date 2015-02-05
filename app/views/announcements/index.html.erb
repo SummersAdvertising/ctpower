@@ -45,8 +45,8 @@
             <div class="article">
             <p>
               <% if announcement.subtitle.length > 0 %>
-                <%= announcement.subtitle.first(45) %>
-                <%= '...' if announcement.subtitle.length > 45 %>
+                <%= announcement.subtitle.first(80) %>
+                <%= '...' if announcement.subtitle.length > 80 %>
               <% end %>
             </p>
             </div>

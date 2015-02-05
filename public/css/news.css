@@ -10,8 +10,8 @@
 .content { padding: 10% 0; }
 }
 .content .title { background: url(../images/news-01.png) 0 bottom repeat-x; padding: 0 0 5% 0; }
-.content .title span { display: block; width: 90px; height: 90px; border: 2px solid #FF6363; border-radius: 50%; text-align: center; font-size: 1em; color: #777; padding: 18px 0 0 0; }
-.content .title span strong { font: 900 1.4em Arial black; color: #000; }
+.content .title span { display: block; width: 80px; height: 80px; border: 2px solid #FF6363; border-radius: 50%; text-align: center; font-size: 1em; color: #777; padding: 18px 0 0 0; }
+.content .title span strong { font: 900 1.3em Arial black; color: #000; }
 .content .title h3 { width: 100%; padding: 0 0 0 20px; font-size: 2em; }
 .content img { margin: 10px 0; }
 #news-show-content .cover { margin: 0 0 5% 0; }
@@ -21,11 +21,15 @@
 #news-show-content .article { margin: 0 0 5% 0; }
 #news-show-content .article p { padding: 2.5% 0 0 0; color: #767676; }
 #news-show-content .article img { padding: 2.5% 0 0 0; }
+#news-list-content .cover img{ margin:0 auto; }	
+#news-list-content .col-sm-7{ width:52%;float:right;}
+#news-list-content .list { background: url(../images/news-06.png) 0 bottom repeat-x; padding: 5% 0; }
+#news-list-content .article p { padding: 2.5% 0 0 0; color: #767676; font-size: 1.3em; line-height:1.8em; }
 @media (max-width: 767px) {
 #news-list-content .cover { margin: 0 0 5% 0; }
+#news-list-content .col-sm-7{ width:100%;}
+#news-list-content .article p { font-size: 1em; }
 }
-#news-list-content .list { background: url(../images/news-06.png) 0 bottom repeat-x; padding: 5% 0; }
-#news-list-content .article p { padding: 2.5% 0 0 0; color: #767676; }
 #news-list-content .more { text-align: right; margin: 5% 0 0 0; }
 #news-list-content .more a { display: inline-block; background-image: url(../images/news-02.gif); background-repeat: no-repeat; background-position: center center; background-size: cover; width: 83px; height: 22px; }
 #news-list-content .more a:hover { background-image: url(../images/news-02h.gif); }
