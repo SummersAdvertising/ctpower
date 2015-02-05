@@ -52,6 +52,7 @@
             <h3 class='faq_quickview' data-faq='<%= faq.id %>'><%= faq.question %> </h3>
           </div>
           <div class="answ">
+            <%= faq.parse_peditor %>
             <p id='<%= "faqblock_#{faq.id}"%>'> </p>
           </div>
           </div>    
@@ -76,23 +77,8 @@
   });
   $('#faq02 .tab-content .qaBlock .answ').hide();
   $('#faq02 .tab-content .qaBlock').click(function(){
-      var x = $(this).index('.qaBlock');
+    var x = $(this).index('.qaBlock');
       
-      faq_id = $(this).find(".faq_quickview").data("faq").toString();
-      
-      if ( $("#faqblock_"+faq_id).html().length <= 10 ){
-        $.ajax({
-          type: "GET",
-          url: "/faqs/"+faq_id+"/fetch_by_box",
-          data: { },
-          success: function(data){
-            return false   
-          },
-          error: function(data){
-            return false  
-          }
-        });
-      }
     if(tag[x] == 0){
       $(this).css({'border-color':'#f47979'});
       $(this).find('.answ').delay(300).slideDown();

@@ -1,5 +1,8 @@
 #encoding: utf-8
 class Faq < ActiveRecord::Base
+
+  include ParsePeditor 
+  
   belongs_to :box
   belongs_to :article, :dependent => :destroy
 

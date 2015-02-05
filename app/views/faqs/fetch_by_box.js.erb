@@ -1,4 +1,6 @@
 
 $("#faqblock_<%="#{@faq.id}"%>").empty();
 
-$("<%= escape_javascript(render partial: 'faq_block', locals: {faq: @faq} ).gsub(/\>\s+\</,'><').gsub(/\s{2,}/,'').html_safe %>").appendTo("#<%= "faqblock_#{@faq.id}"%>");
+$("<%= escape_javascript( @faq.parse_peditor ) %>").appendTo("#<%= "faqblock_#{@faq.id}"%>");
+
+//$("<%= escape_javascript(render partial: 'faq_block', locals: {faq: @faq} ).gsub(/\>\s+\</,'><').gsub(/\s{2,}/,'').html_safe %>").appendTo("#<%= "faqblock_#{@faq.id}"%>");
