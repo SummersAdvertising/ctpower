@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108081239) do
+ActiveRecord::Schema.define(version: 20150205101515) do
 
   create_table "accessories", force: true do |t|
     t.integer  "vehicle_id"
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(version: 20150108081239) do
 
   add_index "faqs", ["article_id"], name: "index_faqs_on_article_id"
   add_index "faqs", ["box_id"], name: "index_faqs_on_box_id"
+  add_index "faqs", ["question"], name: "index_faqs_on_question"
 
   create_table "features", force: true do |t|
     t.integer  "vehicle_id"
