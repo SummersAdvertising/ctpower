@@ -49,5 +49,7 @@ database.yml
 /config/deploy
 /config/_secrets.yml
 
+/config/initializers/recaptcha.rb
+
 /public/uploads
 /public/assets/*
