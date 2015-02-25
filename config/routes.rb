@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :admins
   
   root "statics#index"
+  
+  get "/ebike/index.php" => redirect("http://ebike.citypower.com.tw/regist.php")
 
   resources :pages, :controller => :statics, only: [:index, :show, :vehicles] do 
     collection do
